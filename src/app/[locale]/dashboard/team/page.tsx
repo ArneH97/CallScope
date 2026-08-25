@@ -21,7 +21,7 @@ import {
 } from 'recharts'
 import {
   CHART_CALLER_COLORS, REACH_SUFFIX, APPT_SUFFIX, computeCombinedTeamData,
-  mondayOfDay, isoDay,
+  mondayOfDay, isoDay, isReached as isReachedStatus,
 } from '@/lib/team-charts'
 
 /** Status-strings die we als "afspraak" beschouwen (zelfde als upload_summary view). */
@@ -89,6 +89,14 @@ export default function CCManagerDashboard() {
   const [chartCallRows, setChartCallRows]       = useState<ChartCallRow[]>([])
   const [chartConfRows, setChartConfRows]       = useState<ChartConfRow[]>([])
   const [chartRateRows, setChartRateRows]       = useState<ChartRateRow[]>([])
+
+  // Per-caller call-counts binnen dateRange, gefilterd op call_records.call_date.
+  // KPI/callerStats gebruiken dit als bron voor total_calls + reached zodat ze
+  // consistent zijn met de chart en tijd&kost widget (die ook op call_date
+  // filteren). Zonder deze fix telt de KPI ook calls uit andere maanden mee
+  // die toevallig in de gekozen periode gesyncd werden (uploaded_at ≠ call_date).
+  type CallerCallCount = { caller_id: string; total: number; reached: number }
+  const [callerCallCounts, setCallerCallCounts] = useState<Map<string, CallerCallCount>>(new Map())
 
   // Coaching cache per caller-id. Lazy geladen wanneer een caller wordt
   // geselecteerd. Value = null als er nog geen cached advice is.
@@ -467,6 +475,53 @@ export default function CCManagerDashboard() {
     return () => { cancelled = true }
   }, [selectedProject, dateRange])
 
+  // Per-caller call-counts fetch op basis van call_date — voor KPI/callerStats.
+  // Werkt voor zowel "alle projecten" als één specifiek project. Draait in
+  // een aparte useEffect zodat we niet afhankelijk zijn van chartCallRows
+  // (die enkel voor single-project geladen wordt).
+  useEffect(() => {
+    if (!dateRange.from || !dateRange.to) { setCallerCallCounts(new Map()); return }
+    const sb = createClient()
+    let cancelled = false
+
+    ;(async () => {
+      const fromDate = dateRange.from!.toISOString().slice(0, 10)
+      const toDate   = dateRange.to!.toISOString().slice(0, 10)
+
+      let q = sb
+        .from('call_records')
+        .select('status, uploads!inner(caller_id, project_id)')
+        .gte('call_date', fromDate)
+        .lte('call_date', toDate)
+      if (selectedProject !== 'alle') {
+        q = q.eq('uploads.project_id', selectedProject)
+      }
+      type Row = {
+        status: string | null
+        uploads: { caller_id: string | null; project_id: string | null } | { caller_id: string | null; project_id: string | null }[] | null
+      }
+      const { data } = await q.returns<Row[]>()
+      if (cancelled) return
+
+      const map = new Map<string, CallerCallCount>()
+      for (const r of (data ?? [])) {
+        const up = Array.isArray(r.uploads) ? r.uploads[0] : r.uploads
+        if (!up?.caller_id) continue
+        // Extra client-side filter voor "alle" — een sync-call kan meerdere
+        // uploads over meerdere projecten hebben (zeldzaam), en Supabase's
+        // .eq() op joined tables is niet altijd waterdicht.
+        if (selectedProject !== 'alle' && up.project_id !== selectedProject) continue
+        const cur = map.get(up.caller_id) ?? { caller_id: up.caller_id, total: 0, reached: 0 }
+        cur.total++
+        if (isReachedStatus(r.status)) cur.reached++
+        map.set(up.caller_id, cur)
+      }
+      setCallerCallCounts(map)
+    })()
+
+    return () => { cancelled = true }
+  }, [selectedProject, dateRange])
+
   async function loadData() {
     const supabase = createClient()
     const { data: { user } } = await supabase.auth.getUser()
@@ -551,6 +606,10 @@ export default function CCManagerDashboard() {
   const callerStats = useMemo((): CallerStats[] => {
     const map = new Map<string, CallerStats>()
 
+    // Registreer callers via filteredUploads (voor caller_name lookup +
+    // callbacks + upload-count). Calls, reached en appointments worden
+    // hieronder overschreven met de call_date-based teller — anders
+    // klopt de KPI niet met chart/tijd&kost die op call_date filteren.
     for (const u of filteredUploads) {
       if (!u.caller_name) continue
       const key = u.caller_id ?? u.caller_name
@@ -564,11 +623,47 @@ export default function CCManagerDashboard() {
         })
       }
       const cs = map.get(key)!
-      cs.total_calls  += u.total_calls  ?? 0
-      cs.reached      += u.reached      ?? 0
-      cs.appointments += u.appointments ?? 0
       cs.callbacks    += u.callbacks    ?? 0
       cs.uploads++
+    }
+
+    // Appointments per caller op basis van filteredFeedback (call_date-based).
+    // Zo klopt de KPI-teller met de dealstages-breakdown/funnel die dezelfde
+    // filteredFeedback gebruiken.
+    for (const f of filteredFeedback) {
+      if (!f.caller_id) continue
+      if (!map.has(f.caller_id)) {
+        const anyUpload = allUploads.find(u => u.caller_id === f.caller_id)
+        map.set(f.caller_id, {
+          caller_id: f.caller_id,
+          caller_name: anyUpload?.caller_name ?? f.caller_name ?? 'Onbekend',
+          total_calls: 0, reached: 0, appointments: 0, callbacks: 0,
+          reach_rate: 0, conversion_pct: 0, avg_quality: null,
+          no_shows: 0, deals: 0, uploads: 0,
+        })
+      }
+      map.get(f.caller_id)!.appointments++
+    }
+
+    // Override total_calls + reached met call_date-based counts.
+    // callerCallCounts is per caller_id — ook callers die géén upload in
+    // deze periode hebben maar wél calls die dag (bv. na late sync) worden
+    // hier alsnog aan de tabel toegevoegd zodat de KPI klopt.
+    for (const [callerId, counts] of callerCallCounts.entries()) {
+      if (!map.has(callerId)) {
+        // Zoek caller_name via allUploads (kan buiten periode zijn)
+        const anyUpload = allUploads.find(u => u.caller_id === callerId)
+        map.set(callerId, {
+          caller_id: callerId,
+          caller_name: anyUpload?.caller_name ?? 'Onbekend',
+          total_calls: 0, reached: 0, appointments: 0, callbacks: 0,
+          reach_rate: 0, conversion_pct: 0, avg_quality: null,
+          no_shows: 0, deals: 0, uploads: 0,
+        })
+      }
+      const cs = map.get(callerId)!
+      cs.total_calls = counts.total
+      cs.reached     = counts.reached
     }
 
     // Feedback stats — gebruik directe feedback voor deals.
@@ -599,7 +694,7 @@ export default function CCManagerDashboard() {
     }
 
     return Array.from(map.values()).sort((a, b) => b.appointments - a.appointments)
-  }, [filteredUploads, filteredFeedback, allFeedback, directFeedback])
+  }, [filteredUploads, filteredFeedback, allFeedback, directFeedback, callerCallCounts, allUploads])
 
   // AI inzichten aggregatie
   const aiInsights = useMemo(() => {
