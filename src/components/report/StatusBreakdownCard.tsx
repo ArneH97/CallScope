@@ -2,6 +2,34 @@
 
 import { useTranslations } from 'next-intl'
 
+/**
+ * Merge-map om semantisch gelijkaardige rauwe statussen samen te clusteren.
+ * Sleutel = lowercase raw waarde, value = canonical bucket-label.
+ *
+ * Redenering:
+ *  - "Niet bereikt" = alles waar we niemand aan de lijn kregen. Voicemail
+ *    valt daaronder omdat het praktisch geen echte conversatie is.
+ *  - "Terugbellen" = elke uitkomst die vraagt om een tweede poging: gesproken
+ *    maar niet met de beslisser (gatekeeper / geen zaakvoerder), of moment
+ *    was niet goed (bezet / timing), of expliciete afspraak om terug te
+ *    bellen. "Bereikt" en "Opgebeld" tellen we mee omdat het cold-calling
+ *    context bijna altijd een terugbel-loop impliceert.
+ *
+ * Alles wat NIET in deze map staat blijft als aparte bucket (bv. "Geen
+ * interesse", "Mail", "Afspraak gemaakt") — die zijn semantisch eindstations.
+ */
+const STATUS_MERGE_MAP: Record<string, string> = {
+  'voicemail':        'Niet bereikt',
+  'niet bereikt':     'Niet bereikt',
+  'bereikt':          'Terugbellen',
+  'bezet':            'Terugbellen',
+  'timing':           'Terugbellen',
+  'terugbellen':      'Terugbellen',
+  'geen zaakvoerder': 'Terugbellen',
+  'opgebeld':         'Terugbellen',
+  'gatekeeper':       'Terugbellen',
+}
+
 interface Props {
   /** Raw status-waarden uit call_records.status voor deze periode. */
   statuses: (string | null)[]
@@ -31,8 +59,12 @@ export default function StatusBreakdownCard({ statuses, compact = false }: Props
   for (const raw of statuses) {
     const s = (raw ?? '').trim()
     if (!s) continue
-    const key = s.charAt(0).toUpperCase() + s.slice(1).toLowerCase()
-    counts.set(key, (counts.get(key) ?? 0) + 1)
+    // Merge-map heeft voorrang. Onbekende waarden krijgen "hoofdletter-eerste"
+    // normalisatie zodat "voicemail" / "Voicemail" / " VOICEMAIL " als
+    // één rij verschijnen.
+    const canonical = STATUS_MERGE_MAP[s.toLowerCase()]
+                    ?? (s.charAt(0).toUpperCase() + s.slice(1).toLowerCase())
+    counts.set(canonical, (counts.get(canonical) ?? 0) + 1)
     total++
   }
 
