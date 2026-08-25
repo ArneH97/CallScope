@@ -31,6 +31,11 @@ type CallerRow = {
   hours_thu:           number | ''
   hours_fri:           number | ''
   already_confirmed:   boolean
+  /** True = caller is uit project_members verwijderd, maar heeft nog wél
+      een uren-registratie voor déze week. Zichtbaar met een chip zodat de
+      manager kan zien "dit is een voormalige caller" en niet per abuis
+      preset-uren gaat toepassen. */
+  is_former:           boolean
 }
 
 type DayKey = 'mon' | 'tue' | 'wed' | 'thu' | 'fri'
@@ -143,6 +148,24 @@ function ConfirmHoursContent() {
     }
     const confs = new Map((confRows ?? []).map(r => [(r as Conf).caller_id, r as Conf]))
 
+    // Voormalige callers: iedereen die een uren-registratie voor déze week
+    // heeft, maar niet meer in project_members zit. Nodig zodat de manager
+    // historische uren van ontslagen/vertrokken callers nog kan corrigeren.
+    // We halen enkel hun naam op — de conf-row zelf zit al in `confs`.
+    const activeIds = new Set(list.map(l => l.profile_id))
+    const formerIds = Array.from(confs.keys()).filter(id => !activeIds.has(id))
+    if (formerIds.length > 0) {
+      const { data: formerProfs } = await sb
+        .from('profiles')
+        .select('id, full_name')
+        .in('id', formerIds)
+      type FP = { id: string; full_name: string | null }
+      for (const fp of ((formerProfs ?? []) as FP[])) {
+        list.push({ profile_id: fp.id, full_name: fp.full_name ?? t('unknownName') })
+      }
+    }
+    const formerIdSet = new Set(formerIds)
+
     setCallers(list.map(c => {
       const rate = rates.get(c.profile_id)
       const conf = confs.get(c.profile_id)
@@ -162,7 +185,13 @@ function ConfirmHoursContent() {
         hours_thu:           conf?.hours_thu ?? defaultPerDay,
         hours_fri:           conf?.hours_fri ?? defaultPerDay,
         already_confirmed:   confs.has(c.profile_id),
+        is_former:           formerIdSet.has(c.profile_id),
       }
+    }).sort((a, b) => {
+      // Actieve callers eerst, voormalige onderaan — anders raakt de UI
+      // druk bij projecten met meerdere ontslagen callers historisch.
+      if (a.is_former !== b.is_former) return a.is_former ? 1 : -1
+      return a.full_name.localeCompare(b.full_name)
     }))
     setLoading(false)
   }
@@ -176,9 +205,13 @@ function ConfirmHoursContent() {
     ))
   }
 
-  /** Reset alle 5 dag-velden naar preset/5 voor elke caller. */
+  /** Reset alle 5 dag-velden naar preset/5 voor elke ACTIEVE caller.
+      Voormalige callers laten we ongemoeid — de manager past hun uren
+      handmatig aan, we willen niet dat "alle presets"-knop een net
+      gecorrigeerde vertrokken caller weer overschrijft. */
   function applyAllPresets() {
     setCallers(prev => prev.map(c => {
+      if (c.is_former) return c
       const perDay = c.weekly_hours_preset != null ? round1(c.weekly_hours_preset / 5) : ''
       return {
         ...c,
@@ -409,6 +442,11 @@ function CallerCard({
             {caller.full_name[0]}
           </div>
           <span className="text-sm text-gray-700 font-medium">{caller.full_name}</span>
+          {caller.is_former && (
+            <span className="badge badge-gray text-xs" title={t('card.formerTooltip')}>
+              {t('card.former')}
+            </span>
+          )}
           {caller.already_confirmed && (
             <span className="badge badge-green text-xs">{t('card.alreadyConfirmed')}</span>
           )}

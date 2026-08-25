@@ -1856,6 +1856,8 @@
         "unknownName": "Unknown",
         "card": {
           "alreadyConfirmed": "Previously confirmed",
+          "former": "Former",
+          "formerTooltip": "This caller is no longer part of the project, but still has hours registered for this week. Editing remains possible.",
           "preset": "Preset: {value}",
           "presetUnit": "{hours}h/wk",
           "presetEmpty": "—",

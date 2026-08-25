@@ -1856,6 +1856,8 @@
         "unknownName": "Onbekend",
         "card": {
           "alreadyConfirmed": "Eerder bevestigd",
+          "former": "Voormalig",
+          "formerTooltip": "Deze caller is niet meer aan het project gekoppeld, maar heeft nog uren geregistreerd voor deze week. Aanpassing blijft mogelijk.",
           "preset": "Preset: {value}",
           "presetUnit": "{hours}u/wk",
           "presetEmpty": "—",
