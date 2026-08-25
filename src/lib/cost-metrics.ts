@@ -104,6 +104,7 @@ export async function calcProjectCostMetrics(
     .in('id', callerIds)
   const profMap = new Map(((profRows ?? []) as Prof[]).map(p => [p.id, p.full_name ?? 'Onbekend']))
 
+
   // 3. Bevestigde uren binnen window
   // week_start_date is een DATE-kolom — gebruik YYYY-MM-DD strings.
   // Met per-dag uren (hours_mon..hours_fri) kunnen we ook PARTIELE weken
@@ -130,25 +131,21 @@ export async function calcProjectCostMetrics(
     .lte('week_start_date', toDate)
   const confirmations = (confRows ?? []) as Conf[]
 
-  // 4. Per-caller berekening van uren. We gaan per week kijken hoeveel werkdagen
-  //    (Ma-Vr) binnen het effectieve window vallen, en daar de preset op
-  //    pro-rateren. Het effectieve window per caller is:
+  // 4. Per-caller berekening van uren. We tellen enkel effectief bevestigde
+  //    uren (per dag), en clampen die op het effectieve window:
   //
   //        callerWindow = [ max(effectiveFrom, callerJoinedAt),
   //                         min(toDate, today) ]
   //
-  //    Waarbij callerJoinedAt = project_caller_rates.created_at — dit is de
-  //    eenvoudigste proxy voor "vanaf wanneer werkt deze caller op dit
-  //    project". Een caller die net is toegevoegd krijgt zo geen retroactieve
-  //    uren toegekend, en toekomstige weken tellen niet mee.
+  //    Waarbij callerJoinedAt = project_caller_rates.created_at. Zo tellen
+  //    partiële weken correct: bij filter "deze week" op maandag krijg je
+  //    alleen hours_mon, niet de hele week.
   //
-  //    Voor een week W:
-  //        days_in_window = werkdagen van W binnen callerWindow
-  //        preset_uren    = preset × (days_in_window / 5)
-  //
-  //    Bevestigde weken hebben voorrang op preset (volledige hours_actual).
-  const weekStarts = enumerateWeekStarts(effectiveFrom, toDate)
-  const todayIso   = new Date().toISOString().slice(0, 10)
+  //    Preset dient enkel als default-hint op de uur-pagina — niet als
+  //    kost-bron. Anders kregen weken zonder confirmation (ontslag, verlof,
+  //    of gewoon nog niet ingevuld) fictieve uren, wat cijfers structureel
+  //    te hoog maakte.
+  const todayIso = new Date().toISOString().slice(0, 10)
 
   const perCaller: CostMetrics['per_caller'] = []
   let totalHours = 0
@@ -158,7 +155,6 @@ export async function calcProjectCostMetrics(
     if (r.hourly_rate == null || r.hourly_rate <= 0) continue
 
     const confirmedForCaller = confirmations.filter(c => c.caller_id === r.caller_id)
-    const confirmedSet = new Set(confirmedForCaller.map(c => c.week_start_date))
     const hasConfirmations = confirmedForCaller.length > 0
 
     // Per-caller effectief window
@@ -176,17 +172,12 @@ export async function calcProjectCostMetrics(
       confirmedHours += hoursInWindowFromConfirmation(c, windowStart, windowEnd)
     }
 
-    // Preset-fallback per week, geclampt op het caller-window
-    const preset = r.weekly_hours_preset ?? 0
-    let presetHours = 0
-    if (preset > 0 && windowStart <= windowEnd) {
-      for (const wk of weekStarts) {
-        if (confirmedSet.has(wk)) continue           // bevestigd → al meegenomen
-        const workdaysInWindow = workdaysOfWeekWithin(wk, windowStart, windowEnd)
-        if (workdaysInWindow === 0) continue
-        presetHours += preset * (workdaysInWindow / 5)
-      }
-    }
+    // Geen preset-fallback meer — we tellen alleen effectief bevestigde
+    // uren. Preset blijft wel op de uur-pagina bestaan als "verwachte"
+    // waarde bij eerste opening, maar mag nooit in kost-berekeningen
+    // sluipen: dat gaf structureel te hoge cijfers voor weken zonder
+    // confirmation (bv. na ontslag, verlof, of gewoon nog niet ingevuld).
+    const presetHours = 0
 
     const hours = confirmedHours + presetHours
     const cost  = hours * r.hourly_rate
@@ -264,32 +255,6 @@ export async function calcProjectCostMetrics(
 function round(n: number, decimals: number): number {
   const f = Math.pow(10, decimals)
   return Math.round(n * f) / f
-}
-
-/** Geef de maandag (YYYY-MM-DD) van de week waarin de gegeven datum valt. */
-function mondayOfDate(iso: string): string {
-  const d = new Date(iso + 'T00:00:00Z')
-  const day = d.getUTCDay()                        // 0=Sun, 1=Mon, ..., 6=Sat
-  const offset = day === 0 ? -6 : 1 - day
-  d.setUTCDate(d.getUTCDate() + offset)
-  return d.toISOString().slice(0, 10)
-}
-
-/**
- * Enumereer alle maandag-datums tussen from en to (inclusief beide einden).
- * Gebruikt om per-week logica toe te passen.
- */
-function enumerateWeekStarts(fromIso: string, toIso: string): string[] {
-  const fromMonday = mondayOfDate(fromIso)
-  const toMonday   = mondayOfDate(toIso)
-  const result: string[] = []
-  const cursor = new Date(fromMonday + 'T00:00:00Z')
-  const end    = new Date(toMonday + 'T00:00:00Z')
-  while (cursor.getTime() <= end.getTime()) {
-    result.push(cursor.toISOString().slice(0, 10))
-    cursor.setUTCDate(cursor.getUTCDate() + 7)
-  }
-  return result
 }
 
 /**

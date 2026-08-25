@@ -1491,7 +1491,7 @@
         },
         "cost": {
           "title": "Time & cost",
-          "subtitle": "Based on hours confirmed by the cc_manager (preset as fallback).",
+          "subtitle": "Based on hours effectively confirmed by the cc_manager.",
           "totalHours": "Total hours",
           "totalCost": "Total cost",
           "totalDeals": "Total deals",

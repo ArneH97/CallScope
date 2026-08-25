@@ -1491,7 +1491,7 @@
         },
         "cost": {
           "title": "Tijd & kost",
-          "subtitle": "Op basis van bevestigde uren door de cc_manager (preset als fallback).",
+          "subtitle": "Op basis van effectief bevestigde uren door de cc_manager.",
           "totalHours": "Totaal uren",
           "totalCost": "Totale kost",
           "totalDeals": "Aantal deals",
