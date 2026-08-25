@@ -15,6 +15,7 @@ import CoachingBlock from '@/components/CoachingBlock'
 import DealsBreakdownCard from '@/components/DealsBreakdownCard'
 import DealsPerMonthChart from '@/components/DealsPerMonthChart'
 import ConversionFunnelChart from '@/components/ConversionFunnelChart'
+import StatusBreakdownCard from '@/components/report/StatusBreakdownCard'
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell,
   LineChart, Line, CartesianGrid, Legend,
@@ -1704,6 +1705,16 @@ export default function CCManagerDashboard() {
           <p className="text-xs text-gray-400 mt-3">
             {t('objections.footer')}
           </p>
+        </div>
+      )}
+
+      {/* Status-verdeling — raw dispositie uit call_records.status
+          (voicemail / geen interesse / terugbellen / …). Complementair
+          aan de AI-bezwaren erboven. Alleen tonen bij één specifiek
+          project waar chartCallRows geladen is. */}
+      {selectedProject !== 'alle' && chartCallRows.length > 0 && (
+        <div className="mt-4">
+          <StatusBreakdownCard statuses={chartCallRows.map(r => r.status)} />
         </div>
       )}
 

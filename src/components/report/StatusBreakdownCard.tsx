@@ -1,4 +1,6 @@
-import { getTranslations } from 'next-intl/server'
+'use client'
+
+import { useTranslations } from 'next-intl'
 
 interface Props {
   /** Raw status-waarden uit call_records.status voor deze periode. */
@@ -21,8 +23,8 @@ interface Props {
  * Normalisatie: whitespace trim + hoofdletter-eerste zodat "voicemail",
  * "Voicemail", " VOICEMAIL " als één rij verschijnen.
  */
-export default async function StatusBreakdownCard({ statuses, compact = false }: Props) {
-  const t = await getTranslations('dashboard.projects.report.statusBreakdown')
+export default function StatusBreakdownCard({ statuses, compact = false }: Props) {
+  const t = useTranslations('dashboard.projects.report.statusBreakdown')
 
   const counts = new Map<string, number>()
   let total = 0
