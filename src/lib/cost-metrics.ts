@@ -164,11 +164,14 @@ export async function calcProjectCostMetrics(
     const confirmedForCaller = confirmations.filter(c => c.caller_id === r.caller_id)
     const hasConfirmations = confirmedForCaller.length > 0
 
-    // Per-caller effectief window
-    const callerJoined = r.created_at
-      ? r.created_at.slice(0, 10)
-      : effectiveFrom
-    const windowStart = callerJoined > effectiveFrom ? callerJoined : effectiveFrom
+    // Per-caller effectief window. Geen callerJoined-clamp meer: die was
+    // enkel nodig om preset-fallback te vermijden voor net-toegevoegde
+    // callers. Nu we alleen echte bevestigde uren tellen mag alles wat
+    // effectief geboekt is meetellen — anders vallen uren op de eerste
+    // dag(en) van de periode weg als caller_rates.created_at 1-2 dagen
+    // later ligt dan de periode-start (kleine race die de widget onder-
+    // rapporteerde met bv. 1u).
+    const windowStart = effectiveFrom
     const windowEnd   = todayIso < toDate ? todayIso : toDate
 
     // Bevestigde uren — gerespecteerd op dag-niveau zodat partiele weken
@@ -377,7 +380,13 @@ function hoursInWindowFromConfirmation(
     return total
   }
 
-  // Fallback: legacy bevestiging zonder per-dag splitsing. Verdeel
-  // hours_actual evenredig over de werkdagen die in window vallen.
-  return c.hours_actual * (workdaysInWindow / 5)
+  // Legacy bevestiging zonder per-dag splitsing.
+  // - Volledig in window (5 werkdagen) → return hours_actual (klopt zeker).
+  // - Partieel in window (grens-week) → return 0. We weten niet op welke
+  //   dag(en) de uren effectief geboekt waren, dus evenredig verdelen is
+  //   raden en veroorzaakte een ongewenste "+1,5u" op periode-grenzen.
+  //   Beter niks toewijzen dan verkeerd toewijzen — de manager kan de
+  //   week alsnog per-dag hersplitsen op de uur-pagina.
+  if (workdaysInWindow < 5) return 0
+  return c.hours_actual
 }
