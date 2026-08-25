@@ -267,7 +267,7 @@ export function computeCombinedTeamData(
   bcp47:     string = 'nl-BE',
   apptRows:  ChartApptRow[] = [],
 ): { rows: ChartSeriesRow[]; callers: ChartCaller[] } {
-  // Calls + reach stats per (caller, dateKey)
+  // Calls + reach stats per (caller, dateKey) — voor bereikratio (per-dag).
   const statsByCallerDay = new Map<string, { total: number; reached: number }>()
   for (const r of callRows) {
     const k = `${r.caller_id}|${r.call_date}`
@@ -276,10 +276,23 @@ export function computeCombinedTeamData(
     s.total++
     if (isReached(r.status)) s.reached++
   }
-  // Confirmations
-  const confByCallerWeek = new Map<string, ChartConfRow>()
+  // Week-totalen per (caller, monday-key): calls + uren. Voor calls/u
+  // gebruiken we het week-gemiddelde ipv per-dag — anders klopt de chart
+  // niet met totaal calls / totaal uren zodra bel-dagen en uren-dagen niet
+  // 1-op-1 matchen (zie computeCallsPerHourData voor de volle uitleg).
+  const weekTotalsByCaller = new Map<string, { calls: number; hours: number }>()
+  for (const r of callRows) {
+    const mondayKey = isoDay(mondayOfDay(new Date(r.call_date)))
+    const k = `${r.caller_id}|${mondayKey}`
+    const cur = weekTotalsByCaller.get(k) ?? { calls: 0, hours: 0 }
+    cur.calls += 1
+    weekTotalsByCaller.set(k, cur)
+  }
   for (const c of confRows) {
-    confByCallerWeek.set(`${c.caller_id}|${c.week_start_date}`, c)
+    const k = `${c.caller_id}|${c.week_start_date}`
+    const cur = weekTotalsByCaller.get(k) ?? { calls: 0, hours: 0 }
+    cur.hours = DAY_COLS.reduce((sum, col) => sum + (c[col] ?? 0), 0)
+    weekTotalsByCaller.set(k, cur)
   }
   // Afspraken per (caller, dateKey) — elke feedback-rij = 1 afspraak.
   // Geen MIN_CALLS_PER_POINT drempel: 1 afspraak is een waardig datapunt.
@@ -294,18 +307,21 @@ export function computeCombinedTeamData(
   const rows: ChartSeriesRow[] = []
   for (const d of workdaysBetween(from, to)) {
     const dateKey = isoDay(d)
+    const mondayKey = isoDay(mondayOfDay(d))
     const row: ChartSeriesRow = { dateKey, dateLabel: workdayLabel(d, bcp47) }
     for (const cl of callers) {
       const s   = statsByCallerDay.get(`${cl.id}|${dateKey}`)
-      const hrs = hoursForCallerDay(d, cl.id, confByCallerWeek)
       const hasMinCalls = !!s && s.total >= MIN_CALLS_PER_POINT
 
-      // calls/u — vereist én ≥20 calls én bevestigde uren > 0
-      row[cl.id] = hasMinCalls && hrs && hrs > 0
-        ? Math.round((s!.total / hrs) * 10) / 10
+      // calls/u — week-gemiddelde, geplot op elke dag dat caller belde.
+      // Voorwaarden: caller belde die dag (s bestaat), en de week zelf heeft
+      // ≥20 calls en >0 uren.
+      const wk = weekTotalsByCaller.get(`${cl.id}|${mondayKey}`)
+      row[cl.id] = s && wk && wk.calls >= MIN_CALLS_PER_POINT && wk.hours > 0
+        ? Math.round((wk.calls / wk.hours) * 10) / 10
         : null
 
-      // bereikratio % — vereist alleen ≥20 calls
+      // bereikratio % — vereist alleen ≥20 calls op de dag zelf
       row[`${cl.id}${REACH_SUFFIX}`] = hasMinCalls
         ? Math.round((s!.reached / s!.total) * 100)
         : null
