@@ -51,13 +51,29 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
     return NextResponse.json({ error: 'Geen toegang tot dit project' }, { status: 403 })
   }
 
-  // Volledige ISO doorgeven (geen .slice(0,10)) — anders shift je grenzen
-  // 1-2u en sluipen records van vorige/volgende dag erin.
+  // Converteer ISO-timestamps van de caller naar Belgische kalenderdagen.
+  // De client stuurt bv. "2026-06-30T22:00:00.000Z" wat Belgisch "1 juli
+  // 00:00" is — dat MOET dus "2026-07-01" worden als DATE-filter, niet
+  // "2026-06-30" via een naïeve slice(0,10).
   const fromIso = req.nextUrl.searchParams.get('from') ??
                   new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
   const toIso   = req.nextUrl.searchParams.get('to') ??
                   new Date().toISOString()
+  const fromDate = isoToBrusselsDate(fromIso)
+  const toDate   = isoToBrusselsDate(toIso)
 
-  const metrics = await calcProjectCostMetrics(projectId, fromIso, toIso)
+  const metrics = await calcProjectCostMetrics(projectId, fromDate, toDate)
   return NextResponse.json({ metrics })
+}
+
+/** ISO-timestamp → "YYYY-MM-DD" in Europe/Brussels. Correct rond DST. */
+function isoToBrusselsDate(iso: string): string {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Brussels',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+  }).formatToParts(new Date(iso))
+  const y = parts.find(p => p.type === 'year')!.value
+  const m = parts.find(p => p.type === 'month')!.value
+  const d = parts.find(p => p.type === 'day')!.value
+  return `${y}-${m}-${d}`
 }

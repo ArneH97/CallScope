@@ -35,7 +35,8 @@ export default async function ProjectReportPage({
   const period: ReportPeriod = parseReportPeriod(searchParams.period)
   const customFrom           = searchParams.from ?? null
   const customTo             = searchParams.to   ?? null
-  const { fromIso, toIso }   = getReportPeriodWindow(period, customFrom, customTo)
+  const { fromIso, toIso, fromDate: periodFromDate, toDate: periodToDate }
+                             = getReportPeriodWindow(period, customFrom, customTo)
   const locale               = await getLocale()
   const bcp47                = locale === 'nl' ? 'nl-BE' : locale
   const periodRangeLabel     = formatPeriodRange(period, bcp47, customFrom, customTo)
@@ -123,7 +124,7 @@ export default async function ProjectReportPage({
   // Kost-metrics — synchroniseert nu met dezelfde periode als de rest van
   // het rapport, niet meer hardcoded 30 dagen. Returnt null als project geen
   // tarieven heeft (dan rendert de card zichzelf niet).
-  const costMetrics = await calcProjectCostMetrics(projectId, fromIso, toIso)
+  const costMetrics = await calcProjectCostMetrics(projectId, periodFromDate, periodToDate)
 
   return (
     <div className="max-w-4xl mx-auto">

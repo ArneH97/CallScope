@@ -42,40 +42,37 @@ function getServiceClient() {
 }
 
 /**
- * Bereken kost-metrics voor één project tussen [fromIso, toIso] (inclusief).
- * `fromIso` en `toIso` zijn ISO-timestamps mét timezone (bv. ZULU "Z" of
- * "+02:00"). Een date-only string ("2026-05-01") werkt ook maar valt op UTC-
- * middernacht — wat een 1-2 uur shift kan geven voor users in andere TZ.
- * Voor maand-pickers MUST de caller daarom volledige ISO doorgeven.
+ * Bereken kost-metrics voor één project tussen [fromDate, toDate] (inclusief).
+ *
+ * `fromDate` en `toDate` zijn Belgische kalenderdagen als YYYY-MM-DD strings.
+ * Bewust GEEN ISO-timestamps meer: die gaven een TZ-shift bug (Belgisch
+ * "1 juli 00:00" wordt UTC "30 juni 22:00" → slice geeft "2026-06-30" →
+ * dinsdag 30 juni telde ten onrechte mee bij een juli-filter). Callers zijn
+ * verantwoordelijk om de datums correct in Brussels-tijd door te geven.
+ *
+ * Voor call_date / week_start_date filters gebruiken we die date-strings
+ * rechtstreeks tegen de DATE-kolom (geen tijd-component nodig).
  */
 export async function calcProjectCostMetrics(
   projectId: string,
-  fromIso:   string,
-  toIso:     string,
+  fromDate:  string,   // "YYYY-MM-DD" in Belgische tijd
+  toDate:    string,   // "YYYY-MM-DD" in Belgische tijd (inclusief)
 ): Promise<CostMetrics | null> {
   const sb = getServiceClient()
 
   // 0. Project info — gebruiken om de from-date te clampen voor "alle tijd"
-  //    queries (anders extrapoleren we preset-uren oneindig terug).
+  //    queries (anders zouden queries jaren terug lopen).
   const { data: projRow } = await sb
     .from('projects')
     .select('created_at')
     .eq('id', projectId)
     .single()
-  const projectCreatedAtIso = (projRow as { created_at: string } | null)?.created_at
-                            ?? '2020-01-01T00:00:00.000Z'
+  const projectCreatedAtDate = ((projRow as { created_at: string } | null)?.created_at
+                              ?? '2020-01-01T00:00:00.000Z').slice(0, 10)
 
-  // Clamp: als de gevraagde from vóór project-creation ligt → gebruik project-creation
-  // Date-comparison i.p.v. string-comparison — TZ-formaten ("Z" vs "+00:00")
-  // zijn lexicaal verschillend maar chronologisch gelijk.
-  const effectiveFromIso = new Date(fromIso).getTime() < new Date(projectCreatedAtIso).getTime()
-    ? projectCreatedAtIso
-    : fromIso
-
-  // Voor week-math en confirmations (DATE-kolom) hebben we een YYYY-MM-DD nodig
-  // dat de LOKALE datum representeert. We slicen daarom de eerste 10 chars
-  // van de ISO-string — die staat in dezelfde TZ als wat de caller verstuurde.
-  const effectiveFrom = effectiveFromIso.slice(0, 10)
+  // Clamp: als de gevraagde from vóór project-creation ligt → gebruik
+  // project-creation. String-compare werkt want beide zijn YYYY-MM-DD.
+  const effectiveFrom = fromDate < projectCreatedAtDate ? projectCreatedAtDate : fromDate
 
   // 1. Rates ophalen — als alles NULL is = feature uit
   // created_at gebruiken we als "moment dat deze caller op dit project kwam":
@@ -120,8 +117,8 @@ export async function calcProjectCostMetrics(
     hours_thu:       number | null
     hours_fri:       number | null
   }
-  const fromDate = effectiveFrom
-  const toDate   = toIso.slice(0, 10)
+  // toDate komt direct uit de caller (al YYYY-MM-DD in Belgische tijd).
+  // effectiveFrom is fromDate na clamp op project.created_at.
 
   // Fetch ook grens-weken op (weken die in de vorige maand starten maar
   // doorlopen tot in de periode). Zo tellen bv. wo/do/vr uren van week
@@ -232,8 +229,8 @@ export async function calcProjectCostMetrics(
       .from('call_records')
       .select('id, status, upload_id, uploads!inner(project_id)')
       .eq('uploads.project_id', projectId)
-      .gte('call_date', effectiveFromIso)
-      .lte('call_date', toIso)
+      .gte('call_date', effectiveFrom)
+      .lte('call_date', toDate)
       .range(offset, offset + PAGE - 1)
     const chunk = (page ?? []) as CallRow[]
     calls.push(...chunk)
