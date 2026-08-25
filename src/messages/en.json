@@ -983,7 +983,7 @@
         "appointmentsLegendSuffix": "(appointments)",
         "appointmentsUnit": "appointments",
         "unitCallsPerHour": "calls/h",
-        "footer": "Hours via confirmed weekly hours (Mon-Fri). Only days with at least 20 calls get a datapoint. Hover a point to see appointments for that day. Top 8 callers by appointments.",
+        "footer": "Calls/h = weekly average (calls that week / hours that week), plotted on every day the caller made calls. This way the chart matches total calls / total hours, even if hours don't line up exactly with call days. Reach rate is still per-day. Top 8 callers by appointments.",
         "emptyCalls": "No confirmed hours for this period. Enter the worked hours to see calls/h.",
         "emptyCallsCta": "Enter hours for this week",
         "emptyReach": "No day in this period has at least 20 calls."

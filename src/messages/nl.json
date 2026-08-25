@@ -983,7 +983,7 @@
         "appointmentsLegendSuffix": "(afspraken)",
         "appointmentsUnit": "afspraken",
         "unitCallsPerHour": "calls/u",
-        "footer": "Uren via bevestigde week-uren (Ma-Vr). Alleen dagen met minstens 20 calls krijgen een datapunt. Hover over een punt voor het aantal afspraken die dag. Top 8 callers op aantal afspraken.",
+        "footer": "Calls/u = week-gemiddelde (calls van die week / uren van die week), getekend op elke dag dat de caller belde. Zo klopt de chart met totaal calls / totaal uren, ook als uren niet exact matchen met beldagen. Bereikratio wordt wél per dag berekend. Top 8 callers op aantal afspraken.",
         "emptyCalls": "Geen bevestigde uren voor deze periode. Vul de gewerkte uren in om calls/u te zien.",
         "emptyCallsCta": "Uren invullen voor deze week",
         "emptyReach": "Geen enkele dag in deze periode heeft minstens 20 calls."

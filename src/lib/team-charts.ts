@@ -122,45 +122,23 @@ const DAY_COLS = ['hours_mon', 'hours_tue', 'hours_wed', 'hours_thu', 'hours_fri
 export const MIN_CALLS_PER_POINT = 20
 
 /**
- * Berekent uren voor een specifieke caller op een specifieke werkdag.
+ * Calls/u-data per werkdag per caller.
  *
- * Returnt enkel ECHTE bevestigde uren — geen preset-fallback. Reden: de
- * preset is een budgetting-verwachting (10u/week → 2u/dag avg), niet de
- * werkelijke gewerkte uren. Hem als fallback gebruiken levert misleidende
- * calls/u op zodra een caller op een dag bv. maar 1u of net 4u werkt
- * (chart toonde dan systematisch 2u-aanname → cijfers gedeeld door 2).
+ * Aanpak: elke bel-dag krijgt als datapunt het WEEK-gemiddelde
+ * (calls_van_die_week / uren_van_die_week) van die caller. Dit garandeert
+ * dat de chart cumulatief klopt met "totaal calls / totaal uren" — de
+ * simpele mental-model check die de user maakt.
  *
- * Gevolg: voor lopende weken zonder bevestiging is er geen datapunt.
- * Zodra de vrijdag-cron de confirmation aanmaakt — of de caller zelf
- * vooraf z'n uren invult via /dashboard/projects/[id]/confirm-hours —
- * verschijnt de lijn alsnog.
- */
-function hoursForCallerDay(
-  date: Date,
-  callerId: string,
-  confByCallerWeek: Map<string, ChartConfRow>,
-): number | null {
-  const dow = date.getDay()
-  if (dow < 1 || dow > 5) return null
-  const mondayKey = isoDay(mondayOfDay(date))
-  const conf = confByCallerWeek.get(`${callerId}|${mondayKey}`)
-  if (!conf) return null
-  const v = conf[DAY_COLS[dow - 1]]
-  if (v == null || v <= 0) return null
-  return v
-}
-
-/**
- * Calls/u-data per werkdag per caller. Calls / uren_gewerkt die dag.
- * Filtert callers zonder data eruit zodat de Legend leesbaar blijft.
+ * Waarom niet gewoon calls-per-dag / uren-per-dag? In de praktijk boekt
+ * een cold caller vaak zijn uren geblokkeerd op enkele dagen (bv. alle
+ * uren op DO/VR) terwijl hij verspreid over de week belt. Dan verdwijnen
+ * de MA/DI/WO calls uit de chart (dag delen door 0 = niks) of geven ze
+ * onrealistisch hoge cijfers voor de bel-dag zonder uren-load. Met het
+ * week-gemiddelde als datapunt wordt de chart een "step function" per
+ * week — telkens één plateau dat de echte productiviteit weerspiegelt.
  *
- * Fallback: als een dag calls heeft maar 0 uren geregistreerd, gebruiken
- * we het week-gemiddelde (totaal calls die week / totaal uren die week).
- * Zonder deze fallback verdwijnen die calls uit de chart terwijl ze wel
- * in de KPI-totalen zitten — wat een discrepantie geeft tussen "totaal
- * calls / totaal uren" en het chart-gemiddelde. Typische oorzaak: caller
- * boekt uren op andere dagen dan wanneer hij effectief belde (bv. alles
- * op DO/VR bevestigd maar ook op MA gebeld).
+ * Filter: weken met <20 totale calls krijgen geen datapunt (te weinig data
+ * voor een betekenisvol gemiddelde).
  */
 export function computeCallsPerHourData(
   callRows:    ChartCallRow[],
@@ -171,22 +149,15 @@ export function computeCallsPerHourData(
   to:          Date,
   bcp47:       string = 'nl-BE',
 ): { rows: ChartSeriesRow[]; callers: ChartCaller[] } {
-  // Calls per (caller_id, dateKey)
+  // Calls per (caller_id, dateKey) — nodig om te weten op welke dagen de
+  // caller effectief belde (die dagen krijgen een datapunt).
   const callsByCallerDay = new Map<string, number>()
   for (const r of callRows) {
     const k = `${r.caller_id}|${r.call_date}`
     callsByCallerDay.set(k, (callsByCallerDay.get(k) ?? 0) + 1)
   }
 
-  // Confirmations per (caller_id, monday-key)
-  const confByCallerWeek = new Map<string, ChartConfRow>()
-  for (const c of confRows) {
-    confByCallerWeek.set(`${c.caller_id}|${c.week_start_date}`, c)
-  }
-
-  // Week-gemiddelde per (caller_id, monday-key): totaal calls / totaal uren
-  // Berekend uit callRows + confRows. Gebruikt als fallback wanneer een
-  // specifieke dag geen uren heeft maar de week wel.
+  // Week-totalen per (caller_id, monday-key): calls én uren.
   const weekTotalsByCaller = new Map<string, { calls: number; hours: number }>()
   for (const r of callRows) {
     const mondayKey = isoDay(mondayOfDay(new Date(r.call_date)))
@@ -209,22 +180,16 @@ export function computeCallsPerHourData(
     const row: ChartSeriesRow = { dateKey, dateLabel: workdayLabel(d, bcp47) }
     for (const cl of callers) {
       const calls = callsByCallerDay.get(`${cl.id}|${dateKey}`) ?? 0
-      if (calls < MIN_CALLS_PER_POINT) { row[cl.id] = null; continue }
+      // Geen calls die dag → geen datapunt (chart-line loopt door)
+      if (calls === 0) { row[cl.id] = null; continue }
 
-      const hrs = hoursForCallerDay(d, cl.id, confByCallerWeek)
-      if (hrs && hrs > 0) {
-        // Normale per-dag ratio: uren zijn precies voor deze dag geboekt.
-        row[cl.id] = Math.round((calls / hrs) * 10) / 10
-      } else {
-        // Fallback: dag-uren = 0, maar de week zelf heeft wel uren.
-        // Gebruik week-gemiddelde zodat calls op "boekhoudkundig 0-uur"-
-        // dagen niet verdwijnen uit de chart. Anders klopt totaal calls
-        // / totaal uren niet met wat de user hier ziet.
-        const wk = weekTotalsByCaller.get(`${cl.id}|${mondayKey}`)
-        row[cl.id] = wk && wk.hours > 0
-          ? Math.round((wk.calls / wk.hours) * 10) / 10
-          : null
+      const wk = weekTotalsByCaller.get(`${cl.id}|${mondayKey}`)
+      // Filter: week met te weinig calls of geen uren → geen datapunt
+      if (!wk || wk.calls < MIN_CALLS_PER_POINT || wk.hours <= 0) {
+        row[cl.id] = null
+        continue
       }
+      row[cl.id] = Math.round((wk.calls / wk.hours) * 10) / 10
     }
     rows.push(row)
   }
