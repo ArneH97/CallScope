@@ -422,15 +422,25 @@ export default function CCManagerDashboard() {
 
       // 1) call_records → join op uploads om caller_id te krijgen.
       //    Status meenemen voor de bereikratio-lijn (zelfde dataset, geen
-      //    extra fetch nodig). "Calls/u" telt elke gebelde lead; bereikratio
-      //    splitst die op in #bereikt / #totaal.
-      const { data: cr } = await sb
-        .from('call_records')
-        .select('call_date, status, uploads!inner(caller_id)')
-        .eq('project_id', selectedProject)
-        .gte('call_date', fromDate)
-        .lte('call_date', toDate)
-        .returns<{ call_date: string | null; status: string | null; uploads: { caller_id: string } | { caller_id: string }[] | null }[]>()
+      //    extra fetch nodig). Pagineren want Supabase capt op 1000 rows —
+      //    zonder deze loop zou een druk project stille truncation krijgen.
+      type CR = { call_date: string | null; status: string | null; uploads: { caller_id: string } | { caller_id: string }[] | null }
+      const CR_PAGE = 1000
+      const cr: CR[] = []
+      for (let offset = 0; ; offset += CR_PAGE) {
+        const { data: crPage } = await sb
+          .from('call_records')
+          .select('call_date, status, uploads!inner(caller_id)')
+          .eq('project_id', selectedProject)
+          .gte('call_date', fromDate)
+          .lte('call_date', toDate)
+          .range(offset, offset + CR_PAGE - 1)
+          .returns<CR[]>()
+        if (cancelled) return
+        const chunk = crPage ?? []
+        cr.push(...chunk)
+        if (chunk.length < CR_PAGE) break
+      }
 
       // 2) weekly_hour_confirmations — alle weken die overlappen met de range
       // ATTN: gebruik isoDay() i.p.v. .toISOString().slice(0,10) op een local
@@ -488,28 +498,37 @@ export default function CCManagerDashboard() {
       const fromDate = dateRange.from!.toISOString().slice(0, 10)
       const toDate   = dateRange.to!.toISOString().slice(0, 10)
 
-      let q = sb
-        .from('call_records')
-        .select('status, uploads!inner(caller_id, project_id)')
-        .gte('call_date', fromDate)
-        .lte('call_date', toDate)
-      if (selectedProject !== 'alle') {
-        q = q.eq('uploads.project_id', selectedProject)
-      }
       type Row = {
         status: string | null
         uploads: { caller_id: string | null; project_id: string | null } | { caller_id: string | null; project_id: string | null }[] | null
       }
-      const { data } = await q.returns<Row[]>()
-      if (cancelled) return
+      // Pagination — Supabase heeft een default cap van 1000 rows per query.
+      // Zonder .range() krijg je dus stille truncation zodra een periode
+      // >1000 calls bevat, wat de KPI onderrapporteert (en verklaart waarom
+      // juli en aug beiden "toevallig" op 1000 uitkwamen).
+      const PAGE = 1000
+      const rows: Row[] = []
+      for (let offset = 0; ; offset += PAGE) {
+        let q = sb
+          .from('call_records')
+          .select('status, uploads!inner(caller_id, project_id)')
+          .gte('call_date', fromDate)
+          .lte('call_date', toDate)
+          .range(offset, offset + PAGE - 1)
+        if (selectedProject !== 'alle') {
+          q = q.eq('uploads.project_id', selectedProject)
+        }
+        const { data: page } = await q.returns<Row[]>()
+        if (cancelled) return
+        const chunk = page ?? []
+        rows.push(...chunk)
+        if (chunk.length < PAGE) break   // laatste pagina
+      }
 
       const map = new Map<string, CallerCallCount>()
-      for (const r of (data ?? [])) {
+      for (const r of rows) {
         const up = Array.isArray(r.uploads) ? r.uploads[0] : r.uploads
         if (!up?.caller_id) continue
-        // Extra client-side filter voor "alle" — een sync-call kan meerdere
-        // uploads over meerdere projecten hebben (zeldzaam), en Supabase's
-        // .eq() op joined tables is niet altijd waterdicht.
         if (selectedProject !== 'alle' && up.project_id !== selectedProject) continue
         const cur = map.get(up.caller_id) ?? { caller_id: up.caller_id, total: 0, reached: 0 }
         cur.total++

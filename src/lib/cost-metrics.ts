@@ -209,13 +209,23 @@ export async function calcProjectCostMetrics(
     upload_id:  string
     uploads:    { project_id: string } | { project_id: string }[] | null
   }
-  const { data: callRows } = await sb
-    .from('call_records')
-    .select('id, status, upload_id, uploads!inner(project_id)')
-    .eq('uploads.project_id', projectId)
-    .gte('call_date', effectiveFromIso)
-    .lte('call_date', toIso)
-  const calls = (callRows ?? []) as CallRow[]
+  // Pagineren want Supabase capt op 1000 rows per query. Zonder deze
+  // loop krijgen drukke projecten stille truncation → onder-telling
+  // van leads/afspraken/deals in de widget.
+  const PAGE = 1000
+  const calls: CallRow[] = []
+  for (let offset = 0; ; offset += PAGE) {
+    const { data: page } = await sb
+      .from('call_records')
+      .select('id, status, upload_id, uploads!inner(project_id)')
+      .eq('uploads.project_id', projectId)
+      .gte('call_date', effectiveFromIso)
+      .lte('call_date', toIso)
+      .range(offset, offset + PAGE - 1)
+    const chunk = (page ?? []) as CallRow[]
+    calls.push(...chunk)
+    if (chunk.length < PAGE) break
+  }
 
   const totalLeads        = calls.length
   const totalAppointments = calls.filter(c =>
