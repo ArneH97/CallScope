@@ -139,6 +139,41 @@ export default async function ProjectReportPage({
   // tarieven heeft (dan rendert de card zichzelf niet).
   const costMetrics = await calcProjectCostMetrics(projectId, periodFromDate, periodToDate)
 
+  // Raw statussen uit call_records — voor de "status-verdeling"-kaart
+  // (voicemail / geen interesse / terugbellen / …). Dit is COMPLEMENTAIR
+  // aan de AI-bezwaren-analyse: die duidt/classificeert, dit toont de
+  // ruwe waarden zoals ingegeven in de "Reactie"-kolom van de sheet.
+  // Paginated tegen de 1000-row Supabase cap.
+  type CRStatusRow = { status: string | null; uploads: { caller_id: string | null } | { caller_id: string | null }[] | null }
+  const CR_PAGE = 1000
+  const callRecordsStatus: CRStatusRow[] = []
+  for (let offset = 0; ; offset += CR_PAGE) {
+    const { data: page } = await supabase
+      .from('call_records')
+      .select('status, uploads!inner(caller_id)')
+      .eq('project_id', projectId)
+      .gte('call_date', periodFromDate)
+      .lte('call_date', periodToDate)
+      .range(offset, offset + CR_PAGE - 1)
+      .returns<CRStatusRow[]>()
+    const chunk = page ?? []
+    callRecordsStatus.push(...chunk)
+    if (chunk.length < CR_PAGE) break
+  }
+
+  // Alle statussen (voor team-brede breakdown)
+  const allStatuses = callRecordsStatus.map(r => r.status)
+  // Statussen gegroepeerd per caller (voor per-caller sectie)
+  const statusesByCaller = new Map<string, (string | null)[]>()
+  for (const r of callRecordsStatus) {
+    const up = Array.isArray(r.uploads) ? r.uploads[0] : r.uploads
+    const cid = up?.caller_id
+    if (!cid) continue
+    const list = statusesByCaller.get(cid) ?? []
+    list.push(r.status)
+    statusesByCaller.set(cid, list)
+  }
+
   // Per-caller data — voor de aparte secties. We groeperen uploads + feedback
   // op caller_id/caller_name en tonen straks één sectie per caller die in de
   // periode actief was. Alfabetisch gesorteerd (of op afspraken) — keuze:
@@ -227,6 +262,8 @@ export default async function ProjectReportPage({
         periodRangeLabel={periodRangeLabel}
         periodKey={periodKey}
         annotations={annotations}
+        allStatuses={allStatuses}
+        statusesByCaller={statusesByCaller}
         perCaller={perCaller}
         simulator={{
           enabled:            project.sim_enabled,

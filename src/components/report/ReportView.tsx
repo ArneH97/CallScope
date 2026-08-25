@@ -6,6 +6,7 @@ import ConversionFunnelChart from '@/components/ConversionFunnelChart'
 import CallerReportSection from './CallerReportSection'
 import SimulatorSection from './SimulatorSection'
 import AnnotationField from './AnnotationField'
+import StatusBreakdownCard from './StatusBreakdownCard'
 import type {
   UploadSummary,
   AppointmentWithFeedback,
@@ -58,6 +59,10 @@ interface Props {
   annotations?: Map<string, string>
   /** Per-caller buckets voor de aparte secties. Als leeg → geen secties. */
   perCaller?: PerCallerBucket[]
+  /** Raw call_records.status waarden — voor status-breakdown kaart. */
+  allStatuses?: (string | null)[]
+  /** Raw statussen per caller_id — voor status-breakdown in per-caller secties. */
+  statusesByCaller?: Map<string, (string | null)[]>
   /** Simulator-props. Als undefined of enabled=false → geen simulator-sectie. */
   simulator?: SimulatorProps
 }
@@ -84,6 +89,8 @@ export default async function ReportView({
   periodKey = '',
   annotations,
   perCaller = [],
+  allStatuses = [],
+  statusesByCaller,
   simulator,
 }: Props) {
   // Helper: haal een annotation-tekst op (default ''). Gebruikt overal
@@ -322,6 +329,7 @@ export default async function ReportView({
               callerName={c.caller_name}
               uploads={c.uploads}
               feedback={c.feedback}
+              statuses={statusesByCaller?.get(c.caller_id) ?? []}
               introText={ann(`caller:${c.caller_id}:intro`)}
               notesText={ann(`caller:${c.caller_id}:notes`)}
               index={i + 1}
@@ -538,29 +546,53 @@ export default async function ReportView({
         )}
       </div>
 
-      {/* Top bezwaren */}
-      {topObjections.length > 0 && (
+      {/* Bezwaren & reacties: AI-geclassificeerd + raw dispositie, naast
+          elkaar zodat de duiding en het echte veld-invoer samen leesbaar
+          zijn. Als geen van beide data heeft, verschijnt de sectie niet. */}
+      {(topObjections.length > 0 || allStatuses.length > 0) && (
         <>
-          <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mt-8 mb-3">
-            {t('objections.title')} <span className="text-gray-400 font-normal">{t('objections.subtitle')}</span>
+          <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mt-8 mb-1">
+            {t('objectionsSection.header')}
           </h2>
-          <div className="card p-6 mb-6 avoid-break">
-            <div className="space-y-3">
-              {topObjections.map(obj => (
-                <div key={obj.label} className="flex items-center gap-3">
-                  <div className="w-44 text-sm text-gray-700">{obj.label}</div>
-                  <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-                    <div className="h-full rounded-full bg-amber-400" style={{ width: `${obj.pct}%` }}/>
+          <p className="text-xs text-gray-500 mb-3">{t('objectionsSection.subtitle')}</p>
+
+          {topObjections.length > 0 && (
+            <div className="card p-6 mb-4 avoid-break">
+              <div className="text-sm font-semibold text-gray-900 mb-3">
+                {t('objections.title')}
+                <span className="text-gray-400 font-normal ml-2 text-xs">{t('objections.subtitle')}</span>
+              </div>
+              <div className="space-y-3">
+                {topObjections.map(obj => (
+                  <div key={obj.label} className="flex items-center gap-3">
+                    <div className="w-44 text-sm text-gray-700">{obj.label}</div>
+                    <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                      <div className="h-full rounded-full bg-amber-400" style={{ width: `${obj.pct}%` }}/>
+                    </div>
+                    <div className="w-12 text-right text-xs text-gray-500">{obj.pct}%</div>
+                    <div className="w-12 text-right text-xs text-gray-400">{obj.count}x</div>
                   </div>
-                  <div className="w-12 text-right text-xs text-gray-500">{obj.pct}%</div>
-                  <div className="w-12 text-right text-xs text-gray-400">{obj.count}x</div>
-                </div>
-              ))}
+                ))}
+              </div>
+              <p className="text-xs text-gray-400 mt-4">
+                {t('objections.aggregation', { count: uploads.length })}
+              </p>
             </div>
-            <p className="text-xs text-gray-400 mt-4">
-              {t('objections.aggregation', { count: uploads.length })}
-            </p>
-          </div>
+          )}
+
+          {allStatuses.length > 0 && (
+            <StatusBreakdownCard statuses={allStatuses} />
+          )}
+
+          {periodKey && (
+            <AnnotationField
+              projectId={project.id}
+              periodKey={periodKey}
+              sectionKey="objections"
+              initialText={ann('objections')}
+              placeholder={t('annotation.objectionsPlaceholder')}
+            />
+          )}
         </>
       )}
 

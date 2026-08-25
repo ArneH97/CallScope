@@ -1491,7 +1491,12 @@
             "overviewPlaceholder": "Framing for this report — context, challenges, focus for next period.",
             "funnelPlaceholder": "Interpretation of the funnel — biggest drop-off, notable trends?",
             "dealstagesPlaceholder": "Notes on the dealstage split — how many appointments still awaiting feedback?",
-            "perCallerIntroPlaceholder": "Intro to the per-caller section — which reps on which markets."
+            "perCallerIntroPlaceholder": "Intro to the per-caller section — which reps on which markets.",
+            "objectionsPlaceholder": "Notes on objections and responses — patterns, coaching, market insights."
+          },
+          "objectionsSection": {
+            "header": "Objections & responses",
+            "subtitle": "What we hear from call notes — AI-classified (objections) and the raw values as entered in the sheet (responses)."
           }
         },
         "share": {
@@ -1540,6 +1545,11 @@
           "cancel": "Cancel",
           "editHint": "Click to edit",
           "saveFailed": "Could not save note."
+        },
+        "statusBreakdown": {
+          "title": "Status distribution",
+          "subtitle": "Raw responses as entered in the \"Reactie\" column of the sheet (voicemail, no interest, call back, …).",
+          "totalHint": "{count} calls with a response"
         },
         "simulator": {
           "title": "Projection at pipeline closure",

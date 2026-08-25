@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server'
 import DealsBreakdownCard from '@/components/DealsBreakdownCard'
 import ConversionFunnelChart from '@/components/ConversionFunnelChart'
 import AnnotationField from './AnnotationField'
+import StatusBreakdownCard from './StatusBreakdownCard'
 import type { UploadSummary, AppointmentWithFeedback } from '@/types/database'
 
 interface Props {
@@ -13,6 +14,8 @@ interface Props {
   uploads:        UploadSummary[]
   /** Feedback gefilterd op deze caller. */
   feedback:       AppointmentWithFeedback[]
+  /** Raw call_records.status waarden voor deze caller — status-breakdown. */
+  statuses?:      (string | null)[]
   /** Annotations voor deze caller-sectie (intro + trailing note). */
   introText:      string
   notesText:      string
@@ -34,7 +37,7 @@ interface Props {
  */
 export default async function CallerReportSection({
   projectId, periodKey, callerId, callerName,
-  uploads, feedback, introText, notesText, index,
+  uploads, feedback, statuses = [], introText, notesText, index,
 }: Props) {
   const t = await getTranslations('dashboard.projects.report.perCaller')
 
@@ -126,6 +129,11 @@ export default async function CallerReportSection({
 
       {feedback.length > 0 && (
         <DealsBreakdownCard feedback={feedback} />
+      )}
+
+      {/* Ruwe status-verdeling voor deze caller — bv voicemail vs geen interesse */}
+      {statuses.length > 0 && (
+        <StatusBreakdownCard statuses={statuses} compact />
       )}
 
       {/* Top bezwaren */}

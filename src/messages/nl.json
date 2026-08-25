@@ -1491,7 +1491,12 @@
             "overviewPlaceholder": "Duiding bij dit rapport — bv. context, uitdagingen, focus voor volgende maand.",
             "funnelPlaceholder": "Duiding bij de funnel — bv. waar zit de grootste drop-off, opvallende evoluties?",
             "dealstagesPlaceholder": "Duiding bij de dealstage-verdeling — bv. hoeveel afspraken wachten nog op sales feedback?",
-            "perCallerIntroPlaceholder": "Introductie bij de per-caller sectie — bv. welke reps op welke markten belden."
+            "perCallerIntroPlaceholder": "Introductie bij de per-caller sectie — bv. welke reps op welke markten belden.",
+            "objectionsPlaceholder": "Duiding bij de bezwaren en reacties — bv. patronen, coaching-punten, marktinzichten."
+          },
+          "objectionsSection": {
+            "header": "Bezwaren & reacties",
+            "subtitle": "Wat we horen uit de belnotities — AI-geclassificeerd (bezwaren) én de rauwe waarden zoals ingevuld in de sheet (reacties)."
           }
         },
         "share": {
@@ -1540,6 +1545,11 @@
           "cancel": "Annuleren",
           "editHint": "Klik om aan te passen",
           "saveFailed": "Kon notitie niet opslaan."
+        },
+        "statusBreakdown": {
+          "title": "Status-verdeling",
+          "subtitle": "Ruwe reacties zoals ingevoerd in de sheet-kolom \"Reactie\" (voicemail, geen interesse, terugbellen, …).",
+          "totalHint": "{count} calls met reactie"
         },
         "simulator": {
           "title": "Projectie bij afgesloten pipeline",
