@@ -16,6 +16,15 @@ import type {
   CustomFieldsBag,
   CustomInsight,
 } from '@/types/database'
+import type { SimulatorAssumptions } from '@/lib/simulator'
+
+/** Bouwt de period_key waaronder annotations + simulator-aannames worden
+    bewaard. Zo krijgt "juli 2026" andere notities dan "aug 2026". */
+function buildPeriodKey(period: ReportPeriod, from: string, to: string): string {
+  if (period === 'month')  return `month:${from.slice(0, 7)}`   // "month:2026-07"
+  if (period === 'week')   return `week:${from}`                // "week:2026-07-06"
+  return `custom:${from}_${to}`                                 // "custom:2026-07-01_2026-07-31"
+}
 
 export default async function ProjectReportPage({
   params,
@@ -43,7 +52,7 @@ export default async function ProjectReportPage({
 
   const { data: projectData } = await supabase
     .from('projects')
-    .select('id, name, description, created_at, custom_field_definitions')
+    .select('id, name, description, created_at, custom_field_definitions, sim_no_show_rate, sim_closing_rate, sim_arr_per_deal, sim_enabled')
     .eq('id', projectId)
     .single()
   const project = projectData as {
@@ -52,6 +61,10 @@ export default async function ProjectReportPage({
     description: string | null
     created_at: string
     custom_field_definitions: CustomFieldDef[] | null
+    sim_no_show_rate: number
+    sim_closing_rate: number
+    sim_arr_per_deal: number
+    sim_enabled:      boolean
   } | null
 
   if (!project) notFound()
@@ -126,6 +139,73 @@ export default async function ProjectReportPage({
   // tarieven heeft (dan rendert de card zichzelf niet).
   const costMetrics = await calcProjectCostMetrics(projectId, periodFromDate, periodToDate)
 
+  // Per-caller data — voor de aparte secties. We groeperen uploads + feedback
+  // op caller_id/caller_name en tonen straks één sectie per caller die in de
+  // periode actief was. Alfabetisch gesorteerd (of op afspraken) — keuze:
+  // op deals descending, zodat top-performer bovenaan komt.
+  const uploads  = uploadsData  ?? []
+  const feedback = feedbackData ?? []
+  type CallerBucket = {
+    caller_id:   string
+    caller_name: string
+    uploads:     UploadSummary[]
+    feedback:    AppointmentWithFeedback[]
+  }
+  const callerBuckets = new Map<string, CallerBucket>()
+  for (const u of uploads) {
+    if (!u.caller_id && !u.caller_name) continue
+    const key = u.caller_id ?? u.caller_name!
+    if (!callerBuckets.has(key)) {
+      callerBuckets.set(key, {
+        caller_id: key, caller_name: u.caller_name ?? 'Onbekend',
+        uploads: [], feedback: [],
+      })
+    }
+    callerBuckets.get(key)!.uploads.push(u)
+  }
+  for (const f of feedback) {
+    if (!f.caller_id && !f.caller_name) continue
+    const key = f.caller_id ?? f.caller_name!
+    if (!callerBuckets.has(key)) {
+      callerBuckets.set(key, {
+        caller_id: key, caller_name: f.caller_name ?? 'Onbekend',
+        uploads: [], feedback: [],
+      })
+    }
+    callerBuckets.get(key)!.feedback.push(f)
+  }
+  const perCaller = Array.from(callerBuckets.values())
+    .sort((a, b) => b.feedback.length - a.feedback.length)
+
+  // Annotations + simulator-aannames + period key
+  const periodKey = buildPeriodKey(period, periodFromDate, periodToDate)
+  const { data: annotationRows } = await supabase
+    .from('report_annotations')
+    .select('section_key, text')
+    .eq('project_id', projectId)
+    .eq('period_key', periodKey)
+  const annotations = new Map<string, string>()
+  for (const r of ((annotationRows ?? []) as { section_key: string; text: string }[])) {
+    annotations.set(r.section_key, r.text)
+  }
+
+  const simAssumptions: SimulatorAssumptions = {
+    no_show_rate: Number(project.sim_no_show_rate),
+    closing_rate: Number(project.sim_closing_rate),
+    arr_per_deal: Number(project.sim_arr_per_deal),
+  }
+
+  // Simulator input-cijfers uit de al gefetchte feedback + costMetrics.
+  const dealsRealized = feedback.filter(f =>
+    f.outcome === 'deal' || (f.dealstage_category ?? '').toLowerCase() === 'won'
+  ).length
+  const lostOrNoShow = feedback.filter(f =>
+    f.outcome === 'verloren'
+    || (f.dealstage_category ?? '').toLowerCase() === 'lost'
+    || f.appointment_status === 'no_show'
+  ).length
+  const appointmentsTotal = feedback.length
+
   return (
     <div className="max-w-4xl mx-auto">
       <ReportActions
@@ -137,14 +217,26 @@ export default async function ProjectReportPage({
       />
       <ReportView
         project={project}
-        uploads={uploadsData ?? []}
-        feedback={feedbackData ?? []}
+        uploads={uploads}
+        feedback={feedback}
         yearFeedback={yearFeedbackData ?? []}
         customDefs={customDefs}
         customRows={customRows}
         customInsights={customInsights}
         period={period}
         periodRangeLabel={periodRangeLabel}
+        periodKey={periodKey}
+        annotations={annotations}
+        perCaller={perCaller}
+        simulator={{
+          enabled:            project.sim_enabled,
+          assumptions:        simAssumptions,
+          appointmentsTotal,
+          dealsRealized,
+          lostOrNoShow,
+          costTotal:          costMetrics?.total_cost ?? null,
+          currency:           costMetrics?.currency ?? 'EUR',
+        }}
       />
       {/* Kost-metrics — alleen als tarieven ingesteld zijn op het project */}
       {costMetrics && (

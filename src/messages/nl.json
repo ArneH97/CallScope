@@ -1484,7 +1484,15 @@
           },
           "footer": "Rapport gegenereerd door CallScope · {date}",
           "unknownCaller": "Onbekend",
-          "emptyDate": "—"
+          "emptyDate": "—",
+          "simulatorHeader": "Projectie bij afgesloten pipeline",
+          "simulatorSubtitle": "Wat levert deze periode op als álle openstaande afspraken volgens verwachting aflopen? Aannames zijn instelbaar per project.",
+          "annotation": {
+            "overviewPlaceholder": "Duiding bij dit rapport — bv. context, uitdagingen, focus voor volgende maand.",
+            "funnelPlaceholder": "Duiding bij de funnel — bv. waar zit de grootste drop-off, opvallende evoluties?",
+            "dealstagesPlaceholder": "Duiding bij de dealstage-verdeling — bv. hoeveel afspraken wachten nog op sales feedback?",
+            "perCallerIntroPlaceholder": "Introductie bij de per-caller sectie — bv. welke reps op welke markten belden."
+          }
         },
         "share": {
           "expired": {
@@ -1510,6 +1518,48 @@
           "presetTip": "Niet bevestigd — preset gebruikt",
           "presetBadge": "ⓘ preset",
           "empty": "—"
+        },
+        "perCaller": {
+          "sectionTitle": "Resultaten — {name}",
+          "introPlaceholder": "Wie is deze caller, welke markt/segment belde hij, wat was de opdracht?",
+          "notesPlaceholder": "Wat viel op bij deze caller — sterke punten, aandachtspunten, opvolging?",
+          "calls": "Calls",
+          "reachRate": "Bereikratio",
+          "reachedSub": "{n} bereikt",
+          "appointments": "Afspraken",
+          "conversionSub": "{n}% conversie",
+          "deals": "Deals",
+          "dealRateSub": "{n}% van afspraken",
+          "objectionsTitle": "Top 5 bezwaren"
+        },
+        "annotation": {
+          "addNote": "Notitie toevoegen",
+          "placeholder": "Schrijf hier een korte duiding of context…",
+          "save": "Opslaan",
+          "saving": "Bezig…",
+          "cancel": "Annuleren",
+          "editHint": "Klik om aan te passen",
+          "saveFailed": "Kon notitie niet opslaan."
+        },
+        "simulator": {
+          "title": "Projectie bij afgesloten pipeline",
+          "subtitle": "Op basis van 3 aannames — no-show rate, closing rate, ARR per deal — projecteren we hoeveel extra deals en ARR er nog te verwachten zijn zodra alle openstaande afspraken zijn afgehandeld.",
+          "noShowLabel": "No-show rate",
+          "closingLabel": "Closing rate",
+          "arrLabel": "ARR per deal",
+          "pendingLabel": "Openstaande afspraken",
+          "pendingHint": "Nog geen definitieve uitkomst (deal/verloren/no-show)",
+          "projectedDealsLabel": "Verwachte deals",
+          "projectedDealsHint": "{realized} al binnen + {newDeals} nog te verwachten",
+          "projectedArrLabel": "Verwachte ARR",
+          "projectedArrHint": "waarvan {additional} nog te realiseren",
+          "roiLabel": "ROI vs kost",
+          "roiHint": "Verwachte ARR / kost van deze periode ({cost})",
+          "roiNoCost": "Zet tarieven op het project om ROI te zien.",
+          "assumptionsSummary": "Aannames: no-show {noShow}% · closing {closing}% · ARR {arr} per deal",
+          "annotationPlaceholder": "Duiding bij de projectie — bv. waarom deze aannames, wat het betekent voor de klant.",
+          "saveFailed": "Kon aannames niet opslaan.",
+          "saving": "Aannames opslaan…"
         }
       },
       "settings": {

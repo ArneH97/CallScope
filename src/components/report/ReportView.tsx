@@ -3,6 +3,9 @@ import type { ReportPeriod } from '@/lib/report-period'
 import DealsBreakdownCard from '@/components/DealsBreakdownCard'
 import DealsPerMonthChart from '@/components/DealsPerMonthChart'
 import ConversionFunnelChart from '@/components/ConversionFunnelChart'
+import CallerReportSection from './CallerReportSection'
+import SimulatorSection from './SimulatorSection'
+import AnnotationField from './AnnotationField'
 import type {
   UploadSummary,
   AppointmentWithFeedback,
@@ -10,6 +13,24 @@ import type {
   CustomFieldsBag,
   CustomInsight,
 } from '@/types/database'
+import type { SimulatorAssumptions } from '@/lib/simulator'
+
+export interface PerCallerBucket {
+  caller_id:   string
+  caller_name: string
+  uploads:     UploadSummary[]
+  feedback:    AppointmentWithFeedback[]
+}
+
+export interface SimulatorProps {
+  enabled:            boolean
+  assumptions:        SimulatorAssumptions
+  appointmentsTotal:  number
+  dealsRealized:      number
+  lostOrNoShow:       number
+  costTotal:          number | null
+  currency:           string
+}
 
 interface Props {
   project: { id: string; name: string; description: string | null; created_at?: string }
@@ -31,6 +52,14 @@ interface Props {
   period?: ReportPeriod
   /** Voor-geformatteerd periode-label, bv. "28 apr — 28 mei". */
   periodRangeLabel?: string
+  /** Unieke sleutel voor annotations/simulator-persistence. */
+  periodKey?: string
+  /** section_key → text map met alle opgeslagen commentaren. */
+  annotations?: Map<string, string>
+  /** Per-caller buckets voor de aparte secties. Als leeg → geen secties. */
+  perCaller?: PerCallerBucket[]
+  /** Simulator-props. Als undefined of enabled=false → geen simulator-sectie. */
+  simulator?: SimulatorProps
 }
 
 /**
@@ -52,7 +81,14 @@ export default async function ReportView({
   customInsights = [],
   period = 'month',
   periodRangeLabel,
+  periodKey = '',
+  annotations,
+  perCaller = [],
+  simulator,
 }: Props) {
+  // Helper: haal een annotation-tekst op (default ''). Gebruikt overal
+  // waar we een <AnnotationField> renderen.
+  const ann = (key: string) => annotations?.get(key) ?? ''
   const t = await getTranslations('dashboard.projects.report.view')
   const locale = await getLocale()
   // Map next-intl locale codes naar BCP-47 voor toLocaleDateString
@@ -178,6 +214,17 @@ export default async function ReportView({
         </div>
       </div>
 
+      {/* Cover-annotatie: openingsparagraaf/context van de manager */}
+      {periodKey && (
+        <AnnotationField
+          projectId={project.id}
+          periodKey={periodKey}
+          sectionKey="overview"
+          initialText={ann('overview')}
+          placeholder={t('annotation.overviewPlaceholder')}
+        />
+      )}
+
       {/* Hoofd-KPI's */}
       <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mt-8 mb-3">{t('results')}</h2>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6 avoid-break">
@@ -202,6 +249,15 @@ export default async function ReportView({
         appointments={totals.appointments}
         deals={outcomes.deals}
       />
+      {periodKey && (
+        <AnnotationField
+          projectId={project.id}
+          periodKey={periodKey}
+          sectionKey="funnel"
+          initialText={ann('funnel')}
+          placeholder={t('annotation.funnelPlaceholder')}
+        />
+      )}
 
       {/* Uitkomsten */}
       {totals.appointments > 0 && (
@@ -232,7 +288,68 @@ export default async function ReportView({
           Deals per maand = volledig kalenderjaar (yearFeedback wanneer
           beschikbaar, fallback op feedback voor backwards-compat). */}
       <DealsBreakdownCard feedback={feedback} />
+      {periodKey && (
+        <AnnotationField
+          projectId={project.id}
+          periodKey={periodKey}
+          sectionKey="dealstages"
+          initialText={ann('dealstages')}
+          placeholder={t('annotation.dealstagesPlaceholder')}
+        />
+      )}
       <DealsPerMonthChart feedback={yearFeedback ?? feedback} />
+
+      {/* ── Per-caller aparte secties ─────────────────────────────────── */}
+      {perCaller.length > 1 && periodKey && (
+        <div className="mt-10 pt-6 border-t-2 border-gray-200 avoid-break">
+          <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-1">
+            {t('perCaller.header')}
+          </h2>
+          <p className="text-xs text-gray-500 mb-3">{t('perCaller.subtitle')}</p>
+          <AnnotationField
+            projectId={project.id}
+            periodKey={periodKey}
+            sectionKey="per_caller_intro"
+            initialText={ann('per_caller_intro')}
+            placeholder={t('annotation.perCallerIntroPlaceholder')}
+          />
+          {perCaller.map((c, i) => (
+            <CallerReportSection
+              key={c.caller_id}
+              projectId={project.id}
+              periodKey={periodKey}
+              callerId={c.caller_id}
+              callerName={c.caller_name}
+              uploads={c.uploads}
+              feedback={c.feedback}
+              introText={ann(`caller:${c.caller_id}:intro`)}
+              notesText={ann(`caller:${c.caller_id}:notes`)}
+              index={i + 1}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* ── Simulator: projectie bij afgesloten pipeline ───────────────── */}
+      {simulator?.enabled && periodKey && (
+        <div className="mt-10 pt-6 border-t-2 border-gray-200 avoid-break">
+          <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-1">
+            {t('simulatorHeader')}
+          </h2>
+          <p className="text-xs text-gray-500 mb-3">{t('simulatorSubtitle')}</p>
+          <SimulatorSection
+            projectId={project.id}
+            periodKey={periodKey}
+            appointmentsTotal={simulator.appointmentsTotal}
+            dealsRealized={simulator.dealsRealized}
+            lostOrNoShow={simulator.lostOrNoShow}
+            costTotal={simulator.costTotal}
+            currency={simulator.currency}
+            initialAssumptions={simulator.assumptions}
+            initialAnnotation={ann('simulator')}
+          />
+        </div>
+      )}
 
       {/* Custom velden — cross-upload aggregatie + AI-inzichten */}
       {customDefs.length > 0 && customRows.length > 0 && (
