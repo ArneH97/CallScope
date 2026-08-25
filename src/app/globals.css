@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'DM Sans';
+    --font-mono: 'DM Mono';
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-600 text-white px-4 py-2 rounded-lg text-sm font-medium
+           hover:bg-brand-700 active:scale-95 transition-all duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-gray-700 px-4 py-2 rounded-lg text-sm font-medium
+           border border-gray-200 hover:bg-gray-50 active:scale-95
+           transition-all duration-150;
+  }
+
+  .input {
+    @apply w-full px-3 py-2 rounded-lg border border-gray-200 text-sm
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent
+           placeholder:text-gray-400 bg-white;
+  }
+
+  .card {
+    @apply bg-white rounded-xl border border-gray-100 shadow-sm;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium;
+  }
+
+  .badge-blue   { @apply bg-blue-50   text-blue-700; }
+  .badge-green  { @apply bg-green-50  text-green-700; }
+  .badge-amber  { @apply bg-amber-50  text-amber-700; }
+  .badge-red    { @apply bg-red-50    text-red-700; }
+  .badge-gray   { @apply bg-gray-100  text-gray-600; }
+  .badge-purple { @apply bg-purple-50 text-purple-700; }
+}
+
+/* ── PRINT STYLES ──────────────────────────────────────────────────────────
+   Toegepast op de Print-naar-PDF flow voor rapporten.
+   .print-only en .no-print zijn helper classes om elementen specifiek voor
+   schermo of print te tonen/verbergen. */
+.print-only { display: none; }
+
+@media print {
+  /* Zijbalk + chrome verbergen */
+  aside, .no-print { display: none !important; }
+  /* Main heeft op scherm een padding/margin links voor de zijbalk — dat moet weg */
+  main { margin-left: 0 !important; padding: 0 !important; max-width: 100% !important; }
+  body { background: white !important; }
+  .print-only { display: block; }
+  /* Cards minder schaduw, sober */
+  .card { box-shadow: none !important; border-color: #e5e7eb !important; }
+  /* Page-break helpers */
+  .page-break  { page-break-after: always; }
+  .avoid-break { page-break-inside: avoid; }
+  /* Typografie iets kleiner zodat 'r meer op een pagina past */
+  body { font-size: 11pt; }
+  h1 { font-size: 18pt !important; }
+  h2 { font-size: 13pt !important; }
+}

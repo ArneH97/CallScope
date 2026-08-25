@@ -1,0 +1,9 @@
+# Vercel volgt eerst .gitignore, maar voor de zekerheid expliciet hier ook
+# de env-bestanden + lokale tools uitsluiten zodat ze nooit naar Vercel's
+# build-server geüpload worden. Echte env vars staan al in Vercel Dashboard.
+
+.env
+.env.local
+.env.development.local
+.env.production.local
+.env.test.local

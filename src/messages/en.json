@@ -1,0 +1,2212 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loading": "Loading...",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "yes": "Yes",
+    "no": "No",
+    "confirm": "Confirm",
+    "close": "Close",
+    "search": "Search",
+    "language": "Language",
+    "country": "Country",
+    "currency": "Currency",
+    "timezone": "Time zone",
+    "dateFormat": "Date format"
+  },
+  "marketing": {
+    "nav": {
+      "forAgencies": "For agencies",
+      "forCallCenters": "For call centers",
+      "forSalesTeams": "For sales teams",
+      "howItWorks": "How it works",
+      "pricing": "Pricing",
+      "signIn": "Sign in",
+      "startFree": "Start free",
+      "menu": "Menu"
+    },
+    "footer": {
+      "tagline": "The reporting and sync tool for call centers, freelance appointment setters and sales teams running outbound.",
+      "product": "Product",
+      "account": "Account",
+      "company": "Company",
+      "createAccount": "Create account",
+      "signIn": "Sign in",
+      "contact": "Contact",
+      "companyName": "Halco Services BE",
+      "location": "Based in Belgium",
+      "vat": "VAT on invoice (21% BE)",
+      "monthlyCancel": "Cancel monthly",
+      "noLockIn": "No lock-in",
+      "belgianProduct": "Belgian product"
+    },
+    "home": {
+      "hero": {
+        "badge": "For outbound agencies, freelance setters & sales teams",
+        "title1": "Prove which calls",
+        "title2": "actually drive revenue.",
+        "subtitle": "CallScope auto-links every cold call to the matching HubSpot deal. See per caller, per lead source and per appointment: who books, who closes, and what one deal really costs.",
+        "ctaPrimary": "Start free trial →",
+        "ctaSecondary": "How it works",
+        "smallPrint": "14 days free · No credit card · Read-only HubSpot integration",
+        "screenshotAlt": "CallScope dashboard for call center managers"
+      },
+      "audience": {
+        "eyebrow": "Who it's for",
+        "title": "Two sides of the same story",
+        "subtitle": "Are you cold-calling for clients? Or buying appointments? CallScope solves the same pain on both sides: lack of visibility and lack of structure.",
+        "callCenters": {
+          "title": "For call centers & appointment setters",
+          "desc": "Cold callers, freelance setters, call center managers. Finally get a grip on your conversion, share reports clients are happy to receive, and stop maintaining Excel reports by hand.",
+          "cta": "Read more →"
+        },
+        "salesTeams": {
+          "title": "For sales teams & end clients",
+          "desc": "Sales reps, sales managers, companies buying appointments. Get qualified leads instead of cold calls, give feedback in seconds, and see the funnel without exporting spreadsheets.",
+          "cta": "Read more →"
+        },
+        "agencies": {
+          "title": "Outbound agencies & freelance setters",
+          "desc": "One dashboard, multiple client projects. Prove per client exactly which appointments drive revenue — and sell your value with data, not stories.",
+          "cta": "For agencies & setters →"
+        }
+      },
+      "features": {
+        "eyebrow": "What it does",
+        "title": "Three things you still do by hand",
+        "sync": {
+          "label": "01 · Get the data in",
+          "title": "Google Sheets, CSV, Lemlist or HubSpot — your call",
+          "desc": "Cold callers stay in the tool they already use — a Google Sheet, a CSV export, or Lemlist's task list. CallScope syncs nightly, automatically. No exports, no manual uploads, no mismatches.",
+          "bullet1": "One Excel template all your callers can start with",
+          "bullet2": "Automatic dedup: same lead twice? One lead, two calls",
+          "bullet3": "Custom fields per project — your own columns, your own analytics",
+          "alt": "Upload page with column mapping"
+        },
+        "ai": {
+          "label": "02 · AI runs the analysis",
+          "title": "Objections, conversion and patterns — automatic",
+          "desc": "GPT-4o reads your call notes, detects the top objections, computes your conversion rate at every funnel step, and writes a readable summary. No more wasting time gluing reports together.",
+          "bullet1": "Top objections with trend over time",
+          "bullet2": "Funnel: called → reached → appointment → deal",
+          "bullet3": "Insights into lead quality per source",
+          "alt": "Sales overview with conversion funnel and AI insights"
+        },
+        "hubspot": {
+          "label": "03 · HubSpot closes the loop",
+          "title": "Deal stages come from HubSpot. Automatically.",
+          "desc": "The sales manager connects HubSpot once. CallScope finds the matching contact + deal for every appointment and pulls the stage daily. AI maps it to an outcome (won / lost / quote / no-show). No more double reporting.",
+          "bullet1": "Zero-risk: read-only by design — we never write to your CRM",
+          "bullet2": "Match on email or phone number",
+          "bullet3": "Sync-now button when you don't want to wait on the cron",
+          "alt": "HubSpot integration in CallScope"
+        }
+      },
+      "pricingTeaser": {
+        "eyebrow": "Pricing",
+        "title": "€49 per month, per project",
+        "desc": "14 days free trial on your first project. No credit card needed to start. Cancel monthly via Stripe — no annual contracts, no lock-in.",
+        "ctaPrimary": "Full pricing & FAQ →",
+        "ctaSecondary": "Start now"
+      },
+      "finalCta": {
+        "title": "Ready to be done with Excel — and gut feeling?",
+        "desc": "Account creation takes under a minute. First project: 14 days free, no credit card. Auto-expires — no surprises, no hidden subscription.",
+        "ctaPrimary": "Start free →",
+        "ctaSecondary": "Read the steps first"
+      },
+      "hubspotSpotlight": {
+        "eyebrow": "Killer feature",
+        "title": "From appointment to deal-stage, automatically.",
+        "desc": "Other tools show what your callers do. CallScope shows what their work produces. Every appointment auto-links to the right HubSpot deal — when that deal moves stages, you instantly see which caller, which lead source and which appointment created value.",
+        "readOnlyBadge": "Read-only · We never write to your CRM",
+        "flowStep1Title": "1. Cold caller books an appointment",
+        "flowStep1Desc": "Via HubSpot calls, Google Sheets or Lemlist — CallScope reads automatically.",
+        "flowStep2Title": "2. AI matches contact + deal",
+        "flowStep2Desc": "Email or phone → linked HubSpot deal. No manual joining.",
+        "flowStep3Title": "3. Deal-stage changes? → outcome update",
+        "flowStep3Desc": "AI maps to quote / deal / lost / no-show. Synced daily.",
+        "flowStep4Title": "4. Real ROI per caller, lead source, project",
+        "flowStep4Desc": "Stop arguing about lead quality. The data speaks.",
+        "cta": "See the full flow →"
+      },
+      "caseStudy": {
+        "eyebrow": "First results",
+        "title": "What CallScope has already delivered in our own client projects",
+        "desc": "We built CallScope first for our own outbound projects. No secret marketing numbers — just what we concretely measured the first few weeks.",
+        "metric1Value": "~4h/week",
+        "metric1Label": "less time spent on client reporting per project",
+        "metric2Value": "100%",
+        "metric2Label": "automated objection detection, zero manual tagging",
+        "metric3Value": "0",
+        "metric3Label": "Excel files shared via Slack or email — ever again",
+        "quote": "First time I can show a client that their best lead source converts 2.3x better than their cheapest — with numbers, not gut feeling.",
+        "quoteAuthor": "Arne · founder & first user"
+      }
+    },
+    "pricing": {
+      "metaTitle": "Pricing · CallScope",
+      "metaDescription": "€49 per month per project, 14-day free trial, cancel monthly. No lock-in, no annual contracts.",
+      "hero": {
+        "badge": "💸 Fairly priced",
+        "title1": "One plan, no tiers,",
+        "title2": "no surprises.",
+        "subtitle": "€49 per month per project. Everything included. Cancel monthly. First project is 14 days free — to be sure it fits."
+      },
+      "plan": {
+        "header": "Per project, per month",
+        "perMonth": "/month",
+        "taxNote": "Excl. 21% VAT · Per project · Cancel monthly",
+        "cta": "Start your free trial →",
+        "features": [
+          "Unlimited cold callers, sales reps & managers",
+          "Unlimited calls per month",
+          "Google Sheets sync (daily + on-demand)",
+          "HubSpot integration for deal-stage tracking",
+          "AI objection detection and pattern spotting",
+          "Custom fields up to 10 per project",
+          "Client reports via share link or PDF",
+          "Email reports to clients",
+          "Multi-role dashboards",
+          "Belgian support, Belgian product"
+        ]
+      },
+      "couponNote": "🎁 Request your tester coupon (first month free) at arne@halcoservices.be — early adopters only.",
+      "faq": {
+        "eyebrow": "Frequently asked questions",
+        "title": "Everything else you might want to know",
+        "contactPre": "Question not answered?",
+        "contactLink": "Email Arne directly",
+        "items": [
+          {
+            "q": "What is a \"project\"?",
+            "a": "One project = one call campaign. A call center working for three clients has three projects in CallScope. A freelancer calling for two clients has two. Pricing is €49 per project per month."
+          },
+          {
+            "q": "Do I really get 14 days free?",
+            "a": "Yes, on your first project. No credit card needed. The trial expires automatically after 14 days — no surprise invoice. You only pay once you activate a subscription. A second project requires an active subscription right away."
+          },
+          {
+            "q": "Can I cancel monthly?",
+            "a": "Yes. Through your Stripe customer portal you can cancel or pause anytime. Access continues until the end of the paid month. No annual contracts, no lock-in."
+          },
+          {
+            "q": "What's included?",
+            "a": "Everything. Unlimited cold callers, sales reps and sales managers per project. Unlimited calls. Google Sheets sync, HubSpot integration, AI objection detection, custom fields, client reports via share link or PDF, mail reports — all included. No hidden tier system."
+          },
+          {
+            "q": "Do I get an invoice?",
+            "a": "Yes. Stripe automatically generates an invoice after each payment, with your VAT number if you provide it. 21% Belgian VAT is calculated automatically. Invoices can be downloaded via the customer portal, and are also emailed."
+          },
+          {
+            "q": "Which payment methods do you support?",
+            "a": "Bancontact, card (Visa / Mastercard / Amex), iDEAL, and SEPA debit. All via Stripe. No bank transfers — the system has to automate."
+          },
+          {
+            "q": "Does CallScope work for solo freelancers?",
+            "a": "Absolutely. At registration choose \"freelance appointment setter\" — you automatically get your own call center and you're immediately your own cold caller. One login, all the data, the same €49 per month per project."
+          },
+          {
+            "q": "What if I delete my project?",
+            "a": "Your subscription on that project is automatically cancelled. You don't pay anything more. The data is wiped along with it (uploads, calls, appointments, feedback) — so only delete if you really don't need it anymore."
+          },
+          {
+            "q": "Does the trial apply to every new project?",
+            "a": "No. One trial per account. Your first project gets 14 days free; from the second project on you have to subscribe right away. This prevents abuse (people creating new projects every 14 days)."
+          },
+          {
+            "q": "Is my data shared with other customers?",
+            "a": "Never. Each customer only sees their own data. We use Postgres Row-Level Security: even if someone hits the Supabase API directly, they can't see other customers' data. AI analysis happens per project and your notes are never used for model training."
+          },
+          {
+            "q": "Is there a discount for multiple projects?",
+            "a": "Not by default. Got 5+ projects and want to discuss? Email arne@halcoservices.be. We're reasonable."
+          },
+          {
+            "q": "How do I stop using CallScope?",
+            "a": "Open the customer portal, click \"Cancel subscription\". Done. No \"we'll miss you\" emails, no retention attempts."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Ready?",
+        "desc": "No credit card needed. No sales pitch. Create an account, connect your first sheet, and see if CallScope fits.",
+        "button": "Start free →"
+      }
+    },
+    "callCenters": {
+      "metaTitle": "For call centers & appointment setters · CallScope",
+      "metaDescription": "Stop with Excel reports. Get conversion overviews, automated client reports, and finally get a grip on your callers — as a call center, freelancer or agency.",
+      "hero": {
+        "badge": "📞 For call centers, agencies and freelancers",
+        "title1": "Excel is an abacus.",
+        "title2": "Time for something that counts.",
+        "subtitle": "Whether you have a team of 12 cold callers or work solo from your living room — CallScope gives you the overview your clients ask for, without spending Friday evenings hacking spreadsheets.",
+        "ctaPrimary": "Start your trial — 14 days free →",
+        "ctaSecondary": "How it works",
+        "screenshotAlt": "Project dashboard for call center managers"
+      },
+      "pains": {
+        "eyebrow": "Sound familiar?",
+        "title": "Three things eating your time",
+        "items": [
+          {
+            "emoji": "📊",
+            "title": "The Friday Excel marathon",
+            "body": "Notes scattered across WhatsApp, paper and a Google Sheet nobody fills in consistently. By the end of the week you've spent 2 hours making one report out of it."
+          },
+          {
+            "emoji": "🤔",
+            "title": "Client asks: \"how's it going?\"",
+            "body": "Honest answer? No idea. You have a feeling campaign X is doing well and Y is struggling, but hard numbers are missing. So you bluff a bit."
+          },
+          {
+            "emoji": "🔇",
+            "title": "Sales rep goes silent",
+            "body": "Your callers book appointments, hand them off, then silence. Was the appointment good? Did the client show up? Closed? You don't know — so you can't coach your callers."
+          }
+        ]
+      },
+      "dashboard": {
+        "label": "One dashboard",
+        "title": "Conversion, deals and objections — on one screen",
+        "desc": "How many leads called? How many reached? How many appointments? How many deals? You see the whole funnel in one card. Plus: what did people actually say? AI extracts the top objections from your call notes.",
+        "bullet1": "Filter by project or by cold caller",
+        "bullet2": "Forecast next week based on the last 30 days",
+        "bullet3": "Custom date ranges or \"this month\", \"7 days\", \"all\"",
+        "alt": "Dashboard for call center manager"
+      },
+      "sources": {
+        "label": "No workflow disruption",
+        "title": "Your callers keep working the way they're used to",
+        "desc": "No new interface to learn. Cold callers stay in their existing tool — Google Sheet, Lemlist or CSV export. You connect the source once to CallScope, and the sync happens nightly. Done.",
+        "bullet1Bold": "Google Sheets sync",
+        "bullet1": "— one sheet per cold caller, daily auto-sync",
+        "bullet2Bold": "Lemlist tasks",
+        "bullet2": "— completed call tasks are picked up automatically",
+        "bullet3Bold": "CSV / Excel upload",
+        "bullet3": "— for those not interested in a sync",
+        "bullet4": "Automatic dedup, custom fields per project, Excel template per project",
+        "alt": "Configuring Google Sheets integration"
+      },
+      "reports": {
+        "label": "Client report in 1 click",
+        "title": "Mailable reports clients call you for",
+        "desc": "Click \"Share report\" and you get a link to forward — or send it as PDF. The client sees conversion, top objections, AI summary, and a list of appointments booked. Sober, readable, in your branding.",
+        "bullet1": "Share link expires automatically after 90 days",
+        "bullet2": "Print-to-PDF for offline reports",
+        "bullet3": "Custom fields visible to the client",
+        "alt": "Client report to share"
+      },
+      "results": {
+        "eyebrow": "What you take away",
+        "title": "Time, transparency and clients who stay longer",
+        "stats": [
+          {
+            "stat": "~3h",
+            "label": "less reporting per week"
+          },
+          {
+            "stat": "0",
+            "label": "manual Excel tables"
+          },
+          {
+            "stat": "100%",
+            "label": "visibility on your callers and deals"
+          }
+        ],
+        "note": "Clients who see their numbers weekly don't switch to competitors. Cold callers who see their conversion get better. And you get your first Friday evening without Excel."
+      },
+      "finalCta": {
+        "title": "Try it for 14 days",
+        "desc": "Create a free account, connect your first Google Sheet (or upload a CSV), and within 5 minutes see where your call campaign stands. No card, no commitment.",
+        "button": "Start free →"
+      }
+    },
+    "salesTeams": {
+      "metaTitle": "For sales teams · CallScope",
+      "metaDescription": "Get qualified appointments instead of cold-calling yourself. Close the feedback loop with your call center, connect HubSpot, and see the funnel without spreadsheets.",
+      "hero": {
+        "badge": "🎯 For sales managers, sales reps and companies buying appointments",
+        "title1": "Stop cold-calling.",
+        "title2": "Start closing.",
+        "subtitle": "You hired a call center to book appointments for you. Good call. But now: how do you know the appointments you're getting are actually qualified? And how do you give feedback so the next batch is better?",
+        "ctaPrimary": "Ask your call center about CallScope →",
+        "ctaSecondary": "How it works",
+        "screenshotAlt": "Sales manager dashboard with conversion funnel"
+      },
+      "pains": {
+        "eyebrow": "Sound familiar?",
+        "title": "Three pain points of outsourced sales",
+        "items": [
+          {
+            "emoji": "🔁",
+            "title": "No feedback loop",
+            "body": "Your rep goes to the appointment, takes notes, and they vanish into an email or CRM note. The call center never hears whether the appointment was good. Next batch of leads: same mistakes."
+          },
+          {
+            "emoji": "🎲",
+            "title": "Lead quality is a gamble",
+            "body": "Sometimes you get 10 appointments with great companies. Sometimes 10 appointments with people who never have budget. What explains the difference? Nobody knows — there are no numbers."
+          },
+          {
+            "emoji": "📈",
+            "title": "The funnel is scattered",
+            "body": "Your sales rep tracks deals in HubSpot. The call center has Excel. You want an overview and have to glue it together yourself on Friday. So you stopped doing it."
+          }
+        ]
+      },
+      "appointments": {
+        "label": "Sales rep view",
+        "title": "Your appointments in one place, ready to give feedback",
+        "desc": "Every sales rep sees only their own appointments. Click one, give status, outcome and quality score. The caller learns from that feedback what a good lead is.",
+        "bullet1": "Filtered per rep — no clutter from others",
+        "bullet2": "Update status later as the deal evolves",
+        "bullet3": "Lead context (cold caller's notes) visible",
+        "alt": "Appointments overview for sales rep"
+      },
+      "hubspot": {
+        "label": "HubSpot integration",
+        "title": "Deal stages follow your appointment. Automatically.",
+        "desc": "The sales manager connects HubSpot once. From then on CallScope finds the matching contact + deal in HubSpot for every appointment, pulls the stage, and maps it to an outcome. Double reporting = over.",
+        "bullet1": "Read-only: CallScope never writes to your HubSpot",
+        "bullet2": "Match on email or phone — fuzzy enough for BE formats",
+        "bullet3": "AI maps your HubSpot stages to won / lost / quote / no-show",
+        "alt": "Configuring HubSpot integration in CallScope"
+      },
+      "manager": {
+        "label": "Manager view",
+        "title": "Funnel, deal rate and performance per rep — on one screen",
+        "desc": "Which of your reps converts best? Which lead source gives the highest deal rate? How is your conversion evolving week over week? Without Excel exports.",
+        "bullet1": "Performance comparison between sales reps",
+        "bullet2": "Forecast next week based on the last 30 days",
+        "bullet3": "Filter by project, date, or \"this month\"",
+        "alt": "Sales manager dashboard with deal rate and forecast"
+      },
+      "results": {
+        "eyebrow": "What you take away",
+        "title": "Better leads, faster reps, no more Excel",
+        "stats": [
+          {
+            "stat": "+",
+            "label": "qualified appointments (because callers learn from feedback)"
+          },
+          {
+            "stat": "0",
+            "label": "spreadsheets to manually update"
+          },
+          {
+            "stat": "1",
+            "label": "overview of your entire outbound funnel"
+          }
+        ]
+      },
+      "paths": {
+        "eyebrow": "Next step",
+        "title": "Three ways to use CallScope",
+        "items": [
+          {
+            "title": "1. Ask your current call center to use CallScope",
+            "body": "Forward this page. They create an account, add you as sales manager, and you see your appointments from day 1."
+          },
+          {
+            "title": "2. Got an internal sales rep who calls?",
+            "body": "Create your own account as call center manager (same price), and use it to track your own team. Works solo too."
+          },
+          {
+            "title": "3. Working with multiple call centers?",
+            "body": "Each call center connects their own project to you as sales manager. One CallScope login, all external campaigns in one funnel."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Ready for more visibility?",
+        "desc": "Create an account, connect HubSpot, and wait for your call center to add you to a project. Or give them a call to spin up CallScope.",
+        "ctaPrimary": "Create account →",
+        "ctaSecondary": "View pricing"
+      }
+    },
+    "howItWorks": {
+      "metaTitle": "How it works · CallScope",
+      "metaDescription": "Step-by-step: from an empty CallScope account to a fully synced outbound flow with cold callers, sales reps and HubSpot.",
+      "hero": {
+        "badge": "📋 Step plan",
+        "title": "How it works — ",
+        "title2": "from A to Z",
+        "subtitle": "Eight steps. From an empty CallScope account to a fully synced outbound flow with cold callers, sales reps and HubSpot. Estimate: 30 minutes setup for a complete project."
+      },
+      "steps": [
+        {
+          "n": "1",
+          "who": "Call center manager",
+          "title": "Create an account and set up your call center",
+          "body": "Register for free at callscope.be as a call center manager. You get a 14-day free trial on your first project — no credit card needed to start. Give your call center a name (BelPro Ghent, Acme Calling, …) and you're ready.",
+          "bullets": [
+            "Account creation takes 30 seconds",
+            "No card, no lock-in",
+            "Trial expires automatically after 14 days — no surprises"
+          ]
+        },
+        {
+          "n": "2",
+          "who": "Call center manager",
+          "title": "Create your first project via the wizard",
+          "body": "A project = one campaign for one client. The wizard asks: how do leads come in (manual upload or Google Sheets)? How does feedback come in (manually by sales rep or automatically via HubSpot)? Who's in the team? Click through and the project is set.",
+          "bullets": [
+            "Four steps: basics, sources, members, confirm",
+            "Custom fields per project (deal value, event type, industry, …)",
+            "Default sales rep for automatic assignment"
+          ],
+          "screenshot": "/screenshots/Project_Settings_CC_Manager.png",
+          "alt": "Project settings after the wizard"
+        },
+        {
+          "n": "3",
+          "who": "Call center manager",
+          "title": "Invite your team via email",
+          "body": "In the wizard you simply type the email addresses of your cold callers, sales reps and sales managers. Existing CallScope users are added directly. New emails get an invitation mail with a link to create their account — without them having to register themselves.",
+          "bullets": [
+            "No self-service for cold callers / sales reps — you stay in control",
+            "Invite link expires after 7 days",
+            "Added members see the right pages on their dashboard immediately"
+          ]
+        },
+        {
+          "n": "4",
+          "who": "Cold caller",
+          "title": "Cold caller calls and keeps their sheet",
+          "body": "Cold callers download CallScope's Excel template (or work in a Google Sheet the manager connects). While calling: one row per lead with name, phone, status and notes. No extra app. No workflow disruption.",
+          "bullets": [
+            "Excel template per project, with the right columns prefilled",
+            "Valid status values predefined",
+            "Cold caller does NOT need to know anything about deal stages"
+          ],
+          "screenshot": "/screenshots/Manuele_Upload_CC_Manager.png",
+          "alt": "Upload page for cold caller"
+        },
+        {
+          "n": "5",
+          "who": "CallScope · automatic",
+          "title": "Sync: data comes in and gets analyzed",
+          "body": "Does your team work in Google Sheets? Then CallScope syncs every night automatically — or you click \"Sync now\" if you don't want to wait. Manual upload? Then you import the CSV/Excel and CallScope maps the columns automatically. AI analyses the notes and surfaces the top objections.",
+          "bullets": [
+            "Daily cron + manual \"Sync now\" button",
+            "AI objection detection via GPT-4o",
+            "Automatic dedup if the same lead appears twice"
+          ]
+        },
+        {
+          "n": "6",
+          "who": "Sales rep",
+          "title": "Sales rep gets their appointments in one place",
+          "body": "Every sales rep sees only their own appointments in CallScope. The cold caller booked the appointment — the rep sees lead name, contact details, the caller's notes, and the appointment date. One click to give feedback after the meeting.",
+          "bullets": [
+            "Filtered per rep, other reps don't see your deals",
+            "Status (planned / done / no-show / cancelled) + outcome",
+            "Notes + quality score for the cold caller"
+          ],
+          "screenshot": "/screenshots/Afspraken_Sales_manager.png",
+          "alt": "Appointments overview for sales rep"
+        },
+        {
+          "n": "7",
+          "who": "Sales manager",
+          "title": "Sync HubSpot for automatic deal stages",
+          "body": "Does your sales manager have HubSpot? One-time connect via Account → Integrations. From then on CallScope finds the matching contact + deal in HubSpot for every appointment, pulls the stage (Closed Won, Quote Sent, ...) and maps it to an outcome via AI. Sales reps don't even have to type feedback anymore — it comes automatically from HubSpot.",
+          "bullets": [
+            "OAuth connection, read-only",
+            "Match on email or phone",
+            "Daily cron + manual sync button"
+          ],
+          "screenshot": "/screenshots/Integraties_Sales_manager.png",
+          "alt": "Configuring HubSpot integration"
+        },
+        {
+          "n": "8",
+          "who": "Everyone",
+          "title": "Everyone sees their dashboard — end client sees the report",
+          "body": "Cold caller sees their own performance, sales rep sees their appointments, sales manager sees the funnel, call center manager sees everything. The call center's clients get a share link or PDF report — sober, readable, in your branding.",
+          "bullets": [
+            "Multi-role: every user gets the right view",
+            "Custom date ranges, project filters, per-rep filters",
+            "Client report via share link or PDF"
+          ],
+          "screenshot": "/screenshots/Report_CC_Manager.png",
+          "alt": "Client report to share"
+        }
+      ],
+      "finalCta": {
+        "title": "Start at step 1",
+        "desc": "14 days free. No card. No lock-in. If it doesn't work for your setup — just let it expire.",
+        "ctaPrimary": "Create your account →",
+        "ctaSecondary": "Look at pricing first"
+      }
+    },
+    "agencies": {
+      "metaTitle": "For outbound agencies & freelance setters — CallScope",
+      "metaDescription": "One dashboard for your entire client portfolio. Prove per client exactly which appointments drive revenue — and sell your value with data.",
+      "hero": {
+        "badge": "For outbound agencies, BDR teams & freelance setters",
+        "title1": "One dashboard.",
+        "title2": "Multiple clients. Real proof.",
+        "subtitle": "CallScope is built for people who sell outbound work to other businesses. Per client project you see live what your callers deliver — linked to the real deals in their HubSpot. Stop arguing about lead quality. Show it.",
+        "ctaPrimary": "Start free trial →",
+        "ctaSecondary": "See pricing",
+        "screenshotAlt": "CallScope agency dashboard with multiple client projects"
+      },
+      "pains": {
+        "eyebrow": "Sound familiar?",
+        "title": "Selling outbound without data is a nightmare",
+        "items": [
+          {
+            "emoji": "💬",
+            "title": "Monthly fights about lead quality",
+            "body": "Client says 'your leads don't convert'. You say 'you don't close them'. Nobody has numbers. Everyone loses time."
+          },
+          {
+            "emoji": "📊",
+            "title": "Reporting takes 4-6h per client per month",
+            "body": "Excel exports, HubSpot screenshots, a PDF nobody opens. Time you don't bill — and don't enjoy."
+          },
+          {
+            "emoji": "🤷",
+            "title": "No idea which lead source actually works",
+            "body": "Facebook ads, Apollo, LinkedIn Sales Nav, cold lists — you know which is expensive, not which delivers deals."
+          },
+          {
+            "emoji": "🚪",
+            "title": "Clients churn without warning",
+            "body": "Three months ago: 'great'. Today: a cancellation email. No measurable proof-of-value means: easy to replace."
+          }
+        ]
+      },
+      "solution": {
+        "eyebrow": "The solution",
+        "title": "What CallScope concretely does for agencies",
+        "items": [
+          {
+            "title": "Multi-project workspace",
+            "desc": "One CallScope account, one dashboard, unlimited client projects. Per client: separate data, separate reports, separate HubSpot."
+          },
+          {
+            "title": "Per-client HubSpot connection",
+            "desc": "Each client has their own HubSpot? No problem. One OAuth connection per project. Read-only: we never write to their CRM."
+          },
+          {
+            "title": "Automatic caller attribution",
+            "desc": "Match HubSpot owner-email to your CallScope team. Every call auto-assigned to the right setter — zero manual input."
+          },
+          {
+            "title": "Client report in one click",
+            "desc": "Generate a professional report (PDF or share-link) where your client sees everything: calls, appointments, deal stages, conversions. Weekly, monthly, on-demand."
+          }
+        ]
+      },
+      "results": {
+        "eyebrow": "The difference",
+        "title": "What changes for an agency using CallScope",
+        "stats": [
+          {
+            "stat": "~4h/week",
+            "label": "less reporting per client"
+          },
+          {
+            "stat": "0 fights",
+            "label": "about lead quality — the data speaks"
+          },
+          {
+            "stat": "100%",
+            "label": "AI-automated objection detection"
+          },
+          {
+            "stat": "Higher margins",
+            "label": "less time on admin, more on selling"
+          }
+        ]
+      },
+      "pricing": {
+        "eyebrow": "Pricing for agencies",
+        "title": "€49 per client project, per month",
+        "desc": "No seat licenses, no hidden costs. One amount per active client project. Project ended? Pause or cancel — monthly. First project is free for 14 days to test.",
+        "cta": "See pricing →"
+      },
+      "cta": {
+        "title": "Stop selling your value with stories.",
+        "subtitle": "Show with numbers what you deliver for clients. First project is free for 14 days, no credit card needed.",
+        "ctaPrimary": "Start your free trial →",
+        "ctaSecondary": "See pricing"
+      }
+    }
+  },
+  "nav": {
+    "openMenu": "Open menu",
+    "overview": "Overview",
+    "myTeam": "My team",
+    "upload": "Upload",
+    "projects": "Projects",
+    "appointments": "Appointments",
+    "planner": "Planner",
+    "integrations": "Integrations",
+    "logout": "Sign out",
+    "team": "Team",
+    "myCalls": "My calls",
+    "roles": {
+      "cold_caller": "Cold caller",
+      "cc_manager": "CC Manager",
+      "sales_rep": "Sales rep",
+      "sales_manager": "Sales manager"
+    }
+  },
+  "emails": {
+    "wrapper": {
+      "footer": "This email is from a real person — not an automated no-reply. Reply directly and you'll reach Arne (Halco Services)."
+    },
+    "welcome": {
+      "firstNameFallback": "there",
+      "subject": "Welcome to CallScope, {firstName}",
+      "headline": "Welcome to CallScope, {firstName}",
+      "bottomTip": "Stuck on something? Click the help button at the bottom-right of the app, or reply to this email.",
+      "cc_manager": {
+        "intro": "Glad to have you on board. As a call center manager you now get 14 days free to test CallScope on your first project — no card needed.",
+        "steps": [
+          "<strong>Create your first project.</strong> Decide how leads come in (Google Sheets or CSV upload) and how feedback flows (HubSpot or manual).",
+          "<strong>Invite your team by email.</strong> Cold callers, sales reps and sales managers get an invitation email — no self-service.",
+          "<strong>Run your first upload or connect a Google Sheet.</strong> From then on you see your conversion, top objections and deal rate live."
+        ],
+        "ctaPath": "/dashboard/projects/new",
+        "ctaLabel": "Create your first project →"
+      },
+      "cold_caller": {
+        "intro": "Your manager added you. Here's what you can do now:",
+        "steps": [
+          "<strong>Check your projects.</strong> Your dashboard shows which campaigns are active for you.",
+          "<strong>Work in your usual Google Sheet or upload a CSV.</strong> CallScope syncs daily automatically.",
+          "<strong>Track your conversion.</strong> See how many leads you've called, how many you reached, and how many appointments came out."
+        ],
+        "ctaPath": "/dashboard",
+        "ctaLabel": "Open my dashboard →"
+      },
+      "sales_rep": {
+        "intro": "Your manager added you as a sales rep. From now on you'll see your appointments in CallScope:",
+        "steps": [
+          "<strong>Open the Appointments page.</strong> All appointments scheduled in your name are listed there.",
+          "<strong>Give feedback after each appointment.</strong> Status, outcome, quality score and notes — useful to coach the cold callers.",
+          "<strong>Track your sales overview.</strong> Conversion funnel, deal rate and forecast for the week ahead."
+        ],
+        "ctaPath": "/dashboard/appointments",
+        "ctaLabel": "Go to my appointments →"
+      },
+      "sales_manager": {
+        "intro": "As a sales manager you run your sales team and track the performance of each rep. Three first steps:",
+        "steps": [
+          "<strong>Connect HubSpot</strong> (optional) so deal stages are read automatically from your CRM — no more double reporting.",
+          "<strong>Open the sales overview.</strong> Conversion funnel, deal rate and performance per rep, filterable per project.",
+          "<strong>Review team appointments.</strong> Filter per rep to see individual performance."
+        ],
+        "ctaPath": "/dashboard/sales",
+        "ctaLabel": "Go to my dashboard →"
+      }
+    },
+    "tip": {
+      "firstNameFallback": "there",
+      "subject": "How's CallScope going, {firstName}?",
+      "headline": "How's it going, {firstName}?",
+      "intro": "Three days ago you started with CallScope. These are the three things new users ask us most:",
+      "card1Title": "📊 \"Where do I see my conversion?\"",
+      "card1Body": "Open your dashboard and pick a date range at the top (\"7 days\", \"30 days\", \"this month\", or a custom range). The funnel shows called → reached → appointment → deal at a glance.",
+      "card2Title": "📥 \"How do I share a report with my client?\"",
+      "card2Body": "On the project page there's a \"Report\" button. One click and you have a share link or PDF you can email. Expires automatically after 90 days.",
+      "card3Title": "🤖 \"How does AI objection detection work?\"",
+      "card3Body": "On every upload detail page you'll find the top objections GPT-4o pulls from your call notes. The more notes, the sharper the insights.",
+      "ctaPath": "/hoe-het-werkt",
+      "ctaLabel": "View the full A→Z guide →",
+      "bottomTip": "Stuck on something? Click the help button at the bottom-right of the app — it goes straight to me."
+    },
+    "trialReminder": {
+      "firstNameFallback": "there",
+      "subject": "Your trial on {projectName} expires on {date}",
+      "headline": "Your trial is almost over",
+      "body1": "Hi {firstName}, your free trial on the project <strong>{projectName}</strong> expires on <strong>{date}</strong>.",
+      "body2": "Want to keep using CallScope? Activate a subscription (€49/month, cancel monthly) so your sync, reports and data don't get interrupted.",
+      "ctaPath": "/dashboard/projects",
+      "ctaLabel": "Activate subscription →",
+      "bottomTip": "Not interested? No problem — you don't need to do anything, the trial expires automatically. No charges, no surprises."
+    },
+    "invite": {
+      "subject": "Invitation: {projectName} on CallScope",
+      "headline": "You've been invited to {projectName}",
+      "body": "{inviter} invites you to join the project {projectName} on CallScope as {role}.",
+      "linkPrompt": "Create your account and activate your invitation:",
+      "ctaLabel": "Create account →",
+      "fallback": "Or paste this link into your browser:",
+      "expires": "This invitation expires in 7 days.",
+      "roles": {
+        "cold_caller": "cold caller",
+        "sales_rep": "sales rep",
+        "sales_manager": "sales manager"
+      }
+    },
+    "added": {
+      "subject": "You've been added to {projectName}",
+      "headline": "You've been added to {projectName}",
+      "bodyWithName": "Hi {firstName}, {inviter} added you as {role} to the project {projectName}.",
+      "bodyNoName": "{inviter} added you as {role} to the project {projectName}.",
+      "ctaPath": "/dashboard",
+      "ctaLabel": "Open dashboard →",
+      "inviterFallback": "a team member",
+      "roles": {
+        "cold_caller": "cold caller",
+        "sales_rep": "sales rep",
+        "sales_manager": "sales manager"
+      }
+    },
+    "weeklyHours": {
+      "firstNameFallback": "there",
+      "subjectSingle": "Confirm your hours for this week — 1 project",
+      "subjectPlural": "Confirm your hours for this week — {count} projects",
+      "headline": "Confirm this week's hours, {firstName}",
+      "intro": "It's Friday evening — time to confirm the hours worked this week. Click a project below to confirm or adjust hours per cold caller. The preset from your project settings is pre-filled; one click and you're done.",
+      "outro": "This ensures cost metrics on sales dashboards and client reports are based on the actual hours worked this week.",
+      "unsubscribe": "Don't want to receive these emails anymore? Remove the rates from your project settings and the email stops automatically."
+    }
+  },
+  "auth": {
+    "login": {
+      "subtitle": "Welcome back",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "name@company.com",
+      "passwordLabel": "Password",
+      "passwordForgot": "Forgot?",
+      "submit": "Sign in",
+      "submitting": "Signing in...",
+      "noAccount": "No account yet?",
+      "register": "Register",
+      "error": "Invalid email address or password."
+    },
+    "register": {
+      "subtitle": "Create your call center account",
+      "info": "Cold caller, sales rep or sales manager? You'll get an invitation email from your manager with a link to create your account — no need to register yourself.",
+      "infoBold": "Cold caller, sales rep or sales manager?",
+      "fullNameLabel": "Full name",
+      "fullNamePlaceholder": "Jane Doe",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "name@company.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "At least 8 characters",
+      "roleLabel": "Your role",
+      "submit": "Create account",
+      "submitting": "Creating account...",
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "roleCcManager": {
+        "label": "Call center manager",
+        "description": "I run a call center with multiple callers"
+      },
+      "roleFreelance": {
+        "label": "Freelance appointment setter",
+        "description": "I work solo — cold caller and manager in one"
+      }
+    },
+    "forgotPassword": {
+      "subtitle": "Reset password",
+      "intro": "Enter your email and we'll send you a link to set a new password.",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "name@company.com",
+      "submit": "Send reset link",
+      "submitting": "Sending...",
+      "backToLogin": "← Back to sign in",
+      "sentTitle": "Check your inbox",
+      "sentBody": "We've sent a reset link to {email}. Click it to set a new password.",
+      "sentTip": "Nothing received? Check your spam folder, or wait 1-2 minutes."
+    },
+    "resetPassword": {
+      "subtitle": "Set a new password",
+      "intro": "Choose a new password for your account.",
+      "newLabel": "New password",
+      "newPlaceholder": "At least 8 characters",
+      "confirmLabel": "Confirm password",
+      "confirmPlaceholder": "Same as above",
+      "submit": "Change password",
+      "submitting": "Saving...",
+      "errorMismatch": "Passwords don't match.",
+      "errorTooShort": "Password must be at least 8 characters long.",
+      "expiredTitle": "Link expired or invalid",
+      "expiredBody": "The reset link is no longer valid. Request a new one.",
+      "expiredCta": "Request a new link",
+      "checkingSession": "Checking session..."
+    },
+    "verifyEmail": {
+      "title": "Check your inbox",
+      "bodyWithEmail": "Thanks for registering! We've sent a confirmation email to {email}. Click the link in that email to activate your account.",
+      "bodyNoEmail": "Thanks for registering! We've sent a confirmation email. Click the link in that email to activate your account.",
+      "noMailLabel": "No email received?",
+      "tip1": "Check your spam folder",
+      "tip2": "Wait 1-2 minutes — sometimes it takes a moment",
+      "tip3": "Click below to resend the email",
+      "resend": "Resend the email",
+      "resending": "Sending...",
+      "resent": "✓ Sent again",
+      "noEmailAvailable": "Email address not available — sign in to resend.",
+      "alreadyActivated": "Account already activated?",
+      "signIn": "Sign in →",
+      "backToRegister": "← Back to register",
+      "loading": "Loading..."
+    },
+    "acceptInvite": {
+      "subtitle": "Accept invitation",
+      "checking": "Checking invitation…",
+      "invalidTitle": "Invitation not valid",
+      "noToken": "No invitation token provided.",
+      "notFound": "Invitation not found or already used.",
+      "toLogin": "Go to sign in",
+      "expiredTitle": "Invitation expired",
+      "expiredBody": "This invitation is more than 7 days old. Ask {inviter} to send a new one.",
+      "expiredFallback": "your manager",
+      "invitedBy": "{inviter} invites you as {role} for the project {project}.",
+      "inviterFallback": "A manager",
+      "emailLabel": "Email address",
+      "emailLocked": "Fixed — set on the invitation",
+      "fullNameLabel": "Full name",
+      "fullNamePlaceholder": "Jane Doe",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "At least 8 characters",
+      "submit": "Create account & sign in",
+      "submitting": "Creating account…",
+      "errorTooShort": "Password must be at least 8 characters long.",
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "loading": "Loading…",
+      "roles": {
+        "cold_caller": "cold caller",
+        "sales_rep": "sales rep",
+        "sales_manager": "sales manager"
+      }
+    }
+  },
+  "dashboard": {
+    "billing": {
+      "back": "Back to projects",
+      "title": "Activate subscription",
+      "subtitle": "Activate a paid subscription so you can keep using sync, uploads and all data features.",
+      "cancelled": "Checkout cancelled. No worries — you're only charged after a successful payment.",
+      "noProject": "No project selected. Open the billing page from a specific project.",
+      "checkoutFailed": "Checkout failed",
+      "planTitle": "CallScope project — €49 / month",
+      "planTaxNote": "(excl. VAT)",
+      "feature1": "Unlimited cold callers, sales reps and sales managers per project",
+      "feature2": "Daily Google Sheets sync per caller",
+      "feature3": "AI-driven call analysis and deal-stage classification",
+      "feature4": "Cross-team dashboards for cc managers, sales reps and sales managers",
+      "feature5": "Weekly reports by email",
+      "ctaLoading": "Redirecting…",
+      "cta": "Activate subscription via Stripe",
+      "smallPrint": "Cancel monthly. First 14 days free per project. Secure payment via Stripe. VAT calculated automatically based on your address (B2B with valid VAT number = reverse charge).",
+      "alreadyActive": "Already have an active subscription? Manage it in your",
+      "accountSettings": "account settings"
+    },
+    "funnel": {
+      "title":           "Conversion funnel",
+      "called":          "Called",
+      "reached":         "Reached",
+      "appointments":    "Appointments",
+      "deals":           "Deals",
+      "totalBase":       "100% (base)",
+      "stepConversion":  "{pct}% of previous step",
+      "empty":           "No calls in this period yet."
+    },
+    "deals": {
+      "breakdown": {
+        "title": "Dealstages breakdown",
+        "subtitle": "Distribution of {total} {total, plural, =1 {appointment} other {appointments}} in this period.",
+        "awaitingBanner": "{count} of {total} appointments ({pct}%) are still awaiting feedback from the sales rep.",
+        "upcomingBanner": "{count} of {total} appointments ({pct}%) are still in the future — feedback is expected later.",
+        "allAwaiting": "All appointments are still awaiting feedback. Ask the sales rep to mark their outcomes.",
+        "withFeedback": "with feedback",
+        "labels": {
+          "won":         "Won",
+          "offerte":     "Quote pending",
+          "in_progress": "Follow-up",
+          "no_show":     "No show",
+          "lost":        "Lost",
+          "upcoming":    "Upcoming",
+          "other":       "Awaiting feedback"
+        }
+      },
+      "perMonth": {
+        "title": "Deals per month — {year}",
+        "subtitle": "Full calendar year, independent of the date filter above. Each bar = one month, stacked by dealstage.",
+        "labels": {
+          "won":         "Won",
+          "offerte":     "Quote pending",
+          "in_progress": "Follow-up",
+          "no_show":     "No show",
+          "lost":        "Lost",
+          "upcoming":    "Upcoming",
+          "other":       "Awaiting feedback"
+        }
+      }
+    },
+    "team": {
+      "title": "Team overview",
+      "callersCount": "{count, plural, =1 {# caller} other {# callers}}",
+      "kpis": {
+        "leadsContacted": "Calls",
+        "reachRatio": "Reach rate",
+        "reachedSub": "{n} reached",
+        "appointments": "Appointments",
+        "conversionSub": "{n}% conv.",
+        "deals": "Deals (via sales)",
+        "dealsSub": "feedback from sales reps"
+      },
+      "funnel": {
+        "title": "Conversion funnel",
+        "called": "Called",
+        "reached": "Reached",
+        "appointments": "Appointments",
+        "deals": "Deals"
+      },
+      "teamChart": {
+        "titleCalls": "Calls per hour",
+        "titleReach": "Reach rate",
+        "subtitleCalls": "Average calls per worked hour, per cold caller per weekday.",
+        "subtitleReach": "% of calls that made contact, per cold caller per weekday.",
+        "toggleCalls": "Calls/h",
+        "toggleReach": "Reach rate",
+        "yAxisLeft": "calls / h",
+        "yAxisRight": "reach %",
+        "yAxisAppointments": "appointments",
+        "appointmentsLegendSuffix": "(appointments)",
+        "appointmentsUnit": "appointments",
+        "unitCallsPerHour": "calls/h",
+        "footer": "Hours via confirmed weekly hours (Mon-Fri). Only days with at least 20 calls get a datapoint. Hover a point to see appointments for that day. Top 8 callers by appointments.",
+        "emptyCalls": "No confirmed hours for this period. Enter the worked hours to see calls/h.",
+        "emptyCallsCta": "Enter hours for this week",
+        "emptyReach": "No day in this period has at least 20 calls."
+      },
+      "performance": {
+        "title": "Caller performance",
+        "empty": "No uploads from your callers yet.",
+        "headers": {
+          "caller": "Caller",
+          "leads": "Calls",
+          "reached": "Reached",
+          "appointments": "Appointments",
+          "conv": "Conv.",
+          "quality": "Quality",
+          "deals": "Deals"
+        },
+        "uploadsCount": "{count, plural, =1 {# upload} other {# uploads}}",
+        "coachingLoading": "Loading coaching…",
+        "drilldown": {
+          "stats": "Statistics",
+          "callbacks": "Callbacks",
+          "noShows": "No-shows",
+          "notReached": "Not reached",
+          "feedbackSales": "Sales feedback",
+          "lead": "Lead",
+          "noFeedback": "No feedback from sales yet.",
+          "moreItems": "+{n} more",
+          "uploadsLabel": "Uploads",
+          "noUploads": "No uploads in this period.",
+          "moreUploads": "+ {n} more"
+        }
+      },
+      "customFields": {
+        "title": "Custom fields — appointments vs. all leads",
+        "subtitle": "Per field, see how appointments compare to all calls in this project.",
+        "allLeads": "All leads",
+        "appointments": "Appointments",
+        "noData": "No data.",
+        "perWeek": "per week",
+        "filledCount": "{n} filled",
+        "topApptHint": "💡 Most appointments from",
+        "totalApptHint": "({appts}/{total} appointments, {rate}% conv.)",
+        "bestRate": "⭐ Best conversion:",
+        "bestRateValue": "({rate}%, n={n})",
+        "avgPrefix": "avg.",
+        "crossField": {
+          "title": "Cross-field observations",
+          "highest": "🔗 Highest avg.",
+          "lowest": "lowest:"
+        }
+      },
+      "customInsights": {
+        "title": "Insights on custom fields",
+        "aiDetected": "AI-detected"
+      },
+      "objections": {
+        "title": "Top objections in your team",
+        "aiDetected": "AI-detected",
+        "footer": "Use this to coach your callers on the most common objections.",
+        "reanalyse": "Re-analyse",
+        "reanalysing": "Running…",
+        "reanalyseSuccess": "✓ {n, plural, =1 {# upload} other {# uploads}} re-analysed. Refresh to see the new data.",
+        "reanalyseError": "Re-analyse failed",
+        "reanalyseConfirm": "Re-run GPT analysis on all uploads of this project? This takes a few minutes and uses GPT credits."
+      },
+      "noCallersEmpty": "No uploads from your callers yet. Add callers to a project and let them upload."
+    },
+    "greeting": "Hi {name} 👋",
+    "subtitle": "Review your calls, appointments and feedback from sales reps.",
+    "personalBadge": "My calls",
+    "personalSubtitle": "Personal overview — switch to Team in the sidebar to see manager features.",
+    "stats": {
+      "callsMade": "Leads called",
+      "reached": "Reached",
+      "appointments": "Appointments",
+      "conversion": "Conversion"
+    },
+    "actions": {
+      "newUpload": "New upload",
+      "newUploadDesc": "Import CSV or Excel",
+      "projects": "Projects",
+      "projectsDesc": "Overview of all campaigns"
+    },
+    "appointments": {
+      "loading": "Loading…",
+      "title": "Appointments",
+      "subtitleSales": "Give feedback on appointments so callers know the quality.",
+      "subtitleManager": "Overview of all planned appointments and their outcomes.",
+      "banner": {
+        "title": "{count, plural, =1 {# appointment has} other {# appointments have}} no sales rep yet",
+        "body": "Without a rep, nobody sees them in their personal dashboard. Set a",
+        "bodyLink": "default rep",
+        "bodyAfter": "for automatic assignment, or pick one below per appointment."
+      },
+      "filters": {
+        "toReview": "To review",
+        "all": "All",
+        "closed": "Closed"
+      },
+      "empty": {
+        "allDone": {
+          "title": "All done 🎉",
+          "body": "No more appointments to review. Well done — come back tomorrow."
+        },
+        "noneForRep": {
+          "title": "No appointments assigned to you yet",
+          "body": "As soon as a cold caller assigns your name as sales rep, it'll show up here — usually within 24h after the sync."
+        },
+        "noneForCaller": {
+          "title": "No appointments yet",
+          "body": "As soon as you mark a lead with status \"appointment\" in your sheet (or via Lemlist), it'll appear here. After that you'll also see sales rep feedback."
+        },
+        "noneGeneric": {
+          "title": "No appointments yet",
+          "body": "Appointments show up here as soon as cold callers create them (status \"Appointment\" in their upload or Google Sheet)."
+        }
+      },
+      "card": {
+        "unknownLead": "Unknown lead",
+        "appointmentPrefix": "Appt:",
+        "calledPrefix": "called",
+        "salesRepLabel": "Sales rep:",
+        "noRepAssigned": "⚠ No sales rep assigned",
+        "assignPrompt": "Assign…",
+        "changePrompt": "Change rep…",
+        "dealstageTooltip": "Auto-synced from sheet: \"{stage}\"",
+        "noFeedback": "No feedback",
+        "cancel": "Cancel",
+        "edit": "Edit",
+        "giveFeedback": "Give feedback",
+        "salesRepNotes": "Sales rep notes",
+        "dismiss": "Not an appointment",
+        "dismissing": "Removing…",
+        "dismissTooltip": "This call turned out not to be a real appointment — remove it from this list (the call itself is kept).",
+        "dismissConfirm": "Remove this appointment from the list? The call still counts in the call statistics, but no longer counts as an appointment. Any feedback will be discarded.",
+        "addDate": "Appointment date",
+        "editDateTooltip": "Click to change the appointment date",
+        "dateSave": "Save",
+        "dateSaving": "Saving…",
+        "dateClear": "Clear",
+        "dateCancel": "Cancel"
+      },
+      "statusOptions": {
+        "gepland": "Planned",
+        "uitgevoerd": "Completed",
+        "no_show": "No-show",
+        "geannuleerd": "Cancelled"
+      },
+      "outcomeOptions": {
+        "geen": "– None yet",
+        "offerte": "📄 Quote",
+        "deal": "✓ Deal",
+        "follow_up": "↩ Follow-up",
+        "verloren": "✗ Lost"
+      },
+      "form": {
+        "statusLabel": "Appointment status",
+        "outcomeLabel": "Outcome",
+        "qualityLabel": "Lead quality",
+        "qualityHelp": "(how good was the appointment the caller delivered?)",
+        "ratingNone": "–",
+        "ratingPoor": "Bad lead",
+        "ratingAvg": "Average",
+        "ratingGood": "Good lead",
+        "ratingPerfect": "Perfect lead",
+        "notesLabel": "Notes",
+        "notesPlaceholder": "What stood out during the appointment?",
+        "cancel": "Cancel",
+        "saving": "Saving…",
+        "save": "Save feedback"
+      },
+      "errors": {
+        "notLoggedIn": "Not logged in",
+        "saveFailed": "Save failed: {msg}",
+        "assignFailed": "Assignment failed: {msg}",
+        "dismissFailed": "Could not dismiss appointment: {msg}",
+        "dateSaveFailed": "Could not save appointment date: {msg}"
+      }
+    },
+    "upload": {
+      "detail": {
+        "loading": "Loading…",
+        "notFound": "Upload not found.",
+        "back": "Back",
+        "statusBadge": {
+          "done": "Done",
+          "processing": "Processing",
+          "error": "Error",
+          "pending": "Queued"
+        },
+        "kpis": {
+          "leadsContacted": "Leads contacted",
+          "reached": "Reached",
+          "appointments": "Appointments",
+          "callbacks": "Callbacks",
+          "convSuffix": "conv."
+        },
+        "customFields": {
+          "title": "Custom fields",
+          "noData": "No data",
+          "avgPrefix": "avg.",
+          "filledSuffix": "filled",
+          "samplePrefix": "filled"
+        },
+        "customInsights": {
+          "title": "Insights about custom fields",
+          "badge": "AI detected"
+        },
+        "aiReport": {
+          "title": "AI report",
+          "badge": "Auto-generated"
+        },
+        "objections": {
+          "title": "Top objections",
+          "badge": "Detected by AI"
+        },
+        "statusDistribution": {
+          "title": "Status distribution",
+          "appointments": "Appointments",
+          "callbacks": "Callbacks",
+          "voicemails": "Voicemails",
+          "notReached": "Not reached"
+        },
+        "feedback": {
+          "title": "Sales rep feedback",
+          "avgPrefix": "avg.",
+          "unknownLead": "Unknown lead",
+          "byPrefix": "By",
+          "awaitingMore": "{count, plural, =1 {# appointment is} other {# appointments are}} still awaiting feedback.",
+          "awaitingAll": "{count, plural, =1 {# appointment is} other {# appointments are}} still awaiting sales rep feedback."
+        },
+        "statusLabels": {
+          "gepland": "Planned",
+          "uitgevoerd": "Completed",
+          "no_show": "No-show",
+          "geannuleerd": "Cancelled"
+        },
+        "outcomeLabels": {
+          "deal": "Deal",
+          "offerte": "Quote",
+          "follow_up": "Follow-up",
+          "verloren": "Lost",
+          "geen": "None"
+        }
+      }
+    },
+    "sales": {
+      "loading": "Loading…",
+      "greeting": "Hello, {firstName} 👋",
+      "subtitle": "Sales overview for this project.",
+      "kpis": {
+        "leadsContacted": "Leads contacted",
+        "leadsContactedTip": "Total leads processed",
+        "reachRate": "Reach rate",
+        "reachedSuffix": "reached",
+        "reachRateTip": "Reached / total called",
+        "appointments": "Appointments",
+        "convSuffix": "conv.",
+        "appointmentsTip": "Appointments / reached",
+        "deals": "Deals",
+        "ofAppointments": "of appointments",
+        "noFeedbackYet": "No feedback yet",
+        "dealsTip": "Deals / appointments"
+      },
+      "funnel": {
+        "title": "Conversion funnel",
+        "called": "Called",
+        "reached": "Reached",
+        "appointments": "Appointments",
+        "deals": "Deals",
+        "noData": "No data yet for this project."
+      },
+      "outcomes": {
+        "title": "Outcomes",
+        "dealRate": "Deal rate: {rate}%",
+        "noFeedback": "No feedback data yet"
+      },
+      "aiInsights": {
+        "title": "Insights from conversations",
+        "badge": "AI detected",
+        "footer": "Based on AI analysis of notes from {count, plural, =1 {# upload} other {# uploads}}."
+      },
+      "forecast": {
+        "title": "Forecast next week",
+        "basedOn": "Based on {label}",
+        "label7d": "last 7 days",
+        "label30d": "last 30 days",
+        "labelThisMonth": "this month",
+        "labelWeek": "this week",
+        "labelCustom": "selected period",
+        "labelAll": "all data",
+        "expectedLeads": "Expected leads",
+        "expectedLeadsSub": "assuming 200/week",
+        "expectedAppointments": "Expected appointments",
+        "expectedAppointmentsSub": "{rate}% conv. of reached",
+        "expectedDeals": "Expected deals",
+        "expectedDealsSub": "{rate}% of appointments",
+        "expectedDealsNoData": "No deal data yet"
+      },
+      "noShow": {
+        "rateLabel": "{rate}% no-show rate.",
+        "highHint": "That's high — consider better lead qualification or a reminder email before the appointment.",
+        "lowHint": "Keep an eye on it."
+      },
+      "callers": {
+        "title": "Caller performance",
+        "leads": "leads",
+        "appointments": "appointments",
+        "conv": "conv."
+      },
+      "emptyState": {
+        "title": "No sales data yet",
+        "body": "As soon as cold callers create appointments on a project where you're sales_rep or sales_manager, the funnel, deal rate and forecast will appear here."
+      }
+    },
+    "projects": {
+      "loading": "Loading…",
+      "title": "Projects",
+      "subtitle": "Overview of all call campaigns.",
+      "newProject": "+ New project",
+      "billing": {
+        "monthlyCost": "Monthly cost",
+        "exclVat": "excl. VAT",
+        "active": "active",
+        "inTrial": "in trial",
+        "cancelled": "cancelled / inactive",
+        "managePortal": "Manage subscriptions →",
+        "managePortalTip": "Open the Stripe portal for invoices, cancellation, payment method",
+        "portalError": "Could not open portal"
+      },
+      "callCenterBanner": {
+        "title": "Create your call center first",
+        "body": "Before you can create projects, you need to register your call center.",
+        "button": "Create call center"
+      },
+      "callCenterInfo": {
+        "label": "Your call center"
+      },
+      "empty": {
+        "manager": {
+          "title": "Ready to set up your first project?",
+          "body": "A project = one call campaign for one client. First project is 14 days free, no card needed. Setup takes about 3 minutes.",
+          "cta": "Create your first project →",
+          "needCC": "Create your call center first (see banner above)."
+        },
+        "other": {
+          "title": "No projects assigned to you yet",
+          "body": "A call center manager needs to add you to a project. Forward them this email address — they can add you in a few clicks and you'll get an invitation email."
+        }
+      },
+      "card": {
+        "syncNow": "Sync now",
+        "syncing": "Syncing…",
+        "syncTip": "Pull today's data from all connected sources (Google Sheets, HubSpot, Lemlist)",
+        "settings": "Settings",
+        "settingsTip": "Project settings",
+        "report": "Report",
+        "reportTip": "View detailed report",
+        "active": "Active"
+      },
+      "members": {
+        "title": "Members",
+        "roles": {
+          "sales_manager": "Sales manager",
+          "sales_rep": "Sales rep",
+          "caller": "Caller",
+          "call_center": "Call center"
+        },
+        "removeTip": "Remove {name} from project"
+      },
+      "invite": {
+        "title": "Invite person",
+        "emailPlaceholder": "email address",
+        "roles": {
+          "caller": "Cold caller",
+          "sales_rep": "Sales rep",
+          "sales_manager": "Sales manager"
+        },
+        "roleDisabledTip": "Sales managers can only add sales reps",
+        "submit": "Add",
+        "submitting": "…",
+        "footer": "Existing users are added directly. New email addresses receive an invitation email to create their account."
+      },
+      "createCallCenter": {
+        "title": "Create call center",
+        "nameLabel": "Name of your call center",
+        "namePlaceholder": "e.g. BelPro Ghent",
+        "cancel": "Cancel",
+        "submit": "Create",
+        "submitting": "Creating…",
+        "notLoggedIn": "Not logged in",
+        "createFailed": "Could not create"
+      },
+      "report": {
+        "actions": {
+          "back": "← Back to projects",
+          "periodMonth": "Month",
+          "periodWeek": "Week",
+          "download": "Download PDF",
+          "send": "Send to client",
+          "sendModal": {
+            "title": "Send report",
+            "projectLabel": "Project: {name}",
+            "periodHintMonth": "Period: current calendar month",
+            "periodHintWeek": "Period: current calendar week (Mon → Sun)",
+            "clientNameLabel": "Client name",
+            "clientNameOptional": "(optional)",
+            "clientNamePlaceholder": "John Doe",
+            "clientEmailLabel": "Client email",
+            "clientEmailPlaceholder": "client@company.com",
+            "messageLabel": "Message",
+            "defaultMessage": "Hello,\n\nPlease find attached the report for project \"{projectName}\".\n\nKind regards,",
+            "cancel": "Cancel",
+            "send": "Send",
+            "sending": "Sending…",
+            "sendFailed": "Send failed",
+            "invalidEmail": "Enter a valid email address.",
+            "sentTo": "Sent to",
+            "emailFailedWarning": "Email could not be sent, but the share link is ready.",
+            "shareLinkLabel": "Share link",
+            "copyLink": "Copy link",
+            "close": "Close"
+          }
+        },
+        "view": {
+          "label": "CallScope",
+          "generatedOn": "Generated on",
+          "period": "Period",
+          "periodMonth": "Monthly overview",
+          "periodWeek": "Weekly overview",
+          "uploads": "Uploads",
+          "callersActive": "Callers active",
+          "results": "Results",
+          "kpi": {
+            "leads": "Leads called",
+            "reached": "Reached",
+            "reachRate": "{rate}% reach rate",
+            "appointments": "Appointments",
+            "convRate": "{rate}% conversion",
+            "deals": "Deals",
+            "dealRate": "{rate}% of appointments",
+            "noFeedback": "No feedback yet"
+          },
+          "funnel": {
+            "title": "Conversion funnel",
+            "called": "Called",
+            "reached": "Reached",
+            "appointments": "Appointments",
+            "deals": "Deals"
+          },
+          "outcomes": {
+            "title": "Outcomes",
+            "deals": "Deals",
+            "quotes": "Quotes",
+            "followUp": "Follow-up",
+            "lost": "Lost",
+            "noShows": "⚠ {count, plural, =1 {# no-show} other {# no-shows}} registered by sales reps."
+          },
+          "custom": {
+            "title": "Extra fields",
+            "noData": "No data",
+            "numberAvg": "avg. {avg} · {count} filled",
+            "dateCount": "{count} filled",
+            "textCount": "{count} filled"
+          },
+          "insights": {
+            "title": "Insights from extra fields",
+            "subtitle": "— detected by AI"
+          },
+          "perCaller": {
+            "title": "Per caller",
+            "empty": "No callers active on this project yet.",
+            "headers": {
+              "caller": "Caller",
+              "called": "Called",
+              "reached": "Reached",
+              "appointments": "Appointments",
+              "conversion": "Conv.",
+              "deals": "Deals"
+            }
+          },
+          "objections": {
+            "title": "Top objections",
+            "subtitle": "— detected by AI",
+            "aggregation": "Aggregated over {count, plural, =1 {# upload} other {# uploads}}."
+          },
+          "feedback": {
+            "title": "Recent feedback from sales reps",
+            "leadFallback": "Lead",
+            "byPrefix": "By {name} · ",
+            "callerLabel": "Caller: {name}"
+          },
+          "footer": "Report generated by CallScope · {date}",
+          "unknownCaller": "Unknown",
+          "emptyDate": "—"
+        },
+        "share": {
+          "expired": {
+            "title": "This link has expired",
+            "body": "Ask the sender for a new link."
+          },
+          "downloadPdf": "Download PDF",
+          "sharedBy": "Shared by {name}",
+          "sharedViaCallScope": "Shared via CallScope"
+        },
+        "cost": {
+          "title": "Time & cost",
+          "subtitle": "Based on hours confirmed by the cc_manager (preset as fallback).",
+          "totalHours": "Total hours",
+          "totalCost": "Total cost",
+          "totalDeals": "Total deals",
+          "hoursPerAppt": "Hours / appointment",
+          "hoursPerDeal": "Hours / deal",
+          "costPerLead": "Cost / lead",
+          "costPerAppt": "Cost / appointment",
+          "costPerDeal": "Cost / deal",
+          "perCallerTitle": "Per caller",
+          "presetTip": "Not confirmed — preset used",
+          "presetBadge": "ⓘ preset",
+          "empty": "—"
+        }
+      },
+      "settings": {
+        "loading": "Loading...",
+        "notFound": "Project not found",
+        "back": "Back to projects",
+        "subtitle": "Project settings",
+        "onboarding": {
+          "step": "1",
+          "hubspot": {
+            "title": "Project created — now connect HubSpot",
+            "body": "Scroll to <strong>HubSpot calls sync</strong> below, click <strong>Connect HubSpot for this project</strong> and then pick the contact list you want to sync. After that you automatically pull all calls + dealstages from HubSpot every night (or via Sync now)."
+          },
+          "google": {
+            "title": "Project created — now connect Google Sheets",
+            "body": "Scroll to <strong>Google Sheets per caller</strong> and link a sheet per cold caller."
+          },
+          "lemlist": {
+            "title": "Project created — now pick a Lemlist campaign",
+            "body": "Scroll to <strong>Lemlist campaign</strong> and pick the campaign whose tasks you want to sync."
+          }
+        },
+        "general": {
+          "title": "General",
+          "name": "Name",
+          "description": "Description",
+          "uniqueIdLabel": "Unique-ID column",
+          "uniqueIdNotMapped": "— not mapped yet",
+          "customFields": "Extra fields",
+          "createdAt": "Created on"
+        },
+        "members": {
+          "title": "Members",
+          "empty": "No members added yet.",
+          "roles": {
+            "sales_manager": "Sales manager",
+            "sales_rep": "Sales rep",
+            "caller": "Caller"
+          },
+          "manageHint": "Add or remove members via",
+          "manageLink": "the project on the projects page",
+          "unknownName": "Unknown"
+        },
+        "hubspot": {
+          "title": "HubSpot calls sync",
+          "subtitle": "Pick a HubSpot contact list. Calls on those contacts are synced daily.",
+          "helpSummary": "📖 How do I set up HubSpot for CallScope? (4 steps)",
+          "step1": {
+            "title": "1. Create a contacts list",
+            "body": "In HubSpot: <strong>CRM</strong> → <strong>Segments (Lists)</strong> → <strong>Create list</strong> → type <em>Contact-based</em>. Add the contacts your team cold-calls for this client. Save and pick it in the dropdown above."
+          },
+          "step2": {
+            "title": "2. Create an \"Appointment booked\" call outcome",
+            "intro": "By default HubSpot only has <em>Connected / Busy / No answer / Voicemail / Wrong number</em>. For CallScope we need at least one outcome whose name contains the word <strong>\"appointment\"</strong> (or \"afspraak\" if you use Dutch) — then CallScope automatically recognizes the call as an appointment.",
+            "li1": "HubSpot ⚙️ <strong>Settings</strong> (top right)",
+            "li2": "Sidebar → <strong>Tools</strong> → <strong>Calling</strong> → <strong>Call Setup</strong>",
+            "li3": "Tab <strong>Call Configurations</strong>",
+            "li4": "Next to <strong>\"Track call outcomes\"</strong> click <strong>✏️ Edit options</strong>",
+            "li5": "Click <strong>+ Add outcome</strong>, name: <code>Appointment booked</code> → Save",
+            "note": "Optional: also create outcomes \"Appointment no-show\", \"Appointment rescheduled\" etc. — anything with \"appointment\" in the name counts."
+          },
+          "step3": {
+            "title": "3. Log calls during cold-call",
+            "body": "On a contact page: <strong>Log activity</strong> → <strong>Call</strong> → pick the right outcome (e.g. <em>\"Appointment booked\"</em>) → optionally note details in the body → save. The call appears in CallScope after the next sync (manually via <strong>Sync now</strong> or automatically overnight)."
+          },
+          "step4": {
+            "title": "4. Deals + dealstages → automatic outcome detection",
+            "body": "When the sales rep does the appointment, they create a <strong>Deal</strong> in HubSpot for the contact and update the <strong>dealstage</strong> (e.g. <em>Appointment scheduled</em> → <em>Qualified</em> → <em>Closed won</em>). CallScope reads that stage daily and maps it via AI to <em>quote / deal / lost / no-show</em>. The result shows up on the <strong>team dashboard</strong> and the <strong>Appointments</strong> page."
+          },
+          "footer": "Ready? Test your setup by logging one call + creating one deal in HubSpot, then click <strong>Sync now</strong> on the team dashboard. The call should appear within seconds with the correct status."
+        },
+        "hoursBanner": {
+          "intro": "<strong>Confirm or correct hours?</strong> Open the confirmation page — you can navigate between weeks with the arrows to adjust earlier weeks.",
+          "open": "Open hours page →"
+        },
+        "template": {
+          "title": "Download the calling template",
+          "body": "An Excel file with the right columns for your project — Unique-ID{uniqueIdSuffix}, custom fields, and the names of your sales reps. Open it in Google Sheets and share with your cold callers. On sync, CallScope automatically recognizes all fields.",
+          "buttonTitle": "Download xlsx template",
+          "button": "Download"
+        },
+        "google": {
+          "title": "Google Sheets — automatic sync",
+          "subtitle": "Link a Google Sheet per cold caller. CallScope syncs daily and applies the same mapping as a manual upload.",
+          "connected": "Connected",
+          "notConnected": "First connect your Google account to be able to link sheets.",
+          "toIntegrations": "To integrations →",
+          "noCallers": "First add a cold caller to this project (via the projects page).",
+          "noMappingWarning": "⚠️ No mapping yet for this project",
+          "noMappingHint": "First do at least one <link>manual upload</link> on this project. There you set which column = name, status, date, etc. Only then can auto-sync apply the same mapping.",
+          "lastSynced": "last synced {date}",
+          "sheetIcon": "📊",
+          "noSheet": "No sheet linked",
+          "syncNow": "Sync now",
+          "syncing": "Syncing...",
+          "syncNowTip": "Sync now from Google Sheets (today only)",
+          "syncMoreOptions": "Pick period",
+          "syncRange": {
+            "today":    "Today only",
+            "thisWeek": "This week (Mon → now)",
+            "lastWeek": "Last week (Mon → Fri)"
+          },
+          "edit": "Change",
+          "link": "Link sheet",
+          "addSheet": "Add sheet",
+          "sheetsCount": "{count, plural, =1 {# sheet linked} other {# sheets linked}}",
+          "unlink": "Unlink",
+          "unlinkTip": "Remove this sheet link",
+          "unlinkConfirm": "Remove sheet link for '{name}'? The sheet itself will remain in Google Drive.",
+          "unlinkSuccess": "✓ Sheet link for '{name}' removed.",
+          "syncFailed": "Sync failed",
+          "syncSummary": "✓ {count, plural, =1 {# lead} other {# leads}} from today synced.",
+          "noLeadsToday": "✓ No leads from today.",
+          "unknownError": "Unknown error"
+        },
+        "salesConfig": {
+          "title": "Sales rep assignment",
+          "subtitle": "Guarantees every appointment has a sales rep. CallScope reads the \"Sales rep\" column from your sheet, maps by name, and falls back to the default if the cell is empty or the name doesn't match.",
+          "defaultLabel": "Default sales rep",
+          "defaultNone": "— no default —",
+          "managerSuffix": "(manager)",
+          "defaultHint": "Used when the Google Sheet cell is empty or the name doesn't match anyone on the team.",
+          "salesRepColLabel": "Sheet column for sales rep",
+          "salesRepColPlaceholder": "e.g. Sales rep",
+          "dealstageColLabel": "Sheet column for dealstage",
+          "dealstageColPlaceholder": "e.g. Dealstage",
+          "caseHint": "Capitalization doesn't matter. Leave empty to ignore that column.",
+          "saveFailed": "Save failed: {error}",
+          "saveSuccess": "✓ Saved. Next sync will use these settings.",
+          "save": "Save",
+          "saving": "Saving…"
+        },
+        "futureIntegrations": {
+          "title": "Future integrations",
+          "items": [
+            "• Aircall — import calls directly",
+            "• Pipedrive — pull deal stages",
+            "• Teamleader — pull deal stages",
+            "• Microsoft 365 / Excel Online — sheet sync"
+          ]
+        },
+        "recentUploads": {
+          "title": "Recent uploads",
+          "subtitle": "Deleting an upload wipes all associated calls, analyses and feedback. Handy to undo a faulty sync.",
+          "googleSyncBadge": "Google sync",
+          "recordsSuffix": " · {count} records",
+          "appointmentsSuffix": " · {count} appointments",
+          "unknownCaller": "Unknown",
+          "status": {
+            "done": "Done",
+            "processing": "Processing",
+            "error": "Error",
+            "queued": "Queued"
+          },
+          "deleteTip": "Delete upload + all associated data",
+          "delete": "Delete",
+          "deleting": "...",
+          "deleteConfirm": "Delete upload \"{label}\"? All associated calls, analyses and feedback are wiped too. Cannot be undone.",
+          "deleteFailed": "Delete failed: {error}"
+        },
+        "dangerZone": {
+          "title": "Danger zone",
+          "body": "Deleting a project wipes the project itself and all associated data: uploads, calls, appointments, feedback, sheet links and report shares. This action cannot be undone.",
+          "button": "Delete this project"
+        },
+        "deleteModal": {
+          "title": "Delete project \"{name}\"?",
+          "body": "The project + ALL associated uploads, calls, appointments and feedback will be irreversibly wiped.",
+          "confirmPrompt": "Type <strong>{name}</strong> to confirm:",
+          "mismatch": "The entered project name doesn't match.",
+          "cancel": "Cancel",
+          "submit": "Permanently delete",
+          "submitting": "Deleting…",
+          "deleteFailed": "Delete failed: {error}"
+        },
+        "sheetPicker": {
+          "titleList": "Pick a spreadsheet",
+          "titleTabs": "Pick a tab — {sheetName}",
+          "current": "Current: <strong>{name}</strong>. Pick a new one to overwrite.",
+          "alreadyLinked": "{count, plural, =1 {# sheet already linked} other {# sheets already linked}}. Add another:",
+          "searchPlaceholder": "Search...",
+          "loadingSheets": "Loading spreadsheets...",
+          "noSheets": "No spreadsheets found.",
+          "lastModified": "Last modified: {date}",
+          "loadingTabs": "Loading tabs...",
+          "noTabs": "No tabs found.",
+          "pickTab": "→ Pick",
+          "backToList": "← Back to spreadsheets"
+        },
+        "selfSuffix": " (you)"
+      },
+      "new": {
+        "loading": "Loading…",
+        "cancel": "Cancel",
+        "title": "New project",
+        "subtitle": "Configure all your project settings in a few steps.",
+        "blocked": {
+          "back": "Back to projects",
+          "title": "Activate your existing project first",
+          "heading": "Your free trial project needs to be activated first",
+          "body": "A call center gets one free trial project. Before you can create a second project, you need to activate a subscription on your existing project.",
+          "pricing": "During your trial you have full access to all features. Activation costs €49/month per project and is cancellable monthly.",
+          "cta": "To my projects →"
+        },
+        "steps": {
+          "basics": "Basics",
+          "sources": "Sources",
+          "members": "Members",
+          "finalize": "Confirm"
+        },
+        "nav": {
+          "previous": "← Previous",
+          "next": "Next →",
+          "submit": "Create project",
+          "submitting": "Creating…"
+        },
+        "basics": {
+          "heading": "Basic info",
+          "nameLabel": "Project name",
+          "namePlaceholder": "e.g. Campaign Q1 — Acme Inc.",
+          "descLabel": "Description",
+          "descOptional": "(optional)",
+          "descPlaceholder": "What is the goal of this project?"
+        },
+        "sources": {
+          "heading": "How does data come in?",
+          "subtitle": "Decide now how leads and sales feedback get into CallScope. You can change this later.",
+          "uploadLabel": "Upload source",
+          "uploadHint": "Where do the calls come from? Make a choice — you can change this later in project settings.",
+          "feedbackLabel": "Feedback source (dealstage)",
+          "feedbackHint": "How does the dealstage / appointment outcome come in? Make a choice.",
+          "required": "*",
+          "comingSoon": "Coming soon",
+          "upload": {
+            "manual": {
+              "title": "Manual CSV/Excel upload",
+              "desc": "Cold callers or cc-manager upload CSV/Excel files via the Upload page."
+            },
+            "google_sheets": {
+              "title": "Google Sheets sync",
+              "desc": "Link a sheet per cold caller. CallScope syncs daily (and on demand)."
+            },
+            "lemlist": {
+              "title": "Lemlist tasks",
+              "desc": "Cold caller connects their Lemlist API key. Completed call tasks are synced daily as call_records."
+            },
+            "hubspot": {
+              "title": "HubSpot calls",
+              "desc": "For teams that cold-call inside HubSpot. Pick a HubSpot contact list — calls on those contacts are synced daily."
+            },
+            "future": {
+              "title": "Aircall · Teamleader",
+              "desc": "Coming soon — call platform and CRM integrations."
+            }
+          },
+          "feedback": {
+            "manual": {
+              "title": "Sales rep types in CallScope",
+              "desc": "Sales reps give feedback via /dashboard/appointments after each appointment — status, outcome, quality, notes."
+            },
+            "google_sheets": {
+              "title": "Dealstage from Google Sheet",
+              "desc": "A 'Dealstage' column in the same sheet is classified by AI into outcome (deal / lost / quote / no-show). Requires: upload source is also Google Sheets."
+            },
+            "hubspot": {
+              "title": "Appointments updated via HubSpot",
+              "desc": "CallScope finds the matching contact + deal in HubSpot per appointment and syncs the dealstage daily. AI maps to outcome."
+            }
+          },
+          "warnings": {
+            "lemlist": "ℹ️ <strong>Important:</strong> the cold caller (or cc_manager if calling themselves) must first connect their Lemlist API key via Account → Integrations. Then you can pick the right task source in project settings.",
+            "hubspotUpload": "ℹ️ <strong>Important:</strong> first connect your HubSpot portal via Account → Integrations. Then in project settings you choose which HubSpot contact list this project uses. Caller attribution happens automatically via the HubSpot owner email — make sure your callers are known with the same email in CallScope and HubSpot.",
+            "googleFeedbackNeedsGoogleUpload": "ℹ️ Feedback from Google Sheets requires the upload source to also be Google Sheets (the same sheet is used for both calls and dealstage). Switch your upload source above to \"Google Sheets sync\", or pick a different feedback source.",
+            "hubspotFeedback": "ℹ️ <strong>Important:</strong> the sales manager(s) of this project must first connect their HubSpot account via Account → Integrations before the sync works. Without a connected HubSpot we can't fetch dealstages."
+          }
+        },
+        "members": {
+          "heading": "Who works on this project?",
+          "subtitle": "Add cold callers, sales reps and sales managers via their email address. Existing CallScope users are added directly; new email addresses get an invitation email with a link to create their account.",
+          "tip": "💡 No account needed — all members register via the invite link in their mail. That way you keep control over who has access. You can complete this later.",
+          "emailPlaceholder": "name@company.com",
+          "roles": {
+            "cold_caller": "Cold caller",
+            "sales_rep": "Sales rep",
+            "sales_manager": "Sales manager",
+            "manager": "manager",
+            "rep": "rep"
+          },
+          "removeTip": "Remove row",
+          "addRow": "+ Add another member"
+        },
+        "finalize": {
+          "heading": "Confirm",
+          "subtitle": "Review the settings and optionally pick a default sales rep.",
+          "summary": {
+            "name": "Name",
+            "description": "Description",
+            "uploadSource": "Upload source",
+            "feedbackSource": "Feedback source",
+            "membersLabel": "Members ({count})",
+            "noMembers": "— no members yet, you can add them later",
+            "uploadManual": "Manual upload",
+            "uploadGoogle": "Google Sheets sync",
+            "feedbackManual": "Sales rep types in CallScope",
+            "feedbackGoogle": "Dealstage from Google Sheet"
+          },
+          "defaultRepLabel": "Default sales rep",
+          "defaultRepOptional": "(optional)",
+          "defaultRepNone": "— no default —",
+          "defaultRepHint": "Automatically assigned all appointments where the Google Sheet cell is empty or the name doesn't match. Prevents appointments from ending up without an owner. If the rep doesn't have a CallScope account yet, set this later in project settings — once they've accepted their invite.",
+          "paymentBanner": "💳 This is your {ordinal} project. The free trial only applies to your 1st project — this project requires a paid subscription (€49/month). After \"Create project\" you'll be redirected to Stripe for checkout.",
+          "trialBanner": "✓ You get 14 days free to try. No card needed to start — only after 14 days do you choose whether to activate a subscription (€49/month).",
+          "googleNextBanner": "📊 After creating, you'll go straight to the project settings page where you can (1) download a ready-to-use Excel template for your cold callers and (2) link a Google Sheet per cold caller."
+        },
+        "errors": {
+          "createFailed": "Could not create project: {error}",
+          "unknownError": "unknown error",
+          "networkError": "network error",
+          "checkoutFailed": "Project created but checkout redirect failed: {error}. Find it on the projects page; click 'Activate subscription' to pay.",
+          "checkoutError": "Project created but checkout redirect failed: {error}. Activate manually via /dashboard/billing?project={projectId}."
+        }
+      },
+      "confirmHours": {
+        "loading": "Loading…",
+        "noAccess": "You don't have access to this page. Only the cc_manager of the project can confirm hours.",
+        "backToProjects": "Back to projects",
+        "backToProjectsArrow": "Back to projects →",
+        "title": "Confirm hours — {projectName}",
+        "weekOf": "Week of {label}",
+        "previousWeek": "← Previous week",
+        "nextWeek": "Next week →",
+        "toThisWeek": "to this week",
+        "previousWeekTip": "Previous week",
+        "previousWeekDisabledTip": "Project was created later — cannot confirm earlier weeks",
+        "nextWeekTip": "Next week",
+        "beforeCreationWarning": "⚠️ This week is before the project creation date. Confirming hours for this week has no effect — cost metrics count everything before project creation as 0h.",
+        "noCallers": "No cold callers with an hourly rate on this project. First set rates via",
+        "projectSettingsLink": "project settings",
+        "intro": "Confirm per cold caller per day (Mon-Fri) how many hours they worked. Default is the preset divided by 5 — adjust per day if different.",
+        "resetPresets": "Reset to presets",
+        "totalWeek": "Total this week",
+        "submit": "Confirm hours",
+        "submitting": "Confirming…",
+        "cancel": "Cancel",
+        "emptyError": "Fill in hours for at least one caller.",
+        "submitFailed": "Confirm failed: {error}",
+        "saveSuccess": "✓ {count, plural, =1 {# confirmation} other {# confirmations}} saved for this week.",
+        "selfSuffix": "(you)",
+        "selfFallback": "Myself",
+        "unknownName": "Unknown",
+        "card": {
+          "alreadyConfirmed": "Previously confirmed",
+          "preset": "Preset: {value}",
+          "presetUnit": "{hours}h/wk",
+          "presetEmpty": "—",
+          "total": "Total: {hours}h"
+        },
+        "days": {
+          "mon": "Mon",
+          "tue": "Tue",
+          "wed": "Wed",
+          "thu": "Thu",
+          "fri": "Fri"
+        }
+      }
+    },
+    "planner": {
+      "loading": "Loading…",
+      "backToProjects": "Back to projects",
+      "title": "Appointment planner",
+      "subtitle": "Upload leads and book appointments based on your sales reps' calendars.",
+      "roleNotAllowed": "This page is only available to cc_managers, sales managers, sales reps and cold callers.",
+      "sectionDivider": "Or book an appointment for yourself",
+      "hub": {
+        "loading": "Loading…",
+        "title": "Appointment planner",
+        "subtitle": "Pick a project to upload leads or book an appointment.",
+        "empty": "You don't have any projects where you can use the planner yet.",
+        "emptyLink": "Go to projects →",
+        "openLink": "Open planner →"
+      },
+      "statusBadge": {
+        "booked": "Booked",
+        "archived": "Archived",
+        "pending": "Processing",
+        "failed": "Address not found",
+        "ready": "Ready"
+      },
+      "manager": {
+        "uploadTitle": "Upload leads",
+        "uploadHint": "Upload an Excel (.xlsx) or CSV with at least a business name column and an address column. You'll map them in the next step.",
+        "dropTitle": "Drop your file here or click to choose",
+        "dropSubtitle": "Supported: .csv, .xlsx, .xls",
+        "fileEmpty": "The file contains no data rows.",
+        "csvReadFailed": "Couldn't read the CSV file. Check that the first row contains headers.",
+        "excelReadFailed": "Couldn't read the Excel file.",
+        "unsupportedFile": "Only CSV or Excel files are allowed.",
+        "rowsDetected": "{count, plural, =1 {# row detected} other {# rows detected}}",
+        "chooseOtherFile": "Choose another file",
+        "mapName": "Which column = business name?",
+        "mapAddress": "Which column = address?",
+        "choose": "pick column",
+        "previewTitle": "Preview (first 5 rows)",
+        "colName": "Name",
+        "colAddress": "Address",
+        "previewCount": "{count, plural, =0 {No valid leads after mapping (empty names/addresses skipped)} =1 {# lead ready to upload} other {# leads ready to upload}}",
+        "cancel": "Cancel",
+        "uploadButton": "Upload + geocode",
+        "uploading": "Uploading…",
+        "uploadSuccess": "✓ {inserted} leads added. {ok} successfully geocoded, {failed} failed.",
+        "uploadFailed": "Upload failed",
+        "leadsTitle": "Leads in this pool",
+        "leadsEmpty": "No leads uploaded yet.",
+        "leadsPreviewHint": "Showing {shown} most recent of {total}"
+      },
+      "digest": {
+        "title": "Daily digest to sales reps",
+        "hint": "Send each sales rep an email with the appointments booked for them today. Also runs automatically every workday at the end of the day.",
+        "sendNow": "Send now",
+        "sending": "Sending…",
+        "sentSuccess": "✓ Emails sent to {reps, plural, =1 {# sales rep} other {# sales reps}} ({appointments} {appointments, plural, =1 {appointment} other {appointments}}).",
+        "noAppointmentsToday": "No new appointments today — no emails sent.",
+        "errorGeneric": "Couldn't send the emails."
+      },
+      "coldCaller": {
+        "searchTitle": "Find an appointment for a lead",
+        "searchPlaceholder": "Type the business name (min. 2 letters)…",
+        "searching": "Searching…",
+        "noResults": "No leads found with that name.",
+        "findingSlots": "Finding the best appointment slots…",
+        "slotsError": "Couldn't fetch slots.",
+        "scopeWarning": "{count, plural, =1 {# sales rep hasn't (re)connected Google Calendar — their slots are excluded.} other {# sales reps haven't (re)connected Google Calendar — their slots are excluded.}}",
+        "slotsTitle": "3 best options",
+        "slotsSubtitle": "Sorted by earliest availability. Click to book.",
+        "noSlots": "No matching slots in the next 3 weeks.",
+        "noSlotsHint": "None of the sales reps work in {province} during this period. They may need to update their calendar."
+      },
+      "book": {
+        "title": "Book appointment",
+        "notesLabel": "Note for the sales rep",
+        "notesHint": "Optional — what should they know about this lead? Will appear in the calendar event.",
+        "notesPlaceholder": "e.g. Customer interested in inventory feature, manages 2 locations…",
+        "cancel": "Cancel",
+        "confirm": "Confirm + add to calendar",
+        "booking": "Booking…",
+        "failed": "Booking failed"
+      }
+    },
+    "settings": {
+      "integrations": {
+        "loading": "Loading…",
+        "title": "Integrations",
+        "subtitle": "Connect external tools to import data automatically.",
+        "banners": {
+          "googleConnected": "✓ Google account successfully connected!",
+          "hubspotConnected": "✓ HubSpot successfully connected!",
+          "genericError": "Error: {flag}"
+        },
+        "errors": {
+          "missing_params": "Incomplete redirect — please try again.",
+          "state_mismatch": "Security check failed — please try again.",
+          "token_exchange_failed": "Connecting to Google failed. Please try again.",
+          "no_refresh_token": "Google didn't return a refresh token. Please reconnect.",
+          "db_save_failed": "Could not save the connection. Please try again.",
+          "access_denied": "You refused to grant access to CallScope.",
+          "hubspot_missing_params": "Incomplete redirect from HubSpot — please try again.",
+          "hubspot_state_mismatch": "Security check failed — please try again.",
+          "hubspot_token_exchange_failed": "Connecting to HubSpot failed. Please try again.",
+          "hubspot_no_refresh_token": "HubSpot didn't return a refresh token. Please reconnect.",
+          "hubspot_db_save_failed": "Could not save the HubSpot connection.",
+          "hubspot_access_denied": "You refused to grant access to CallScope in HubSpot."
+        },
+        "common": {
+          "connectedAs": "Connected as",
+          "connectedWithPortal": "Connected with portal",
+          "as": "as",
+          "unknown": "unknown",
+          "disconnect": "Disconnect",
+          "disconnecting": "Disconnecting…",
+          "syncNow": "Sync now",
+          "syncing": "Syncing…",
+          "syncFailed": "Sync failed",
+          "unknownError": "Unknown error",
+          "connectFailed": "Connection failed",
+          "disconnectFailed": "Disconnect failed: {error}",
+          "noUpdatesNeeded": "✓ No updates needed.",
+          "next_step": "Next step",
+          "suspenseLoading": "Loading…"
+        },
+        "google": {
+          "title": "Google Sheets",
+          "titleSales": "Google Calendar",
+          "desc": "Connect your Google account to link spreadsheets to projects. CallScope can then pull data daily — no more CSV exports or uploads.",
+          "descSales": "Connect your Google account so CallScope can read your calendar for the appointment planner and automatically add booked appointments to your agenda. Cold callers will see which slots are free on the days you work in the matching province.",
+          "connect": "Connect Google account",
+          "connectSales": "Connect Google Calendar",
+          "reconnect": "Reconnect (calendar scope)",
+          "reauthHint": "Did you connect Google a while back? Click \"Reconnect\" so CallScope also has permission to read your calendar and create appointments. One-time action.",
+          "nextStep": "Go to your projects — every project where you've already uploaded gets a \"Connect Google Sheet\" button. Pick a spreadsheet + tab, and CallScope syncs daily.",
+          "nextStepSales": "In your Google Calendar, add an all-day event like \"Antwerp\" on the days you do appointments there — CallScope reads those and suggests slots in matching provinces. For loose events with a client name, the location is detected automatically via AI.",
+          "toProjects": "To my projects →",
+          "disconnectConfirm": "Disconnect Google account? Existing sheet links remain but syncs will fail until you reconnect."
+        },
+        "lemlist": {
+          "title": "Lemlist",
+          "desc": "Connect your Lemlist account to link campaigns to CallScope projects. Cold callers log calls in Lemlist as manual tasks; CallScope pulls leads + call activities nightly and builds your conversion funnel.",
+          "apiKeyPlaceholder": "Paste your Lemlist API key",
+          "connect": "Connect Lemlist",
+          "connecting": "Connecting…",
+          "apiKeyHint": "Find your API key in Lemlist → Settings → Integrations → API.",
+          "nextStep": "Open a project, go to Settings, and choose a Lemlist campaign as source. CallScope syncs daily from then on.",
+          "disconnectConfirm": "Disconnect Lemlist? Ongoing campaign syncs for your projects will stop.",
+          "syncSummary": "✓ {calls, plural, =1 {# call} other {# calls}} synced from Lemlist ({projects, plural, =1 {# project} other {# projects}}).",
+          "noNewCalls": "✓ No new calls to sync."
+        },
+        "hubspot": {
+          "title": "HubSpot CRM",
+          "descCcManager": "For dealstage sync: connect your own HubSpot here so CallScope can pull the dealstage for your appointments daily.",
+          "descCcManagerCallsHint": "Syncing calls from HubSpot is now done per project — in project settings. That way you can connect different HubSpot portals for different clients.",
+          "descSalesManager": "Connect your HubSpot portal so CallScope can pull the dealstage for every appointment daily. Per appointment, the matching deal is found via email or phone number and the stage is updated — feeding the AI outcome classification (won / lost / quote / no-show). Read-only: CallScope never writes to HubSpot.",
+          "connect": "Connect HubSpot",
+          "syncDealstages": "Sync dealstages",
+          "syncDealstagesTip": "Synchronize dealstages for all appointments",
+          "cronHint": "The cron runs nightly at 21:30 Brussels time. Want an update in between? Click \"Sync now\" — all appointments are checked immediately.",
+          "disconnectConfirm": "Disconnect HubSpot account? Dealstage syncs for your projects will stop until you reconnect.",
+          "syncSummary": "✓ {synced, plural, =1 {# appointment} other {# appointments}} synced from HubSpot{notFoundSuffix}.",
+          "syncSummaryNotFoundSuffix": " ({count} not found in HubSpot)",
+          "classifyFailed": "⚠ {synced} fetched from HubSpot, but AI classifier failed ({projects, plural, =1 {# project} other {# projects}}). First error: {error}",
+          "syncCallsSummary": "✓ {calls, plural, =1 {# call} other {# calls}} synced from HubSpot ({projects, plural, =1 {# project} other {# projects}}).",
+          "noNewCalls": "✓ No new calls."
+        },
+        "future": {
+          "title": "Aircall · Pipedrive · Teamleader",
+          "subtitle": "Coming soon."
+        }
+      },
+      "account": {
+        "loading": "Loading…",
+        "title": "Account",
+        "subtitle": "Your profile settings, password and connected tools.",
+        "roles": {
+          "cc_manager": "Call center manager",
+          "cold_caller": "Cold caller",
+          "sales_rep": "Sales rep",
+          "sales_manager": "Sales manager"
+        },
+        "profile": {
+          "heading": "Profile",
+          "name": "Name",
+          "email": "Email address",
+          "role": "Role",
+          "freelanceSuffix": "(freelance)",
+          "empty": "—"
+        },
+        "billing": {
+          "heading": "Manage subscriptions",
+          "subtitle": "Open the Stripe portal to change subscriptions, cancel, update payment methods and download invoices.",
+          "button": "Open portal",
+          "portalFailed": "Could not open portal"
+        },
+        "tutorial": {
+          "heading": "Replay tutorial",
+          "subtitle": "Show the welcome modal again — handy if you want to revisit the steps.",
+          "button": "Replay"
+        },
+        "password": {
+          "heading": "Change password",
+          "newLabel": "New password",
+          "newPlaceholder": "At least 8 characters",
+          "confirmLabel": "Confirm new password",
+          "confirmPlaceholder": "Same one again",
+          "submit": "Change password",
+          "submitting": "Saving…",
+          "tooShort": "Password must be at least 8 characters long.",
+          "mismatch": "The passwords do not match.",
+          "success": "✓ Password changed."
+        },
+        "connectedTools": {
+          "heading": "Connected tools",
+          "manage": "Manage →",
+          "googleTitle": "Google Sheets",
+          "connectedAs": "✓ Connected as",
+          "notConnected": "Not connected",
+          "active": "Active",
+          "inactive": "Inactive",
+          "comingSoon": "Coming soon",
+          "future": {
+            "hubspotName": "HubSpot",
+            "hubspotDesc": "Import deal stages",
+            "lemlistName": "Lemlist",
+            "lemlistDesc": "Campaign status & replies",
+            "aircallName": "Aircall",
+            "aircallDesc": "Import calls directly"
+          }
+        }
+      }
+    }
+  },
+  "onboarding": {
+    "preferences": {
+      "title": "Welcome to CallScope",
+      "subtitle": "Quickly set your preferences so dates, numbers and language are correct.",
+      "language": "Interface language",
+      "country": "Country",
+      "dateFormat": "Date format",
+      "currency": "Currency for hourly rates",
+      "timezone": "Time zone",
+      "save": "Save preferences",
+      "saving": "Saving..."
+    }
+  },
+  "components": {
+    "tutorial": {
+      "closeAria": "Close",
+      "welcome": "Welcome to CallScope!",
+      "roleSeparator": " · ",
+      "stepOpen": "→ Open",
+      "skip": "Skip",
+      "skipping": "Saving...",
+      "accountFootnote": "You can revisit this later via your",
+      "accountLink": "account settings",
+      "roles": {
+        "cc_manager": "Call center manager",
+        "cold_caller": "Cold caller",
+        "sales_rep": "Sales rep",
+        "sales_manager": "Sales manager"
+      },
+      "cc_manager": {
+        "subtitle": "As call center manager you manage projects for your team. In a few minutes your first setup is ready.",
+        "ctaLabel": "Create your first project",
+        "steps": {
+          "1": {
+            "title": "Create your first project",
+            "desc": "Pick a name, decide how data comes in (manually or via Google Sheets), and which members will work on it."
+          },
+          "2": {
+            "title": "Invite your team members",
+            "desc": "During the project wizard you add cold callers, sales reps and sales managers via their email address. They don't need an account yet — existing users are linked directly, new emails get an invitation mail to create their account."
+          },
+          "3": {
+            "title": "Connect your data source",
+            "desc": "With Google Sheets sync: link a sheet per cold caller on the project settings page. With manual: your callers upload CSV files via the upload page."
+          },
+          "4": {
+            "title": "Open your team dashboard",
+            "desc": "Conversion funnel, deal rates and AI insights — automatically computed from your data."
+          }
+        }
+      },
+      "cold_caller": {
+        "subtitle": "As cold caller you upload your daily calls and get AI insights on what works.",
+        "ctaLabel": "Go to upload",
+        "steps": {
+          "1": {
+            "title": "View your projects",
+            "desc": "Your manager added you to one or more campaigns. Here you see which projects are active for you."
+          },
+          "2": {
+            "title": "Upload your first call file",
+            "desc": "Drop your CSV or Excel onto the upload page. CallScope recognizes columns like name, status and notes automatically."
+          },
+          "3": {
+            "title": "View your dashboard",
+            "desc": "AI analyzes your notes and spots top objections. The conversion funnel shows where you're strong and where you can improve."
+          }
+        }
+      },
+      "sales_rep": {
+        "subtitle": "As sales rep you see your assigned appointments and give feedback to help your team improve.",
+        "ctaLabel": "Go to appointments",
+        "steps": {
+          "1": {
+            "title": "View your appointments",
+            "desc": "Cold callers create appointments for you. Here you see everyone assigned to your name — nobody else can claim them."
+          },
+          "2": {
+            "title": "Give feedback after every appointment",
+            "desc": "Status, outcome, quality and notes. Cold callers learn from your input what a good lead is."
+          },
+          "3": {
+            "title": "Track your sales overview",
+            "desc": "Conversion funnel, deal rate, forecast for the coming week — filtered to your projects."
+          }
+        }
+      },
+      "sales_manager": {
+        "subtitle": "As sales manager you manage your sales team and track each rep's performance.",
+        "ctaLabel": "Go to sales overview",
+        "steps": {
+          "1": {
+            "title": "View team appointments",
+            "desc": "Overview of all appointments with sales rep, dealstage and outcome. Filter per rep to see individual performance."
+          },
+          "2": {
+            "title": "Open the sales overview",
+            "desc": "Conversion funnel, deal rate and per-rep performance. Filterable by project and date range."
+          },
+          "3": {
+            "title": "Configure dealstage mapping",
+            "desc": "When feedback comes from Google Sheets: AI automatically maps dealstage values (\"Closed Won\", \"Quote\", ...) to outcome categories."
+          }
+        }
+      }
+    }
+  }
+}

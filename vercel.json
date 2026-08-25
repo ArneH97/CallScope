@@ -1,0 +1,33 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/google-sync",
+      "schedule": "0 20 * * *"
+    },
+    {
+      "path": "/api/cron/hubspot-sync",
+      "schedule": "30 20 * * *"
+    },
+    {
+      "path": "/api/cron/onboarding-emails",
+      "schedule": "0 8 * * *"
+    },
+    {
+      "path": "/api/cron/lemlist-sync",
+      "schedule": "0 19 * * *"
+    },
+    {
+      "path": "/api/cron/hubspot-cc-sync",
+      "schedule": "0 21 * * *"
+    },
+    {
+      "path": "/api/cron/weekly-hour-confirmation",
+      "schedule": "0 17 * * 5"
+    },
+    {
+      "path": "/api/cron/daily-appointments-digest",
+      "schedule": "0 15 * * *"
+    }
+  ]
+}
+

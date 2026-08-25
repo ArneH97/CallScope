@@ -1,0 +1,2212 @@
+{
+  "common": {
+    "save": "Opslaan",
+    "cancel": "Annuleren",
+    "delete": "Verwijderen",
+    "edit": "Bewerken",
+    "loading": "Laden...",
+    "back": "Terug",
+    "next": "Volgende",
+    "previous": "Vorige",
+    "yes": "Ja",
+    "no": "Nee",
+    "confirm": "Bevestig",
+    "close": "Sluiten",
+    "search": "Zoeken",
+    "language": "Taal",
+    "country": "Land",
+    "currency": "Munteenheid",
+    "timezone": "Tijdzone",
+    "dateFormat": "Datumnotatie"
+  },
+  "marketing": {
+    "nav": {
+      "forAgencies": "Voor agencies",
+      "forCallCenters": "Voor callcentra",
+      "forSalesTeams": "Voor sales teams",
+      "howItWorks": "Hoe het werkt",
+      "pricing": "Pricing",
+      "signIn": "Inloggen",
+      "startFree": "Start gratis",
+      "menu": "Menu"
+    },
+    "footer": {
+      "tagline": "De rapportage- en sync-tool voor call centers, freelance appointment setters en sales teams die met outbound werken.",
+      "product": "Product",
+      "account": "Account",
+      "company": "Bedrijf",
+      "createAccount": "Account aanmaken",
+      "signIn": "Inloggen",
+      "contact": "Contact",
+      "companyName": "Halco Services BE",
+      "location": "Gevestigd in België",
+      "vat": "BTW op factuur (21% BE)",
+      "monthlyCancel": "Maandelijks opzegbaar",
+      "noLockIn": "Geen lock-in",
+      "belgianProduct": "Belgisch product"
+    },
+    "home": {
+      "hero": {
+        "badge": "Voor outbound agencies, freelance setters & sales teams",
+        "title1": "Bewijs welke calls",
+        "title2": "écht omzet maken.",
+        "subtitle": "CallScope koppelt elke cold call automatisch aan de juiste deal in HubSpot. Zie per caller, per leadbron en per afspraak: wie boekt, wie sluit, en wat één deal je écht kost.",
+        "ctaPrimary": "Start gratis trial →",
+        "ctaSecondary": "Hoe het werkt",
+        "smallPrint": "14 dagen gratis · Geen creditcard · Read-only HubSpot-koppeling",
+        "screenshotAlt": "CallScope dashboard voor call center managers"
+      },
+      "audience": {
+        "eyebrow": "Voor wie",
+        "title": "Twee kanten van hetzelfde verhaal",
+        "subtitle": "Bel je voor klanten? Of koop je afspraken in? CallScope lost voor allebei hetzelfde probleem op: gebrek aan zicht en gebrek aan structuur.",
+        "callCenters": {
+          "title": "Voor callcentra & appointment setters",
+          "desc": "Cold callers, freelance setters, call center managers. Krijg eindelijk grip op je conversie, deel rapporten waar klanten happy van worden, en stop met handmatige Excel-rapportages.",
+          "cta": "Lees verder →"
+        },
+        "salesTeams": {
+          "title": "Voor sales teams & eindklanten",
+          "desc": "Sales reps, sales managers, bedrijven die afspraken inkopen. Krijg gekwalificeerde leads in plaats van koud bellen, geef snel feedback, en zie de funnel zonder Excel-spreadsheets uit te ploppen.",
+          "cta": "Lees verder →"
+        },
+        "agencies": {
+          "title": "Outbound agencies & freelance setters",
+          "desc": "Eén dashboard, meerdere klantenprojecten. Bewijs per klant exact welke afspraken omzet opleveren — en verkoop je waarde met data, niet met praatjes.",
+          "cta": "Voor agencies & setters →"
+        }
+      },
+      "features": {
+        "eyebrow": "Wat het doet",
+        "title": "Drie dingen die je nu nog manueel doet",
+        "sync": {
+          "label": "01 · Data binnenhalen",
+          "title": "Google Sheets, CSV, Lemlist of HubSpot — kies maar",
+          "desc": "Cold callers werken in hun gewoonlijke tool — een Google Sheet, een CSV-export, of Lemlist's task-lijst. CallScope synct elke nacht automatisch. Geen exports, geen manuele uploads, geen mismatches.",
+          "bullet1": "Eén Excel-template waar al je callers mee starten",
+          "bullet2": "Automatische dedup: dezelfde lead twee keer? Eén lead, twee calls",
+          "bullet3": "Custom velden per project — eigen kolommen, eigen analytics",
+          "alt": "Upload-pagina met kolom-mapping"
+        },
+        "ai": {
+          "label": "02 · AI doet de analyse",
+          "title": "Bezwaren, conversie en patronen — automatisch",
+          "desc": "GPT-4o leest je callnotities, detecteert de top-bezwaren, berekent je conversieratio per stap in de funnel, en schrijft een leesbare samenvatting. Geen tijd verliezen aan rapporten plakken.",
+          "bullet1": "Top-bezwaren met trend over tijd",
+          "bullet2": "Funnel: gebeld → bereikt → afspraak → deal",
+          "bullet3": "Inzichten over leadkwaliteit per bron",
+          "alt": "Sales overzicht met conversie-funnel en AI-inzichten"
+        },
+        "hubspot": {
+          "label": "03 · HubSpot sluit de loop",
+          "title": "Dealstages komen uit HubSpot. Automatisch.",
+          "desc": "Sales manager koppelt zijn HubSpot eenmaal. CallScope zoekt voor elke afspraak het bijhorende contact + deal en haalt dagelijks de stage op. AI mapt die naar een outcome (gewonnen / verloren / offerte / no-show). Geen dubbele rapportage meer.",
+          "bullet1": "Zero-risk: read-only by design — we schrijven nooit naar je CRM",
+          "bullet2": "Match op email of telefoonnummer",
+          "bullet3": "Sync nu-knop voor wanneer je niet wil wachten op de cron",
+          "alt": "HubSpot integratie in CallScope"
+        }
+      },
+      "pricingTeaser": {
+        "eyebrow": "Pricing",
+        "title": "€49 per maand, per project",
+        "desc": "14 dagen gratis trial op je eerste project. Geen creditcard nodig om te starten. Maandelijks opzegbaar via Stripe — geen jaarcontracten, geen lock-in.",
+        "ctaPrimary": "Volledige pricing & FAQ →",
+        "ctaSecondary": "Direct starten"
+      },
+      "finalCta": {
+        "title": "Klaar om af te zijn van Excel én onderbuikgevoel?",
+        "desc": "Account aanmaken duurt minder dan een minuut. Eerste project: 14 dagen gratis, zonder creditcard. Verloopt automatisch — geen verrassingen, geen abonnement zonder dat je het weet.",
+        "ctaPrimary": "Start gratis →",
+        "ctaSecondary": "Eerst de stappen lezen"
+      },
+      "hubspotSpotlight": {
+        "eyebrow": "Killer feature",
+        "title": "Van afspraak naar deal-stage, automatisch.",
+        "desc": "Andere tools tonen wat je callers doen. CallScope toont wat hun werk oplevert. Elke afspraak koppelt zichzelf aan de juiste HubSpot deal — wanneer die deal van stage verandert, weet jij meteen welke caller, welke leadbron en welke afspraak waarde produceerde.",
+        "readOnlyBadge": "Read-only · We schrijven nooit naar je CRM",
+        "flowStep1Title": "1. Cold caller maakt een afspraak",
+        "flowStep1Desc": "Via HubSpot calls, Google Sheets of Lemlist — CallScope leest automatisch.",
+        "flowStep2Title": "2. AI matcht op contact + deal",
+        "flowStep2Desc": "Email of telefoon → bijhorende HubSpot deal. Geen manuele koppeling.",
+        "flowStep3Title": "3. Dealstage wijzigt? → outcome update",
+        "flowStep3Desc": "AI mapt naar offerte / deal / verloren / no-show. Dagelijks gesynct.",
+        "flowStep4Title": "4. Échte ROI per caller, leadbron, project",
+        "flowStep4Desc": "Stop met argumenteren over lead-kwaliteit. De data spreekt.",
+        "cta": "Lees hoe de volledige flow werkt →"
+      },
+      "caseStudy": {
+        "eyebrow": "Eerste resultaten",
+        "title": "Wat CallScope al heeft opgeleverd in onze eigen klant-projecten",
+        "desc": "We bouwden CallScope eerst voor onze eigen outbound-projecten. Geen geheim marketing-cijfers — wel wat we de eerste weken concreet hebben gemeten.",
+        "metric1Value": "~4u/week",
+        "metric1Label": "minder tijd aan klant-rapportage per project",
+        "metric2Value": "100%",
+        "metric2Label": "geautomatiseerde bezwaardetectie, zonder manuele tagging",
+        "metric3Value": "0",
+        "metric3Label": "Excel-bestanden meer gedeeld via Slack of email",
+        "quote": "Eerste keer dat ik aan een klant kan tonen dat hun beste leadbron 2,3x beter converteert dan hun goedkoopste — met cijfers, niet met onderbuikgevoel.",
+        "quoteAuthor": "Arne · founder & eerste user"
+      }
+    },
+    "pricing": {
+      "metaTitle": "Pricing · CallScope",
+      "metaDescription": "€49 per maand per project, 14 dagen gratis trial, maandelijks opzegbaar. Geen lock-in, geen jaarcontracten.",
+      "hero": {
+        "badge": "💸 Eerlijk geprijsd",
+        "title1": "Eén plan, geen tiers,",
+        "title2": "geen verrassingen.",
+        "subtitle": "€49 per maand per project. Inclusief alles. Maandelijks opzegbaar. Eerste project is 14 dagen gratis — om zeker te zijn dat het past."
+      },
+      "plan": {
+        "header": "Per project, per maand",
+        "perMonth": "/maand",
+        "taxNote": "Excl. 21% BTW · Per project · Maandelijks opzegbaar",
+        "cta": "Start je gratis trial →",
+        "features": [
+          "Onbeperkt cold callers, sales reps & managers",
+          "Onbeperkt aantal calls per maand",
+          "Google Sheets sync (dagelijks + on-demand)",
+          "HubSpot integratie voor dealstage-tracking",
+          "AI-bezwaardetectie en pattern-spotting",
+          "Custom velden tot 10 per project",
+          "Klantrapporten via share-link of PDF",
+          "E-mail rapporten naar klanten",
+          "Multi-rol dashboards",
+          "Belgische ondersteuning, Belgisch product"
+        ]
+      },
+      "couponNote": "🎁 Vraag je tester-coupon (eerste maand gratis) aan via arne@halcoservices.be — alleen voor early adopters.",
+      "faq": {
+        "eyebrow": "Veelgestelde vragen",
+        "title": "Alles wat je nog wil weten",
+        "contactPre": "Vraag niet beantwoord?",
+        "contactLink": "Mail Arne direct",
+        "items": [
+          {
+            "q": "Wat is een \"project\"?",
+            "a": "Eén project = één belcampagne. Een call center dat voor drie klanten werkt heeft drie projecten in CallScope. Een freelancer die voor twee klanten belt heeft er twee. De prijs is €49 per project per maand."
+          },
+          {
+            "q": "Krijg ik echt 14 dagen gratis?",
+            "a": "Ja, op je eerste project. Geen creditcard nodig. Trial vervalt automatisch na 14 dagen — geen verrassingsfactuur. Pas wanneer je een abonnement activeert betaal je. Een tweede project vereist meteen een actief abonnement."
+          },
+          {
+            "q": "Kan ik maandelijks opzeggen?",
+            "a": "Ja. Via je Stripe customer portal kan je elk moment opzeggen of pauzeren. Je toegang loopt door tot het einde van de betaalde maand. Geen jaarcontracten, geen lock-in."
+          },
+          {
+            "q": "Wat zit er allemaal bij?",
+            "a": "Alles. Onbeperkt aantal cold callers, sales reps en sales managers per project. Onbeperkt aantal calls. Google Sheets sync, HubSpot integratie, AI-bezwaardetectie, custom velden, klantrapporten via share-link of PDF, mailrapporten — alles inclusief. Geen verborgen tier-systeem."
+          },
+          {
+            "q": "Krijg ik een factuur?",
+            "a": "Ja. Stripe genereert automatisch een factuur na elke betaling, met je BTW-nummer als je dat invult. 21% Belgische BTW wordt automatisch berekend. Facturen kan je downloaden via de customer portal, en ze worden ook gemaild."
+          },
+          {
+            "q": "Welke betaalmethoden ondersteun je?",
+            "a": "Bancontact, kaart (Visa / Mastercard / Amex), iDEAL, en SEPA-debit. Allemaal via Stripe. Geen overschrijvingen — het systeem moet automatiseren."
+          },
+          {
+            "q": "Werkt CallScope voor solo freelancers?",
+            "a": "Absoluut. Bij registratie kies je \"freelance appointment setter\" — je krijgt automatisch je eigen call center én je bent meteen je eigen cold caller. Eén login, alle data, dezelfde €49 per maand per project."
+          },
+          {
+            "q": "Wat als ik mijn project verwijder?",
+            "a": "Je abonnement op dat project wordt automatisch geannuleerd. Je betaalt niets meer. De data wordt mee gewist (uploads, calls, afspraken, feedback) — dus alleen verwijderen als je het echt niet meer nodig hebt."
+          },
+          {
+            "q": "Geldt de trial voor elk nieuw project?",
+            "a": "Nee. Eén trial per account. Je eerste project krijgt 14 dagen gratis; vanaf het tweede project moet je direct een abonnement nemen. Dat voorkomt misbruik (mensen die elke 14 dagen een nieuw project aanmaken)."
+          },
+          {
+            "q": "Worden mijn data gedeeld met andere klanten?",
+            "a": "Nooit. Elke klant ziet alleen zijn eigen data. We gebruiken Postgres Row-Level Security: zelfs als iemand de Supabase API direct aanspreekt, kan hij data van anderen niet zien. AI-analyse gebeurt per project en je notities worden niet getraind op modellen."
+          },
+          {
+            "q": "Is er een korting voor meerdere projecten?",
+            "a": "Niet standaard. Heb je 5+ projecten en wil je iets bespreken? Mail arne@halcoservices.be. We zijn redelijk."
+          },
+          {
+            "q": "Hoe stop ik met CallScope?",
+            "a": "Customer portal openen, klik op \"Cancel subscription\". Klaar. Geen \"we missen je\"-emails, geen retention-pogingen."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Klaar?",
+        "desc": "Geen creditcard nodig. Geen verkooppraatje. Maak een account, koppel je eerste sheet, en kijk of CallScope past.",
+        "button": "Start gratis →"
+      }
+    },
+    "callCenters": {
+      "metaTitle": "Voor callcentra & appointment setters · CallScope",
+      "metaDescription": "Stop met Excel-rapportages. Krijg conversie-overzichten, automatische rapporten naar je klanten, en eindelijk grip op je callers — als call center, freelancer of agency.",
+      "hero": {
+        "badge": "📞 Voor callcentra, agencies en freelancers",
+        "title1": "Excel is een telraam.",
+        "title2": "Tijd voor iets dat telt.",
+        "subtitle": "Of je nu een team van 12 cold callers hebt of solo werkt vanuit je living — CallScope geeft je het overzicht waar je klanten naar vragen, zonder dat je elke vrijdagavond met een spreadsheet zit te knoeien.",
+        "ctaPrimary": "Start je trial — 14 dagen gratis →",
+        "ctaSecondary": "Hoe het werkt",
+        "screenshotAlt": "Project dashboard voor call center managers"
+      },
+      "pains": {
+        "eyebrow": "Herkenbaar?",
+        "title": "Drie dingen die je tijd opvreten",
+        "items": [
+          {
+            "emoji": "📊",
+            "title": "Vrijdagse Excel-marathon",
+            "body": "Notities verspreid over WhatsApp, papier en een Google Sheet die niemand consistent invult. Aan het eind van de week ben je 2 uur kwijt om er één rapport van te maken."
+          },
+          {
+            "emoji": "🤔",
+            "title": "Klant vraagt: \"hoe gaat het?\"",
+            "body": "Eerlijk antwoorden? Geen idee. Je hebt een gevoel dat campagne X loopt en Y stroef gaat, maar harde cijfers ontbreken. Dus je bluft een beetje."
+          },
+          {
+            "emoji": "🔇",
+            "title": "Sales rep hoort niets terug",
+            "body": "Je callers maken afspraken, sturen ze door, en daarna stilte. Was de afspraak goed? Kwam de klant opdagen? Closed? Je weet het niet — en dus kan je je callers niet bijsturen."
+          }
+        ]
+      },
+      "dashboard": {
+        "label": "Eén dashboard",
+        "title": "Conversie, deals en bezwaren — op één scherm",
+        "desc": "Hoeveel leads gebeld? Hoeveel bereikt? Hoeveel afspraken? Hoeveel deals? Je ziet de hele funnel in één kaart. Plus: wat zegden mensen eigenlijk? AI haalt de top-bezwaren uit je callnotities.",
+        "bullet1": "Per project of per cold caller filteren",
+        "bullet2": "Forecast volgende week op basis van laatste 30 dagen",
+        "bullet3": "Custom date-ranges of \"deze maand\", \"7 dagen\", \"alles\"",
+        "alt": "Dashboard voor call center manager"
+      },
+      "sources": {
+        "label": "Geen workflow-disruptie",
+        "title": "Je callers blijven werken zoals ze gewoon zijn",
+        "desc": "Geen nieuwe interface om aan te leren. Cold callers werken in hun bestaande tool — Google Sheet, Lemlist of CSV-export. Jij koppelt de bron eenmaal aan CallScope, en de sync gebeurt elke nacht. Klaar.",
+        "bullet1Bold": "Google Sheets sync",
+        "bullet1": "— per cold caller een sheet, dagelijkse auto-sync",
+        "bullet2Bold": "Lemlist tasks",
+        "bullet2": "— voltooide call-tasks worden automatisch opgepikt",
+        "bullet3Bold": "CSV / Excel-upload",
+        "bullet3": "— voor wie niet aan een sync wil",
+        "bullet4": "Automatische dedup, custom velden per project, Excel-template per project",
+        "alt": "Google Sheets integratie configureren"
+      },
+      "reports": {
+        "label": "Klantrapport in 1 klik",
+        "title": "Mailbare rapporten waar klanten je voor bellen",
+        "desc": "Klik op \"Rapport delen\" en je krijgt een link die je doorstuurt — of stuur het direct als PDF. De klant ziet conversie, top-bezwaren, AI-samenvatting, en een lijst gemaakte afspraken. Sober, leesbaar, in jouw branding.",
+        "bullet1": "Share-link verloopt automatisch na 90 dagen",
+        "bullet2": "Print-naar-PDF voor offline rapporten",
+        "bullet3": "Custom velden zichtbaar voor de klant",
+        "alt": "Klantrapport om te delen"
+      },
+      "results": {
+        "eyebrow": "Wat je eraan overhoudt",
+        "title": "Tijd, transparantie en klanten die langer blijven",
+        "stats": [
+          {
+            "stat": "~3u",
+            "label": "per week minder rapportage"
+          },
+          {
+            "stat": "0",
+            "label": "manuele Excel-tabellen"
+          },
+          {
+            "stat": "100%",
+            "label": "zicht op je callers en deals"
+          }
+        ],
+        "note": "Klanten die hun cijfers wekelijks zien stappen niet over op de concurrent. Cold callers die hun conversie zien worden beter. En jij hebt voor het eerst een vrijdagavond zonder Excel."
+      },
+      "finalCta": {
+        "title": "Probeer het 14 dagen",
+        "desc": "Maak een gratis account aan, koppel je eerste Google Sheet (of upload een CSV), en zie binnen 5 minuten waar je belcampagne staat. Geen kaart, geen verplichtingen.",
+        "button": "Start gratis →"
+      }
+    },
+    "salesTeams": {
+      "metaTitle": "Voor sales teams · CallScope",
+      "metaDescription": "Krijg gekwalificeerde afspraken in plaats van koud bellen. Sluit de feedback-loop met je call center, koppel HubSpot, en zie de funnel zonder spreadsheets.",
+      "hero": {
+        "badge": "🎯 Voor sales managers, sales reps en bedrijven die afspraken inkopen",
+        "title1": "Stop met cold callen.",
+        "title2": "Begin met sluiten.",
+        "subtitle": "Je hebt een call center ingehuurd om afspraken voor je te maken. Goede beslissing. Maar nu: hoe weet je of de afspraken die je krijgt ook gekwalificeerd zijn? En hoe geef je feedback zodat de volgende batch beter is?",
+        "ctaPrimary": "Vraag je call center om CallScope →",
+        "ctaSecondary": "Hoe het werkt",
+        "screenshotAlt": "Sales manager dashboard met conversie-funnel"
+      },
+      "pains": {
+        "eyebrow": "Klinkt het bekend?",
+        "title": "Drie pijnpunten van outsourced sales",
+        "items": [
+          {
+            "emoji": "🔁",
+            "title": "Geen feedback-loop",
+            "body": "Je rep gaat naar de afspraak, maakt notities, en die verdwijnen in een mailtje of CRM-notitie. Het call center hoort nooit of de afspraak goed was. Volgende batch leads: dezelfde fouten."
+          },
+          {
+            "emoji": "🎲",
+            "title": "Lead-kwaliteit is een gok",
+            "body": "Soms krijg je 10 afspraken met geweldige bedrijven. Soms 10 afspraken met mensen die nooit budget hebben. Wat verklaart het verschil? Niemand weet het — er zijn geen cijfers."
+          },
+          {
+            "emoji": "📈",
+            "title": "Funnel zit verspreid",
+            "body": "Je sales rep tracked deals in HubSpot. Het call center heeft een Excel. Jij wil een overzicht en moet op vrijdag zelf gaan plakken. Dat doe je dus niet meer."
+          }
+        ]
+      },
+      "appointments": {
+        "label": "Sales rep view",
+        "title": "Je afspraken op één plek, klaar om feedback te geven",
+        "desc": "Elke sales rep ziet alleen zijn eigen afspraken. Klik erop, geef status, outcome en kwaliteitsscore. De caller leert van die feedback wat een goede lead is.",
+        "bullet1": "Per rep gefilterd — geen rommel van anderen",
+        "bullet2": "Status nadien aanpassen als de deal evolueert",
+        "bullet3": "Lead-context (notities van de cold caller) zichtbaar",
+        "alt": "Afspraken-overzicht voor sales rep"
+      },
+      "hubspot": {
+        "label": "HubSpot integratie",
+        "title": "Dealstages volgen je afspraak. Automatisch.",
+        "desc": "Sales manager koppelt zijn HubSpot eenmaal. Vanaf dan zoekt CallScope voor elke afspraak het bijhorende contact + deal in HubSpot, haalt de stage op, en mapt die naar een outcome. Dubbele rapportage = voorbij.",
+        "bullet1": "Read-only: CallScope schrijft nooit in jouw HubSpot",
+        "bullet2": "Match op email of telefoon — fuzzy genoeg voor BE-formaten",
+        "bullet3": "AI mapt jouw HubSpot-stages naar gewonnen / verloren / offerte / no-show",
+        "alt": "HubSpot-integratie configureren in CallScope"
+      },
+      "manager": {
+        "label": "Manager view",
+        "title": "Funnel, deal-rate en performance per rep — in één scherm",
+        "desc": "Wie van je reps converteert het best? Welke leadbron levert de hoogste deal-rate? Hoe ontwikkelt je conversie zich week na week? Zonder Excel-export.",
+        "bullet1": "Performance-vergelijking tussen sales reps",
+        "bullet2": "Forecast volgende week op basis van laatste 30 dagen",
+        "bullet3": "Filteren op project, datum, of \"deze maand\"",
+        "alt": "Sales manager dashboard met deal-rate en forecast"
+      },
+      "results": {
+        "eyebrow": "Wat je eraan overhoudt",
+        "title": "Betere leads, snellere reps, geen Excel meer",
+        "stats": [
+          {
+            "stat": "+",
+            "label": "gekwalificeerde afspraken (omdat callers leren van feedback)"
+          },
+          {
+            "stat": "0",
+            "label": "spreadsheets om handmatig bij te werken"
+          },
+          {
+            "stat": "1",
+            "label": "overzicht van je hele outbound funnel"
+          }
+        ]
+      },
+      "paths": {
+        "eyebrow": "Volgende stap",
+        "title": "Drie wegen om CallScope te gebruiken",
+        "items": [
+          {
+            "title": "1. Vraag je huidige call center om CallScope te gebruiken",
+            "body": "Stuur ze deze pagina door. Zij maken een account aan, voegen jou toe als sales manager, en jij ziet je afspraken vanaf dag 1."
+          },
+          {
+            "title": "2. Heb je een interne sales rep die zelf belt?",
+            "body": "Maak zelf een account aan als call center manager (kostprijs identiek), en gebruik het om je eigen team te tracken. Werkt ook solo."
+          },
+          {
+            "title": "3. Werk je met meerdere call centers?",
+            "body": "Dan koppelt elk call center hun eigen project aan jou als sales manager. Eén CallScope-login, alle externe campagnes in één funnel."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Klaar voor meer overzicht?",
+        "desc": "Maak een account, koppel HubSpot, en wacht tot je call center je toevoegt aan een project. Of bel ze even op om CallScope op te starten.",
+        "ctaPrimary": "Account aanmaken →",
+        "ctaSecondary": "Bekijk pricing"
+      }
+    },
+    "howItWorks": {
+      "metaTitle": "Hoe het werkt · CallScope",
+      "metaDescription": "Stap-voor-stap: van een leeg CallScope-account naar een volledig synchrone outbound-flow met cold callers, sales reps en HubSpot.",
+      "hero": {
+        "badge": "📋 Stappenplan",
+        "title": "Hoe het werkt — ",
+        "title2": "van A tot Z",
+        "subtitle": "Acht stappen. Van een leeg CallScope-account naar een volledige synchrone outbound-flow met cold callers, sales reps en HubSpot. Schat: 30 minuten setup voor een volledig project."
+      },
+      "steps": [
+        {
+          "n": "1",
+          "who": "Call center manager",
+          "title": "Maak een account aan en zet je call center op",
+          "body": "Registreer je gratis op callscope.be als call center manager. Je krijgt 14 dagen gratis trial op je eerste project — geen creditcard nodig om te starten. Geef je call center een naam (BelPro Gent, Acme Calling, …) en je bent klaar.",
+          "bullets": [
+            "Account-aanmaak duurt 30 seconden",
+            "Geen kaart, geen lock-in",
+            "Trial vervalt automatisch na 14 dagen — geen verrassingen"
+          ]
+        },
+        {
+          "n": "2",
+          "who": "Call center manager",
+          "title": "Maak je eerste project aan via de wizard",
+          "body": "Een project = één campagne voor één klant. De wizard vraagt je: hoe komen de leads binnen (manuele upload of Google Sheets)? Hoe komt de feedback binnen (handmatig door sales rep of automatisch via HubSpot)? Wie zit er in het team? Klik door en het project staat.",
+          "bullets": [
+            "Vier stappen: basics, bronnen, leden, bevestigen",
+            "Custom velden per project (dealwaarde, eventtype, branche, …)",
+            "Default sales rep voor automatische toewijzing"
+          ],
+          "screenshot": "/screenshots/Project_Settings_CC_Manager.png",
+          "alt": "Project-instellingen na de wizard"
+        },
+        {
+          "n": "3",
+          "who": "Call center manager",
+          "title": "Nodig je team uit per email",
+          "body": "In de wizard typ je gewoon de mailadressen van je cold callers, sales reps en sales managers. Bestaande CallScope-gebruikers worden direct toegevoegd. Nieuwe e-mails krijgen een uitnodigingsmail met een link om hun account aan te maken — zonder dat ze zelf moeten registreren.",
+          "bullets": [
+            "Geen self-service voor cold callers / sales reps — jij houdt controle",
+            "Invite-link verloopt na 7 dagen",
+            "Toegevoegde leden zien direct de juiste pagina's op hun dashboard"
+          ]
+        },
+        {
+          "n": "4",
+          "who": "Cold caller",
+          "title": "Cold caller belt en houdt zijn sheet bij",
+          "body": "Cold callers downloaden de Excel-template van CallScope (of werken in een Google Sheet die de manager koppelt). Tijdens het bellen: één rij per lead met naam, telefoon, status en notities. Geen extra applicatie. Geen workflow-disruptie.",
+          "bullets": [
+            "Excel-template per project, met de juiste kolommen ingevuld",
+            "Geldige status-waardes vooraf gedefinieerd",
+            "Cold caller hoeft NIETS over dealstages te weten"
+          ],
+          "screenshot": "/screenshots/Manuele_Upload_CC_Manager.png",
+          "alt": "Upload-pagina voor cold caller"
+        },
+        {
+          "n": "5",
+          "who": "CallScope · automatisch",
+          "title": "Sync: data komt binnen en wordt geanalyseerd",
+          "body": "Werkt je team in Google Sheets? Dan synct CallScope elke nacht automatisch — of klik je op \"Sync nu\" als je niet wil wachten. Manuele upload? Dan importeer je het CSV/Excel en CallScope mapt de kolommen automatisch. AI analyseert de notities en haalt de top-bezwaren naar boven.",
+          "bullets": [
+            "Dagelijkse cron + manuele \"Sync nu\"-knop",
+            "AI-bezwaardetectie via GPT-4o",
+            "Automatische dedup als dezelfde lead twee keer voorkomt"
+          ]
+        },
+        {
+          "n": "6",
+          "who": "Sales rep",
+          "title": "Sales rep krijgt zijn afspraken op één plek",
+          "body": "Elke sales rep ziet alleen zijn eigen afspraken in CallScope. De cold caller heeft de afspraak gemaakt — de rep ziet leadnaam, contactgegevens, notities van de caller, en de afspraakdatum. Eén klik om feedback te geven na de afspraak.",
+          "bullets": [
+            "Per rep gefilterd, andere reps zien jouw deals niet",
+            "Status (gepland / uitgevoerd / no-show / geannuleerd) + outcome",
+            "Notities + kwaliteitsscore voor de cold caller"
+          ],
+          "screenshot": "/screenshots/Afspraken_Sales_manager.png",
+          "alt": "Afspraken-overzicht voor sales rep"
+        },
+        {
+          "n": "7",
+          "who": "Sales manager",
+          "title": "HubSpot syncen voor automatische dealstages",
+          "body": "Heeft je sales manager HubSpot? Eén keer koppelen via Account → Integraties. CallScope zoekt vanaf dan voor elke afspraak het bijhorende contact + deal in HubSpot, haalt de stage op (Closed Won, Quote Sent, ...) en mapt die via AI naar een outcome. Sales reps hoeven dus zelfs geen feedback meer te typen — het komt automatisch uit HubSpot.",
+          "bullets": [
+            "OAuth-koppeling, read-only",
+            "Match op email of telefoon",
+            "Dagelijkse cron + manuele sync-knop"
+          ],
+          "screenshot": "/screenshots/Integraties_Sales_manager.png",
+          "alt": "HubSpot-integratie configureren"
+        },
+        {
+          "n": "8",
+          "who": "Iedereen",
+          "title": "Iedereen ziet zijn dashboard — eindklant ziet rapport",
+          "body": "Cold caller ziet zijn eigen prestaties, sales rep ziet zijn afspraken, sales manager ziet de funnel, call center manager ziet alles. Klanten van het call center krijgen een share-link of PDF-rapport — sober, leesbaar, in jouw merk.",
+          "bullets": [
+            "Multi-rol: elke gebruiker krijgt de juiste view",
+            "Custom date-ranges, project-filters, per-rep filters",
+            "Klantrapport via share-link of PDF"
+          ],
+          "screenshot": "/screenshots/Report_CC_Manager.png",
+          "alt": "Klantrapport om te delen"
+        }
+      ],
+      "finalCta": {
+        "title": "Begin bij stap 1",
+        "desc": "14 dagen gratis. Geen kaart. Geen lock-in. Als het niet werkt voor jouw setup — laat je het gewoon vervallen.",
+        "ctaPrimary": "Maak je account aan →",
+        "ctaSecondary": "Eerst de prijs bekijken"
+      }
+    },
+    "agencies": {
+      "metaTitle": "Voor outbound agencies & freelance setters — CallScope",
+      "metaDescription": "Eén dashboard voor je hele klantportefeuille. Bewijs per klant exact welke afspraken omzet opleveren — en verkoop je waarde met data.",
+      "hero": {
+        "badge": "Voor outbound agencies, BDR-teams & freelance setters",
+        "title1": "Eén dashboard.",
+        "title2": "Meerdere klanten. Échte bewijslast.",
+        "subtitle": "CallScope is gebouwd voor wie outbound-werk verkoopt aan andere bedrijven. Per klantproject zie je live wat je callers leveren — gekoppeld aan de échte deals in hun HubSpot. Stop met argumenteren over lead-kwaliteit. Toon het.",
+        "ctaPrimary": "Start gratis trial →",
+        "ctaSecondary": "Bekijk de prijzen",
+        "screenshotAlt": "CallScope agency-dashboard met meerdere klantprojecten"
+      },
+      "pains": {
+        "eyebrow": "Herkenbaar?",
+        "title": "Outbound verkopen zonder data is een nachtmerrie",
+        "items": [
+          {
+            "emoji": "💬",
+            "title": "Maandelijkse discussie over lead-kwaliteit",
+            "body": "De klant zegt 'jullie leads converteren niet'. Jij zegt 'jullie sluiten ze niet'. Niemand heeft cijfers. Iedereen verliest tijd."
+          },
+          {
+            "emoji": "📊",
+            "title": "Rapportering kost 4-6u per klant per maand",
+            "body": "Excel exports, screenshots uit HubSpot, een PDF dat niemand opent. Tijd die niet gefactureerd wordt — én niet leuk."
+          },
+          {
+            "emoji": "🤷",
+            "title": "Geen idee welke leadbron écht werkt",
+            "body": "Facebook ads, Apollo, LinkedIn Sales Nav, koude lijsten — je weet welke duur is, niet welke deals oplevert."
+          },
+          {
+            "emoji": "🚪",
+            "title": "Klant zegt op zonder context",
+            "body": "Drie maanden geleden was 't 'top'. Vandaag een opzegmail. Geen meetbare proof-of-value betekent: makkelijk vervangbaar."
+          }
+        ]
+      },
+      "solution": {
+        "eyebrow": "De oplossing",
+        "title": "Wat CallScope concreet doet voor agencies",
+        "items": [
+          {
+            "title": "Multi-project workspace",
+            "desc": "Eén CallScope-account, één dashboard, onbeperkt aantal klantprojecten. Per klant aparte data, aparte rapporten, aparte HubSpot."
+          },
+          {
+            "title": "Per-klant HubSpot-koppeling",
+            "desc": "Iedere klant heeft hun eigen HubSpot? Geen probleem. Per project een aparte OAuth-koppeling. Read-only: we schrijven nooit naar hun CRM."
+          },
+          {
+            "title": "Caller-attributie automatisch",
+            "desc": "Match HubSpot owner-email met je CallScope-team. Elke call wordt automatisch aan de juiste setter toegewezen — geen manuele input."
+          },
+          {
+            "title": "Klant-rapport in één klik",
+            "desc": "Genereer een professioneel rapport (PDF of share-link) waar je klant alles ziet: calls, afspraken, dealstages, conversies. Wekelijks, maandelijks, ad-hoc."
+          }
+        ]
+      },
+      "results": {
+        "eyebrow": "Het verschil",
+        "title": "Wat verandert er voor een agency die CallScope gebruikt",
+        "stats": [
+          {
+            "stat": "~4u/week",
+            "label": "minder rapportering per klant"
+          },
+          {
+            "stat": "0 discussies",
+            "label": "meer over lead-kwaliteit — de data spreekt"
+          },
+          {
+            "stat": "100%",
+            "label": "geautomatiseerde bezwaardetectie via AI"
+          },
+          {
+            "stat": "Hogere marges",
+            "label": "minder uren naar admin, meer naar setters"
+          }
+        ]
+      },
+      "pricing": {
+        "eyebrow": "Pricing voor agencies",
+        "title": "€49 per klantproject, per maand",
+        "desc": "Geen seat-licenses, geen verborgen kosten. Eén bedrag per actief klantproject. Werkt het project niet meer? Zet het op pauze of zeg het op — maandelijks. Eerste project is 14 dagen gratis om te testen.",
+        "cta": "Naar de prijzen →"
+      },
+      "cta": {
+        "title": "Stop met je waarde verkopen met praatjes.",
+        "subtitle": "Toon met cijfers wat jij voor klanten oplevert. Eerste project is gratis 14 dagen, geen creditcard nodig.",
+        "ctaPrimary": "Start je gratis trial →",
+        "ctaSecondary": "Bekijk de prijzen"
+      }
+    }
+  },
+  "nav": {
+    "openMenu": "Open menu",
+    "overview": "Overzicht",
+    "myTeam": "Mijn team",
+    "upload": "Upload",
+    "projects": "Projecten",
+    "appointments": "Afspraken",
+    "planner": "Planner",
+    "integrations": "Integraties",
+    "logout": "Uitloggen",
+    "team": "Team",
+    "myCalls": "Mijn calls",
+    "roles": {
+      "cold_caller": "Cold caller",
+      "cc_manager": "CC Manager",
+      "sales_rep": "Sales rep",
+      "sales_manager": "Sales manager"
+    }
+  },
+  "emails": {
+    "wrapper": {
+      "footer": "Mail van een echt persoon — dit is geen automatische no-reply. Antwoord gerust direct, je belandt bij Arne (Halco Services)."
+    },
+    "welcome": {
+      "firstNameFallback": "collega",
+      "subject": "Welkom bij CallScope, {firstName}",
+      "headline": "Welkom bij CallScope, {firstName}",
+      "bottomTip": "Tegen iets aanlopen? Klik op de help-knop rechtsonder in de app, of antwoord op deze mail.",
+      "cc_manager": {
+        "intro": "Tof dat je erbij bent. Als call center manager heb je nu 14 dagen gratis om CallScope te testen op je eerste project — geen kaart nodig.",
+        "steps": [
+          "<strong>Maak je eerste project aan.</strong> Bepaal hoe leads binnenkomen (Google Sheets of CSV-upload) en hoe feedback verloopt (HubSpot of manueel).",
+          "<strong>Nodig je team uit per email.</strong> Cold callers, sales reps en sales managers krijgen een uitnodigingsmail — geen self-service.",
+          "<strong>Doe je eerste upload of koppel een Google Sheet.</strong> Vanaf dan zie je je conversie, top-bezwaren en deal-rate live."
+        ],
+        "ctaPath": "/dashboard/projects/new",
+        "ctaLabel": "Maak je eerste project →"
+      },
+      "cold_caller": {
+        "intro": "Je bent toegevoegd door je manager. Wat je nu kan doen:",
+        "steps": [
+          "<strong>Bekijk je projecten.</strong> Op je dashboard zie je welke campagnes voor jou actief zijn.",
+          "<strong>Werk in je gewone Google Sheet of upload een CSV.</strong> CallScope synct dagelijks automatisch.",
+          "<strong>Volg je conversie.</strong> Je ziet hoeveel leads je hebt gebeld, hoeveel je bereikt hebt en hoeveel afspraken eruit kwamen."
+        ],
+        "ctaPath": "/dashboard",
+        "ctaLabel": "Open mijn dashboard →"
+      },
+      "sales_rep": {
+        "intro": "Je manager heeft je toegevoegd als sales rep. Vanaf nu zie je je afspraken in CallScope:",
+        "steps": [
+          "<strong>Open de Afspraken-pagina.</strong> Daar staan alle afspraken die op jouw naam zijn ingepland.",
+          "<strong>Geef feedback na elke afspraak.</strong> Status, outcome, kwaliteitsscore en notities — handig om de cold callers bij te sturen.",
+          "<strong>Volg je sales overzicht.</strong> Conversie-funnel, deal rate en forecast voor de week erna."
+        ],
+        "ctaPath": "/dashboard/appointments",
+        "ctaLabel": "Naar mijn afspraken →"
+      },
+      "sales_manager": {
+        "intro": "Als sales manager beheer je je sales team en volg je de prestatie van iedere rep. Drie eerste stappen:",
+        "steps": [
+          "<strong>Koppel HubSpot</strong> (optioneel) zodat dealstages automatisch uit jouw CRM worden gelezen — geen dubbele rapportage meer.",
+          "<strong>Open het sales overzicht.</strong> Conversie-funnel, deal rate en performance per rep, filterbaar op project.",
+          "<strong>Bekijk team-afspraken.</strong> Filter per rep om individuele prestaties te zien."
+        ],
+        "ctaPath": "/dashboard/sales",
+        "ctaLabel": "Naar mijn dashboard →"
+      }
+    },
+    "tip": {
+      "firstNameFallback": "daar",
+      "subject": "Hoe gaat het met CallScope, {firstName}?",
+      "headline": "Hoe gaat het, {firstName}?",
+      "intro": "Drie dagen geleden ben je gestart met CallScope. Dit zijn de drie dingen die nieuwe gebruikers ons het vaakst vragen:",
+      "card1Title": "📊 \"Waar zie ik mijn conversie?\"",
+      "card1Body": "Open je dashboard en kies een datumbereik bovenaan (\"7 dagen\", \"30 dagen\", \"deze maand\", of een custom range). De funnel toont gebeld → bereikt → afspraak → deal in één blik.",
+      "card2Title": "📥 \"Hoe deel ik een rapport met mijn klant?\"",
+      "card2Body": "Op de project-pagina staat een \"Rapport\"-knop. Eén klik en je hebt een share-link of PDF die je kan doormailen. Verloopt automatisch na 90 dagen.",
+      "card3Title": "🤖 \"Hoe werkt de AI-bezwaardetectie?\"",
+      "card3Body": "Op elke upload-detailpagina vind je de top-bezwaren die GPT-4o uit je callnotities haalt. Hoe meer notities, hoe scherper de inzichten.",
+      "ctaPath": "/hoe-het-werkt",
+      "ctaLabel": "Stappenplan A→Z bekijken →",
+      "bottomTip": "Loop je ergens tegenaan? Klik op de help-knop rechtsonder in de app — die stuurt direct naar mij."
+    },
+    "trialReminder": {
+      "firstNameFallback": "daar",
+      "subject": "Je trial op {projectName} verloopt op {date}",
+      "headline": "Je trial loopt bijna af",
+      "body1": "Hoi {firstName}, je gratis trial op het project <strong>{projectName}</strong> verloopt op <strong>{date}</strong>.",
+      "body2": "Wil je verder gebruik maken van CallScope? Activeer een abonnement (€49/maand, maandelijks opzegbaar) zodat je sync, rapporten en data niet onderbroken worden.",
+      "ctaPath": "/dashboard/projects",
+      "ctaLabel": "Activeer abonnement →",
+      "bottomTip": "Geen interesse? Geen probleem — je hoeft niets te doen, de trial vervalt automatisch. Geen kost, geen verrassingen."
+    },
+    "invite": {
+      "subject": "Uitnodiging: {projectName} op CallScope",
+      "headline": "Je bent uitgenodigd voor {projectName}",
+      "body": "{inviter} nodigt je uit om als {role} deel te nemen aan het project {projectName} op CallScope.",
+      "linkPrompt": "Maak je account aan en activeer je uitnodiging:",
+      "ctaLabel": "Account aanmaken →",
+      "fallback": "Of plak deze link in je browser:",
+      "expires": "Deze uitnodiging vervalt over 7 dagen.",
+      "roles": {
+        "cold_caller": "cold caller",
+        "sales_rep": "sales rep",
+        "sales_manager": "sales manager"
+      }
+    },
+    "added": {
+      "subject": "Je bent toegevoegd aan {projectName}",
+      "headline": "Je bent toegevoegd aan {projectName}",
+      "bodyWithName": "Hallo {firstName}, {inviter} heeft je toegevoegd als {role} aan het project {projectName}.",
+      "bodyNoName": "{inviter} heeft je toegevoegd als {role} aan het project {projectName}.",
+      "ctaPath": "/dashboard",
+      "ctaLabel": "Open dashboard →",
+      "inviterFallback": "een teamlid",
+      "roles": {
+        "cold_caller": "cold caller",
+        "sales_rep": "sales rep",
+        "sales_manager": "sales manager"
+      }
+    },
+    "weeklyHours": {
+      "firstNameFallback": "daar",
+      "subjectSingle": "Bevestig je uren van deze week — 1 project",
+      "subjectPlural": "Bevestig je uren van deze week — {count} projecten",
+      "headline": "Bevestig de uren van deze week, {firstName}",
+      "intro": "Het is vrijdagavond — tijd om de gewerkte uren van deze week te bevestigen. Klik op een project hieronder om per cold caller de uren te bevestigen of aan te passen. De preset uit je project-settings staat al ingevuld; één klik en je bent klaar.",
+      "outro": "Dit zorgt ervoor dat de kost-metrics op de sales-dashboards en klant-rapporten correct gebaseerd zijn op de werkelijke uren van deze week.",
+      "unsubscribe": "Mocht je deze mail niet meer willen ontvangen: verwijder de tarieven uit je project-settings, en de mail stopt automatisch."
+    }
+  },
+  "auth": {
+    "login": {
+      "subtitle": "Welkom terug",
+      "emailLabel": "E-mailadres",
+      "emailPlaceholder": "naam@bedrijf.be",
+      "passwordLabel": "Wachtwoord",
+      "passwordForgot": "Vergeten?",
+      "submit": "Inloggen",
+      "submitting": "Bezig...",
+      "noAccount": "Nog geen account?",
+      "register": "Registreren",
+      "error": "Ongeldig e-mailadres of wachtwoord."
+    },
+    "register": {
+      "subtitle": "Maak je call center account aan",
+      "info": "Cold caller, sales rep of sales manager? Je krijgt een uitnodigingsmail van je manager met een link om je account aan te maken — zelf registreren is niet nodig.",
+      "infoBold": "Cold caller, sales rep of sales manager?",
+      "fullNameLabel": "Volledige naam",
+      "fullNamePlaceholder": "Jan Janssen",
+      "emailLabel": "E-mailadres",
+      "emailPlaceholder": "naam@bedrijf.be",
+      "passwordLabel": "Wachtwoord",
+      "passwordPlaceholder": "Minimaal 8 tekens",
+      "roleLabel": "Jouw rol",
+      "submit": "Account aanmaken",
+      "submitting": "Account aanmaken...",
+      "haveAccount": "Al een account?",
+      "signIn": "Inloggen",
+      "roleCcManager": {
+        "label": "Call center manager",
+        "description": "Ik beheer een call center met meerdere callers"
+      },
+      "roleFreelance": {
+        "label": "Freelance appointment setter",
+        "description": "Ik werk solo — cold caller én manager in één"
+      }
+    },
+    "forgotPassword": {
+      "subtitle": "Wachtwoord resetten",
+      "intro": "Vul je e-mailadres in en we sturen je een link om een nieuw wachtwoord in te stellen.",
+      "emailLabel": "E-mailadres",
+      "emailPlaceholder": "naam@bedrijf.be",
+      "submit": "Stuur reset-link",
+      "submitting": "Versturen...",
+      "backToLogin": "← Terug naar inloggen",
+      "sentTitle": "Check je inbox",
+      "sentBody": "We hebben een reset-link gestuurd naar {email}. Klik erop om een nieuw wachtwoord in te stellen.",
+      "sentTip": "Niets ontvangen? Check je spam-folder, of wacht 1-2 minuten."
+    },
+    "resetPassword": {
+      "subtitle": "Nieuw wachtwoord instellen",
+      "intro": "Kies een nieuw wachtwoord voor je account.",
+      "newLabel": "Nieuw wachtwoord",
+      "newPlaceholder": "Minimaal 8 tekens",
+      "confirmLabel": "Bevestig wachtwoord",
+      "confirmPlaceholder": "Hetzelfde nogmaals",
+      "submit": "Wachtwoord wijzigen",
+      "submitting": "Opslaan...",
+      "errorMismatch": "De wachtwoorden komen niet overeen.",
+      "errorTooShort": "Wachtwoord moet minstens 8 tekens lang zijn.",
+      "expiredTitle": "Link verlopen of ongeldig",
+      "expiredBody": "De reset-link is niet langer geldig. Vraag een nieuwe aan.",
+      "expiredCta": "Nieuwe link aanvragen",
+      "checkingSession": "Sessie controleren..."
+    },
+    "verifyEmail": {
+      "title": "Check je inbox",
+      "bodyWithEmail": "Bedankt voor je registratie! We hebben een bevestigingsmail gestuurd naar {email}. Klik op de link in die mail om je account te activeren.",
+      "bodyNoEmail": "Bedankt voor je registratie! We hebben een bevestigingsmail gestuurd. Klik op de link in die mail om je account te activeren.",
+      "noMailLabel": "Geen mail ontvangen?",
+      "tip1": "Check je spam-folder",
+      "tip2": "Wacht 1-2 minuten — soms duurt 't even",
+      "tip3": "Klik hieronder om de mail opnieuw te versturen",
+      "resend": "Verstuur de mail opnieuw",
+      "resending": "Versturen...",
+      "resent": "✓ Opnieuw verstuurd",
+      "noEmailAvailable": "E-mailadres niet beschikbaar — log in om opnieuw te versturen.",
+      "alreadyActivated": "Account al geactiveerd?",
+      "signIn": "Inloggen →",
+      "backToRegister": "← Terug naar registratie",
+      "loading": "Laden..."
+    },
+    "acceptInvite": {
+      "subtitle": "Uitnodiging accepteren",
+      "checking": "Uitnodiging controleren…",
+      "invalidTitle": "Uitnodiging niet geldig",
+      "noToken": "Geen uitnodigings-token meegegeven.",
+      "notFound": "Uitnodiging niet gevonden of al gebruikt.",
+      "toLogin": "Naar login",
+      "expiredTitle": "Uitnodiging verlopen",
+      "expiredBody": "Deze uitnodiging is meer dan 7 dagen oud. Vraag {inviter} om een nieuwe te sturen.",
+      "expiredFallback": "je manager",
+      "invitedBy": "{inviter} nodigt je uit als {role} voor het project {project}.",
+      "inviterFallback": "Een manager",
+      "emailLabel": "E-mailadres",
+      "emailLocked": "Vast — staat op de uitnodiging",
+      "fullNameLabel": "Volledige naam",
+      "fullNamePlaceholder": "Jan Janssen",
+      "passwordLabel": "Wachtwoord",
+      "passwordPlaceholder": "Minimaal 8 tekens",
+      "submit": "Account aanmaken & inloggen",
+      "submitting": "Account aanmaken…",
+      "errorTooShort": "Wachtwoord moet minstens 8 tekens lang zijn.",
+      "haveAccount": "Heb je al een account?",
+      "signIn": "Inloggen",
+      "loading": "Laden…",
+      "roles": {
+        "cold_caller": "cold caller",
+        "sales_rep": "sales rep",
+        "sales_manager": "sales manager"
+      }
+    }
+  },
+  "dashboard": {
+    "billing": {
+      "back": "Terug naar projecten",
+      "title": "Abonnement activeren",
+      "subtitle": "Activeer een betaald abonnement zodat je sync, uploads en alle data-functies kan blijven gebruiken.",
+      "cancelled": "Checkout afgebroken. Geen zorgen — je wordt pas gefactureerd na een geslaagde betaling.",
+      "noProject": "Geen project geselecteerd. Open de billing-pagina vanaf een specifiek project.",
+      "checkoutFailed": "Checkout mislukt",
+      "planTitle": "CallScope project — €49 / maand",
+      "planTaxNote": "(excl. BTW)",
+      "feature1": "Onbeperkt aantal cold callers, sales reps en sales managers per project",
+      "feature2": "Dagelijkse Google Sheets sync per caller",
+      "feature3": "AI-gedreven gespreksanalyse en dealstage classificatie",
+      "feature4": "Cross-team dashboards voor cc managers, sales reps en sales managers",
+      "feature5": "Wekelijkse rapporten via e-mail",
+      "ctaLoading": "Doorverwijzen…",
+      "cta": "Activeer abonnement via Stripe",
+      "smallPrint": "Maandelijks opzegbaar. Eerste 14 dagen gratis te proberen per project. Veilig betalen via Stripe. BTW wordt automatisch berekend op basis van je adres (B2B met geldig BTW-nummer = reverse charge).",
+      "alreadyActive": "Heb je al een actief abonnement? Beheer het in je",
+      "accountSettings": "accountinstellingen"
+    },
+    "funnel": {
+      "title":           "Conversie-funnel",
+      "called":          "Gebeld",
+      "reached":         "Bereikt",
+      "appointments":    "Afspraken",
+      "deals":           "Deals",
+      "totalBase":       "100% (basis)",
+      "stepConversion":  "{pct}% van vorige stap",
+      "empty":           "Nog geen calls in deze periode."
+    },
+    "deals": {
+      "breakdown": {
+        "title": "Dealstages verdeling",
+        "subtitle": "Verdeling van {total} {total, plural, =1 {afspraak} other {afspraken}} in deze periode.",
+        "awaitingBanner": "{count} van {total} afspraken ({pct}%) wachten nog op feedback van de sales rep.",
+        "upcomingBanner": "{count} van {total} afspraken ({pct}%) liggen nog in de toekomst — feedback is later te verwachten.",
+        "allAwaiting": "Alle afspraken wachten nog op feedback. Vraag de sales rep om hun uitkomsten te markeren.",
+        "withFeedback": "met feedback",
+        "labels": {
+          "won":         "Gewonnen",
+          "offerte":     "Offerte lopen",
+          "in_progress": "Follow-up",
+          "no_show":     "No show",
+          "lost":        "Verloren",
+          "upcoming":    "In de toekomst",
+          "other":       "Nog geen feedback"
+        }
+      },
+      "perMonth": {
+        "title": "Deals per maand — {year}",
+        "subtitle": "Volledig kalenderjaar, onafhankelijk van de datumfilter bovenaan. Elke bar = één maand, gestapeld per dealstage.",
+        "labels": {
+          "won":         "Gewonnen",
+          "offerte":     "Offerte lopen",
+          "in_progress": "Follow-up",
+          "no_show":     "No show",
+          "lost":        "Verloren",
+          "upcoming":    "In de toekomst",
+          "other":       "Nog geen feedback"
+        }
+      }
+    },
+    "team": {
+      "title": "Team overzicht",
+      "callersCount": "{count, plural, =1 {# caller} other {# callers}}",
+      "kpis": {
+        "leadsContacted": "Calls",
+        "reachRatio": "Bereikratio",
+        "reachedSub": "{n} bereikt",
+        "appointments": "Afspraken",
+        "conversionSub": "{n}% conv.",
+        "deals": "Deals (via sales)",
+        "dealsSub": "feedback van sales reps"
+      },
+      "funnel": {
+        "title": "Conversie-funnel",
+        "called": "Gebeld",
+        "reached": "Bereikt",
+        "appointments": "Afspraken",
+        "deals": "Deals"
+      },
+      "teamChart": {
+        "titleCalls": "Calls per uur",
+        "titleReach": "Bereikratio",
+        "subtitleCalls": "Gemiddeld aantal calls per gewerkt uur, per cold caller per werkdag.",
+        "subtitleReach": "% van de calls die contact maakten, per cold caller per werkdag.",
+        "toggleCalls": "Calls/u",
+        "toggleReach": "Bereikratio",
+        "yAxisLeft": "calls / u",
+        "yAxisRight": "bereik %",
+        "yAxisAppointments": "afspraken",
+        "appointmentsLegendSuffix": "(afspraken)",
+        "appointmentsUnit": "afspraken",
+        "unitCallsPerHour": "calls/u",
+        "footer": "Uren via bevestigde week-uren (Ma-Vr). Alleen dagen met minstens 20 calls krijgen een datapunt. Hover over een punt voor het aantal afspraken die dag. Top 8 callers op aantal afspraken.",
+        "emptyCalls": "Geen bevestigde uren voor deze periode. Vul de gewerkte uren in om calls/u te zien.",
+        "emptyCallsCta": "Uren invullen voor deze week",
+        "emptyReach": "Geen enkele dag in deze periode heeft minstens 20 calls."
+      },
+      "performance": {
+        "title": "Caller performantie",
+        "empty": "Nog geen uploads van je callers.",
+        "headers": {
+          "caller": "Caller",
+          "leads": "Calls",
+          "reached": "Bereikt",
+          "appointments": "Afspraken",
+          "conv": "Conv.",
+          "quality": "Kwaliteit",
+          "deals": "Deals"
+        },
+        "uploadsCount": "{count, plural, =1 {# upload} other {# uploads}}",
+        "coachingLoading": "Coaching laden…",
+        "drilldown": {
+          "stats": "Statistieken",
+          "callbacks": "Callbacks",
+          "noShows": "No-shows",
+          "notReached": "Niet bereikt",
+          "feedbackSales": "Feedback sales",
+          "lead": "Lead",
+          "noFeedback": "Nog geen feedback van sales.",
+          "moreItems": "+{n} meer",
+          "uploadsLabel": "Uploads",
+          "noUploads": "Geen uploads in deze periode.",
+          "moreUploads": "+ {n} meer"
+        }
+      },
+      "customFields": {
+        "title": "Extra velden — afspraken vs. alle leads",
+        "subtitle": "Per veld zie je hoe afspraken zich verhouden tot alle calls in dit project.",
+        "allLeads": "Alle leads",
+        "appointments": "Afspraken",
+        "noData": "Geen data.",
+        "perWeek": "per week",
+        "filledCount": "{n} ingevuld",
+        "topApptHint": "💡 Meeste afspraken uit",
+        "totalApptHint": "({appts}/{total} afspraken, {rate}% conv.)",
+        "bestRate": "⭐ Beste conversie:",
+        "bestRateValue": "({rate}%, n={n})",
+        "avgPrefix": "gem.",
+        "crossField": {
+          "title": "Cross-veld observaties",
+          "highest": "🔗 Hoogste gem.",
+          "lowest": "laagst:"
+        }
+      },
+      "customInsights": {
+        "title": "Inzichten over extra velden",
+        "aiDetected": "AI gedetecteerd"
+      },
+      "objections": {
+        "title": "Top bezwaren van je team",
+        "aiDetected": "AI gedetecteerd",
+        "footer": "Gebruik dit om je callers te coachen op de meest voorkomende bezwaren.",
+        "reanalyse": "Heranalyseer",
+        "reanalysing": "Bezig…",
+        "reanalyseSuccess": "✓ {n, plural, =1 {# upload} other {# uploads}} heranalyseerd. Refresh om de nieuwe data te zien.",
+        "reanalyseError": "Heranalyse mislukt",
+        "reanalyseConfirm": "Alle uploads van dit project opnieuw door GPT laten analyseren? Dit kost een paar minuten en GPT-credits."
+      },
+      "noCallersEmpty": "Nog geen uploads van je callers. Voeg callers toe aan een project en laat ze uploaden."
+    },
+    "greeting": "Goeiedag, {name} 👋",
+    "subtitle": "Bekijk je calls, afspraken en feedback van sales reps.",
+    "personalBadge": "Mijn calls",
+    "personalSubtitle": "Persoonlijk overzicht — schakel via de zijbalk naar Team om beheerder-functies te zien.",
+    "stats": {
+      "callsMade": "Leads gebeld",
+      "reached": "Bereikt",
+      "appointments": "Afspraken",
+      "conversion": "Conversie"
+    },
+    "actions": {
+      "newUpload": "Nieuwe upload",
+      "newUploadDesc": "CSV of Excel importeren",
+      "projects": "Projecten",
+      "projectsDesc": "Overzicht van alle campagnes"
+    },
+    "appointments": {
+      "loading": "Laden…",
+      "title": "Afspraken",
+      "subtitleSales": "Geef feedback op afspraken zodat callers weten wat de kwaliteit was.",
+      "subtitleManager": "Overzicht van alle geplande afspraken en hun uitkomsten.",
+      "banner": {
+        "title": "{count, plural, =1 {# afspraak heeft} other {# afspraken hebben}} nog geen sales rep",
+        "body": "Zonder rep ziet niemand ze in zijn persoonlijk dashboard. Stel een",
+        "bodyLink": "default rep",
+        "bodyAfter": "in voor automatische toewijzing, of kies hieronder per afspraak een rep."
+      },
+      "filters": {
+        "toReview": "Te beoordelen",
+        "all": "Alle",
+        "closed": "Afgesloten"
+      },
+      "empty": {
+        "allDone": {
+          "title": "Alles afgewerkt 🎉",
+          "body": "Geen afspraken meer te beoordelen. Goed bezig — kom morgen terug voor de nieuwe lichting."
+        },
+        "noneForRep": {
+          "title": "Nog geen afspraken op jouw naam",
+          "body": "Zodra een cold caller je naam in zijn sheet zet als sales rep voor een afspraak, verschijnt die hier vanzelf — meestal binnen 24u na de sync."
+        },
+        "noneForCaller": {
+          "title": "Nog geen afspraken gemaakt",
+          "body": "Zodra je een lead met status \"afspraak\" in je sheet zet (of via Lemlist), verschijnt hij hier. Daarna zie je ook de feedback van de sales rep nadat hij de afspraak heeft gehad."
+        },
+        "noneGeneric": {
+          "title": "Nog geen afspraken",
+          "body": "Afspraken verschijnen hier zodra cold callers ze maken (status \"Afspraak\" in hun upload of Google Sheet)."
+        }
+      },
+      "card": {
+        "unknownLead": "Onbekende lead",
+        "appointmentPrefix": "Afspraak:",
+        "calledPrefix": "gebeld",
+        "salesRepLabel": "Sales rep:",
+        "noRepAssigned": "⚠ Geen sales rep toegewezen",
+        "assignPrompt": "Wijs toe…",
+        "changePrompt": "Wijzig rep…",
+        "dealstageTooltip": "Auto-gesynced uit sheet: \"{stage}\"",
+        "noFeedback": "Geen feedback",
+        "cancel": "Annuleren",
+        "edit": "Bewerken",
+        "giveFeedback": "Feedback geven",
+        "salesRepNotes": "Notities sales rep",
+        "dismiss": "Geen afspraak",
+        "dismissing": "Bezig…",
+        "dismissTooltip": "Deze call was uiteindelijk geen afspraak — verwijder uit deze lijst (de call zelf blijft bewaard).",
+        "dismissConfirm": "Deze afspraak uit de lijst halen? De call blijft meetellen in de statistieken, maar telt niet meer als afspraak. Eventuele feedback wordt gewist.",
+        "addDate": "Afspraakdatum",
+        "editDateTooltip": "Klik om de afspraakdatum aan te passen",
+        "dateSave": "Opslaan",
+        "dateSaving": "Bezig…",
+        "dateClear": "Wissen",
+        "dateCancel": "Annuleren"
+      },
+      "statusOptions": {
+        "gepland": "Gepland",
+        "uitgevoerd": "Uitgevoerd",
+        "no_show": "No-show",
+        "geannuleerd": "Geannuleerd"
+      },
+      "outcomeOptions": {
+        "geen": "– Nog geen",
+        "offerte": "📄 Offerte",
+        "deal": "✓ Deal",
+        "follow_up": "↩ Follow-up",
+        "verloren": "✗ Verloren"
+      },
+      "form": {
+        "statusLabel": "Status afspraak",
+        "outcomeLabel": "Uitkomst",
+        "qualityLabel": "Kwaliteit lead",
+        "qualityHelp": "(hoe goed was de afspraak die de caller aanleverde?)",
+        "ratingNone": "–",
+        "ratingPoor": "Slechte lead",
+        "ratingAvg": "Gemiddeld",
+        "ratingGood": "Goede lead",
+        "ratingPerfect": "Perfecte lead",
+        "notesLabel": "Notities",
+        "notesPlaceholder": "Wat viel op tijdens de afspraak?",
+        "cancel": "Annuleren",
+        "saving": "Opslaan…",
+        "save": "Feedback opslaan"
+      },
+      "errors": {
+        "notLoggedIn": "Niet ingelogd",
+        "saveFailed": "Opslaan mislukt: {msg}",
+        "assignFailed": "Toewijzen mislukt: {msg}",
+        "dismissFailed": "Kon afspraak niet dismissen: {msg}",
+        "dateSaveFailed": "Kon afspraakdatum niet opslaan: {msg}"
+      }
+    },
+    "upload": {
+      "detail": {
+        "loading": "Laden…",
+        "notFound": "Upload niet gevonden.",
+        "back": "Terug",
+        "statusBadge": {
+          "done": "Klaar",
+          "processing": "Verwerken",
+          "error": "Fout",
+          "pending": "In wachtrij"
+        },
+        "kpis": {
+          "leadsContacted": "Leads gecontacteerd",
+          "reached": "Bereikt",
+          "appointments": "Afspraken",
+          "callbacks": "Callbacks",
+          "convSuffix": "conv."
+        },
+        "customFields": {
+          "title": "Extra velden",
+          "noData": "Geen data",
+          "avgPrefix": "gem.",
+          "filledSuffix": "ingevuld",
+          "samplePrefix": "ingevuld"
+        },
+        "customInsights": {
+          "title": "Inzichten over extra velden",
+          "badge": "AI gedetecteerd"
+        },
+        "aiReport": {
+          "title": "AI rapport",
+          "badge": "Automatisch gegenereerd"
+        },
+        "objections": {
+          "title": "Top bezwaren",
+          "badge": "Gedetecteerd door AI"
+        },
+        "statusDistribution": {
+          "title": "Statusverdeling",
+          "appointments": "Afspraken",
+          "callbacks": "Callbacks",
+          "voicemails": "Voicemails",
+          "notReached": "Niet bereikt"
+        },
+        "feedback": {
+          "title": "Feedback van sales reps",
+          "avgPrefix": "gem.",
+          "unknownLead": "Onbekende lead",
+          "byPrefix": "Door",
+          "awaitingMore": "{count, plural, =1 {# afspraak wacht} other {# afspraken wachten}} nog op feedback.",
+          "awaitingAll": "{count, plural, =1 {# afspraak wacht} other {# afspraken wachten}} nog op feedback van de sales reps."
+        },
+        "statusLabels": {
+          "gepland": "Gepland",
+          "uitgevoerd": "Uitgevoerd",
+          "no_show": "No-show",
+          "geannuleerd": "Geannuleerd"
+        },
+        "outcomeLabels": {
+          "deal": "Deal",
+          "offerte": "Offerte",
+          "follow_up": "Follow-up",
+          "verloren": "Verloren",
+          "geen": "Geen"
+        }
+      }
+    },
+    "sales": {
+      "loading": "Laden…",
+      "greeting": "Goeiedag, {firstName} 👋",
+      "subtitle": "Sales overzicht voor dit project.",
+      "kpis": {
+        "leadsContacted": "Leads gecontacteerd",
+        "leadsContactedTip": "Totaal aantal leads verwerkt",
+        "reachRate": "Bereikratio",
+        "reachedSuffix": "bereikt",
+        "reachRateTip": "Bereikt / totaal gebeld",
+        "appointments": "Afspraken",
+        "convSuffix": "conv.",
+        "appointmentsTip": "Afspraken / bereikt",
+        "deals": "Deals",
+        "ofAppointments": "van afspraken",
+        "noFeedbackYet": "Nog geen feedback",
+        "dealsTip": "Deals / afspraken"
+      },
+      "funnel": {
+        "title": "Conversie-funnel",
+        "called": "Gebeld",
+        "reached": "Bereikt",
+        "appointments": "Afspraken",
+        "deals": "Deals",
+        "noData": "Nog geen data voor dit project."
+      },
+      "outcomes": {
+        "title": "Uitkomsten",
+        "dealRate": "Deal rate: {rate}%",
+        "noFeedback": "Nog geen feedback data"
+      },
+      "aiInsights": {
+        "title": "Inzichten uit gesprekken",
+        "badge": "AI gedetecteerd",
+        "footer": "Gebaseerd op AI-analyse van notities uit {count, plural, =1 {# upload} other {# uploads}}."
+      },
+      "forecast": {
+        "title": "Forecast volgende week",
+        "basedOn": "Op basis van {label}",
+        "label7d": "laatste 7 dagen",
+        "label30d": "laatste 30 dagen",
+        "labelThisMonth": "deze maand",
+        "labelWeek": "deze week",
+        "labelCustom": "gekozen periode",
+        "labelAll": "alle data",
+        "expectedLeads": "Verwachte leads",
+        "expectedLeadsSub": "aanname 200/week",
+        "expectedAppointments": "Verwachte afspraken",
+        "expectedAppointmentsSub": "{rate}% conv. van bereikt",
+        "expectedDeals": "Verwachte deals",
+        "expectedDealsSub": "{rate}% van afspraken",
+        "expectedDealsNoData": "Nog geen deal data"
+      },
+      "noShow": {
+        "rateLabel": "{rate}% no-show rate.",
+        "highHint": "Dit is hoog — overweeg betere leadkwalificatie of een herinneringsmail voor de afspraak.",
+        "lowHint": "Blijf dit opvolgen."
+      },
+      "callers": {
+        "title": "Caller performantie",
+        "leads": "leads",
+        "appointments": "afspraken",
+        "conv": "conv."
+      },
+      "emptyState": {
+        "title": "Nog geen sales-data",
+        "body": "Zodra cold callers afspraken maken op een project waar jij sales_rep of sales_manager bent, verschijnen hier de funnel, deal-rate en forecast."
+      }
+    },
+    "projects": {
+      "loading": "Laden…",
+      "title": "Projecten",
+      "subtitle": "Overzicht van alle belcampagnes.",
+      "newProject": "+ Nieuw project",
+      "billing": {
+        "monthlyCost": "Maandelijkse kost",
+        "exclVat": "excl. BTW",
+        "active": "actief",
+        "inTrial": "in trial",
+        "cancelled": "opgezegd / inactief",
+        "managePortal": "Beheer abonnementen →",
+        "managePortalTip": "Open Stripe portal voor facturen, opzeggen, betaalmethode wijzigen",
+        "portalError": "Portal openen mislukt"
+      },
+      "callCenterBanner": {
+        "title": "Eerst je call center aanmaken",
+        "body": "Voordat je projecten kan aanmaken, moet je je call center registreren.",
+        "button": "Call center aanmaken"
+      },
+      "callCenterInfo": {
+        "label": "Jouw call center"
+      },
+      "empty": {
+        "manager": {
+          "title": "Klaar om je eerste project op te zetten?",
+          "body": "Een project = één belcampagne voor één klant. Eerste project is 14 dagen gratis, geen kaart nodig. Setup duurt ongeveer 3 minuten.",
+          "cta": "Maak je eerste project →",
+          "needCC": "Maak eerst je call center aan (zie banner hierboven)."
+        },
+        "other": {
+          "title": "Nog geen projecten op je naam",
+          "body": "Een call center manager moet je toevoegen aan een project. Stuur hem dit email-adres door — hij voegt je in een paar klikken toe en je krijgt een uitnodigingsmail terug."
+        }
+      },
+      "card": {
+        "syncNow": "Sync nu",
+        "syncing": "Syncen…",
+        "syncTip": "Trek vandaag's data binnen uit alle gekoppelde bronnen (Google Sheets, HubSpot, Lemlist)",
+        "settings": "Instellingen",
+        "settingsTip": "Project-instellingen",
+        "report": "Rapport",
+        "reportTip": "Bekijk uitgebreid rapport",
+        "active": "Actief"
+      },
+      "members": {
+        "title": "Leden",
+        "roles": {
+          "sales_manager": "Sales manager",
+          "sales_rep": "Sales rep",
+          "caller": "Caller",
+          "call_center": "Call center"
+        },
+        "removeTip": "{name} verwijderen uit project"
+      },
+      "invite": {
+        "title": "Persoon uitnodigen",
+        "emailPlaceholder": "e-mailadres",
+        "roles": {
+          "caller": "Cold caller",
+          "sales_rep": "Sales rep",
+          "sales_manager": "Sales manager"
+        },
+        "roleDisabledTip": "Sales managers kunnen alleen sales reps toevoegen",
+        "submit": "Toevoegen",
+        "submitting": "…",
+        "footer": "Bestaande gebruikers worden direct toegevoegd. Nieuwe e-mailadressen ontvangen een uitnodigingsmail om hun account aan te maken."
+      },
+      "createCallCenter": {
+        "title": "Call center aanmaken",
+        "nameLabel": "Naam van je call center",
+        "namePlaceholder": "bijv. BelPro Gent",
+        "cancel": "Annuleren",
+        "submit": "Aanmaken",
+        "submitting": "Aanmaken…",
+        "notLoggedIn": "Niet ingelogd",
+        "createFailed": "Aanmaken mislukt"
+      },
+      "report": {
+        "actions": {
+          "back": "← Terug naar projecten",
+          "periodMonth": "Maand",
+          "periodWeek": "Week",
+          "download": "Download PDF",
+          "send": "Verzend naar klant",
+          "sendModal": {
+            "title": "Verzend rapport",
+            "projectLabel": "Project: {name}",
+            "periodHintMonth": "Periode: huidige kalendermaand",
+            "periodHintWeek": "Periode: huidige kalenderweek (ma → zo)",
+            "clientNameLabel": "Naam klant",
+            "clientNameOptional": "(optioneel)",
+            "clientNamePlaceholder": "Jan Janssens",
+            "clientEmailLabel": "E-mail klant",
+            "clientEmailPlaceholder": "klant@bedrijf.be",
+            "messageLabel": "Bericht",
+            "defaultMessage": "Beste,\n\nIn bijlage het rapport van het project \"{projectName}\".\n\nMet vriendelijke groet,",
+            "cancel": "Annuleren",
+            "send": "Verzenden",
+            "sending": "Verzenden…",
+            "sendFailed": "Verzenden mislukt",
+            "invalidEmail": "Geef een geldig e-mailadres in.",
+            "sentTo": "Verzonden naar",
+            "emailFailedWarning": "E-mail kon niet verstuurd worden, maar de share-link is klaar.",
+            "shareLinkLabel": "Share-link",
+            "copyLink": "Kopieer link",
+            "close": "Sluiten"
+          }
+        },
+        "view": {
+          "label": "CallScope",
+          "generatedOn": "Gegenereerd op",
+          "period": "Periode",
+          "periodMonth": "Maandoverzicht",
+          "periodWeek": "Weekoverzicht",
+          "uploads": "Uploads",
+          "callersActive": "Callers actief",
+          "results": "Resultaten",
+          "kpi": {
+            "leads": "Leads gebeld",
+            "reached": "Bereikt",
+            "reachRate": "{rate}% bereikratio",
+            "appointments": "Afspraken",
+            "convRate": "{rate}% conversie",
+            "deals": "Deals",
+            "dealRate": "{rate}% van afspraken",
+            "noFeedback": "Nog geen feedback"
+          },
+          "funnel": {
+            "title": "Conversie-funnel",
+            "called": "Gebeld",
+            "reached": "Bereikt",
+            "appointments": "Afspraken",
+            "deals": "Deals"
+          },
+          "outcomes": {
+            "title": "Uitkomsten",
+            "deals": "Deals",
+            "quotes": "Offertes",
+            "followUp": "Follow-up",
+            "lost": "Verloren",
+            "noShows": "⚠ {count, plural, =1 {# no-show} other {# no-shows}} geregistreerd door sales reps."
+          },
+          "custom": {
+            "title": "Extra velden",
+            "noData": "Geen data",
+            "numberAvg": "gem. {avg} · {count} ingevuld",
+            "dateCount": "{count} ingevuld",
+            "textCount": "{count} ingevuld"
+          },
+          "insights": {
+            "title": "Inzichten extra velden",
+            "subtitle": "— gedetecteerd door AI"
+          },
+          "perCaller": {
+            "title": "Per caller",
+            "empty": "Nog geen callers actief op dit project.",
+            "headers": {
+              "caller": "Caller",
+              "called": "Gebeld",
+              "reached": "Bereikt",
+              "appointments": "Afspraken",
+              "conversion": "Conv.",
+              "deals": "Deals"
+            }
+          },
+          "objections": {
+            "title": "Top bezwaren",
+            "subtitle": "— gedetecteerd door AI",
+            "aggregation": "Aggregatie over {count, plural, =1 {# upload} other {# uploads}}."
+          },
+          "feedback": {
+            "title": "Recente feedback van sales reps",
+            "leadFallback": "Lead",
+            "byPrefix": "Door {name} · ",
+            "callerLabel": "Caller: {name}"
+          },
+          "footer": "Rapport gegenereerd door CallScope · {date}",
+          "unknownCaller": "Onbekend",
+          "emptyDate": "—"
+        },
+        "share": {
+          "expired": {
+            "title": "Deze link is verlopen",
+            "body": "Vraag een nieuwe link aan bij de afzender."
+          },
+          "downloadPdf": "Download PDF",
+          "sharedBy": "Gedeeld door {name}",
+          "sharedViaCallScope": "Gedeeld via CallScope"
+        },
+        "cost": {
+          "title": "Tijd & kost",
+          "subtitle": "Op basis van bevestigde uren door de cc_manager (preset als fallback).",
+          "totalHours": "Totaal uren",
+          "totalCost": "Totale kost",
+          "totalDeals": "Aantal deals",
+          "hoursPerAppt": "Uren / afspraak",
+          "hoursPerDeal": "Uren / deal",
+          "costPerLead": "Kost / lead",
+          "costPerAppt": "Kost / afspraak",
+          "costPerDeal": "Kost / deal",
+          "perCallerTitle": "Per caller",
+          "presetTip": "Niet bevestigd — preset gebruikt",
+          "presetBadge": "ⓘ preset",
+          "empty": "—"
+        }
+      },
+      "settings": {
+        "loading": "Laden...",
+        "notFound": "Project niet gevonden",
+        "back": "Terug naar projecten",
+        "subtitle": "Project-instellingen",
+        "onboarding": {
+          "step": "1",
+          "hubspot": {
+            "title": "Project aangemaakt — nu HubSpot koppelen",
+            "body": "Scroll naar <strong>HubSpot calls-sync</strong> hieronder, klik <strong>Verbind HubSpot voor dit project</strong> en kies daarna de contact-list die je wil syncen. Daarna haal je elke nacht (of via Sync nu) automatisch alle calls + dealstages op uit HubSpot."
+          },
+          "google": {
+            "title": "Project aangemaakt — nu Google Sheets koppelen",
+            "body": "Scroll naar <strong>Google Sheets per caller</strong> en koppel een sheet per cold caller."
+          },
+          "lemlist": {
+            "title": "Project aangemaakt — nu Lemlist campaign kiezen",
+            "body": "Scroll naar <strong>Lemlist campaign</strong> en kies de campagne waarvan je de tasks wil syncen."
+          }
+        },
+        "general": {
+          "title": "Algemeen",
+          "name": "Naam",
+          "description": "Beschrijving",
+          "uniqueIdLabel": "Uniek-ID kolom",
+          "uniqueIdNotMapped": "— nog niet gemapt",
+          "customFields": "Extra velden",
+          "createdAt": "Aangemaakt op"
+        },
+        "members": {
+          "title": "Leden",
+          "empty": "Nog geen leden toegevoegd.",
+          "roles": {
+            "sales_manager": "Sales manager",
+            "sales_rep": "Sales rep",
+            "caller": "Caller"
+          },
+          "manageHint": "Leden toevoegen of verwijderen kan via",
+          "manageLink": "het project op de projecten-pagina",
+          "unknownName": "Onbekend"
+        },
+        "hubspot": {
+          "title": "HubSpot calls-sync",
+          "subtitle": "Selecteer een HubSpot contact-list. Calls op die contacts worden dagelijks gesynced.",
+          "helpSummary": "📖 Hoe stel ik HubSpot in voor CallScope? (4 stappen)",
+          "step1": {
+            "title": "1. Contacts-list aanmaken",
+            "body": "In HubSpot: <strong>CRM</strong> → <strong>Segments (Lists)</strong> → <strong>Create list</strong> → type <em>Contact-based</em>. Voeg de contacts toe die jouw team cold-callt voor déze klant. Sla op en kies 'm hierboven in de dropdown."
+          },
+          "step2": {
+            "title": "2. \"Afspraak gemaakt\" call outcome aanmaken",
+            "intro": "Standaard heeft HubSpot enkel <em>Connected / Busy / No answer / Voicemail / Wrong number</em>. Voor CallScope hebben we minstens één outcome nodig waarvan de naam het woord <strong>\"afspraak\"</strong> bevat — dan herkent CallScope de call automatisch als afspraak.",
+            "li1": "HubSpot ⚙️ <strong>Settings</strong> (rechtsboven)",
+            "li2": "Sidebar → <strong>Tools</strong> → <strong>Calling</strong> → <strong>Call Setup</strong>",
+            "li3": "Tab <strong>Call Configurations</strong>",
+            "li4": "Naast <strong>\"Track call outcomes\"</strong> klik je op <strong>✏️ Edit options</strong>",
+            "li5": "Klik <strong>+ Add outcome</strong>, naam: <code>Afspraak gemaakt</code> → Save",
+            "note": "Optioneel: maak ook outcomes \"Afspraak no-show\", \"Afspraak verzet\" etc. — alles met \"afspraak\" in de naam telt mee."
+          },
+          "step3": {
+            "title": "3. Calls loggen tijdens cold-call",
+            "body": "Op een contact-fiche: <strong>Log activity</strong> → <strong>Call</strong> → kies de juiste outcome (bv. <em>\"Afspraak gemaakt\"</em>) → noteer eventueel details in de body → opslaan. De call verschijnt in CallScope na de volgende sync (handmatig via <strong>Sync nu</strong> of automatisch 's nachts)."
+          },
+          "step4": {
+            "title": "4. Deals + dealstages → automatische outcome-detectie",
+            "body": "Wanneer de sales-rep de afspraak doet, maakt hij in HubSpot een <strong>Deal</strong> aan voor het contact en update de <strong>dealstage</strong> (bv. <em>Appointment scheduled</em> → <em>Qualified</em> → <em>Closed won</em>). CallScope leest die stage dagelijks en mapt 'm via AI naar <em>offerte / deal / verloren / no-show</em>. Het resultaat zie je terug op het <strong>team-dashboard</strong> en de <strong>Afspraken</strong>-pagina."
+          },
+          "footer": "Klaar? Test je setup door één call te loggen + één deal aan te maken in HubSpot, en klik dan op <strong>Sync nu</strong> op het team-dashboard. De call zou binnen seconden moeten verschijnen met de juiste status."
+        },
+        "hoursBanner": {
+          "intro": "<strong>Uren bevestigen of corrigeren?</strong> Open de bevestigings-pagina — je kan tussen weken navigeren met de pijltjes om eerdere weken aan te passen.",
+          "open": "Open uren-pagina →"
+        },
+        "template": {
+          "title": "Download de bel-template",
+          "body": "Een Excel-bestand met de juiste kolommen voor jouw project — Uniek-ID{uniqueIdSuffix}, custom velden, en de namen van je sales reps. Open hem in Google Spreadsheets en deel met je cold callers. Bij het syncen herkent CallScope automatisch alle velden.",
+          "buttonTitle": "Download xlsx-template",
+          "button": "Download"
+        },
+        "google": {
+          "title": "Google Sheets — automatische sync",
+          "subtitle": "Koppel per cold caller een Google Sheet. CallScope synchroniseert dagelijks de data en past dezelfde mapping toe als bij een handmatige upload.",
+          "connected": "Verbonden",
+          "notConnected": "Verbind eerst je Google-account om sheets te kunnen koppelen.",
+          "toIntegrations": "Naar integraties →",
+          "noCallers": "Voeg eerst een cold caller toe aan dit project (via de projecten-pagina).",
+          "noMappingWarning": "⚠️ Nog geen mapping voor dit project",
+          "noMappingHint": "Doe eerst minstens één <link>manuele upload</link> op dit project. Daarbij stel je in welke kolom = naam, status, datum, etc. Pas daarna kan auto-sync dezelfde mapping toepassen.",
+          "lastSynced": "laatst gesynced {date}",
+          "sheetIcon": "📊",
+          "noSheet": "Geen sheet gekoppeld",
+          "syncNow": "Sync nu",
+          "syncing": "Syncen...",
+          "syncNowTip": "Synchroniseer nu vanuit Google Sheets (alleen vandaag)",
+          "syncMoreOptions": "Kies periode",
+          "syncRange": {
+            "today":    "Alleen vandaag",
+            "thisWeek": "Deze week (ma → nu)",
+            "lastWeek": "Vorige week (ma → vr)"
+          },
+          "edit": "Wijzigen",
+          "link": "Koppel sheet",
+          "addSheet": "Sheet toevoegen",
+          "sheetsCount": "{count, plural, =1 {# sheet gekoppeld} other {# sheets gekoppeld}}",
+          "unlink": "Loskoppelen",
+          "unlinkTip": "Verwijder deze sheet-koppeling",
+          "unlinkConfirm": "Sheet-koppeling voor '{name}' verwijderen? De sheet zelf blijft bestaan in Google Drive.",
+          "unlinkSuccess": "✓ Sheet-koppeling voor '{name}' verwijderd.",
+          "syncFailed": "Sync mislukt",
+          "syncSummary": "✓ {count, plural, =1 {# lead} other {# leads}} van vandaag gesynced.",
+          "noLeadsToday": "✓ Geen leads van vandaag.",
+          "unknownError": "Onbekende fout"
+        },
+        "salesConfig": {
+          "title": "Sales rep toewijzing",
+          "subtitle": "Garandeert dat élke afspraak een sales rep heeft. CallScope leest de \"Sales rep\"-kolom uit je sheet, mapt op naam, en valt terug op de default als de cel leeg is of de naam niet matcht.",
+          "defaultLabel": "Default sales rep",
+          "defaultNone": "— geen default —",
+          "managerSuffix": "(manager)",
+          "defaultHint": "Wordt gebruikt wanneer de Google Sheet-cel leeg is of de naam niet bij iemand uit het team past.",
+          "salesRepColLabel": "Sheet-kolom voor sales rep",
+          "salesRepColPlaceholder": "bv. Sales rep",
+          "dealstageColLabel": "Sheet-kolom voor dealstage",
+          "dealstageColPlaceholder": "bv. Dealstage",
+          "caseHint": "Hoofdletters maken niet uit. Laat leeg om die kolom te negeren.",
+          "saveFailed": "Opslaan mislukt: {error}",
+          "saveSuccess": "✓ Opgeslagen. Volgende sync gebruikt deze instellingen.",
+          "save": "Opslaan",
+          "saving": "Opslaan…"
+        },
+        "futureIntegrations": {
+          "title": "Toekomstige integraties",
+          "items": [
+            "• Aircall — calls direct importeren",
+            "• Pipedrive — deal stages binnenhalen",
+            "• Teamleader — deal stages binnenhalen",
+            "• Microsoft 365 / Excel Online — sheet-sync"
+          ]
+        },
+        "recentUploads": {
+          "title": "Recente uploads",
+          "subtitle": "Een upload verwijderen wist alle bijhorende calls, analyses en feedback. Handig om een foutieve sync ongedaan te maken.",
+          "googleSyncBadge": "Google sync",
+          "recordsSuffix": " · {count} records",
+          "appointmentsSuffix": " · {count} afspraken",
+          "unknownCaller": "Onbekend",
+          "status": {
+            "done": "Klaar",
+            "processing": "Bezig",
+            "error": "Fout",
+            "queued": "Wachtrij"
+          },
+          "deleteTip": "Upload + alle bijhorende data verwijderen",
+          "delete": "Verwijder",
+          "deleting": "...",
+          "deleteConfirm": "Upload \"{label}\" verwijderen? Alle bijhorende calls, analyses en feedback worden mee gewist. Niet terug te draaien.",
+          "deleteFailed": "Verwijderen mislukt: {error}"
+        },
+        "dangerZone": {
+          "title": "Gevarenzone",
+          "body": "Een project verwijderen wist het project zelf én alle bijhorende data: uploads, calls, afspraken, feedback, sheet-koppelingen en rapport-shares. Deze actie kan niet ongedaan worden gemaakt.",
+          "button": "Verwijder dit project"
+        },
+        "deleteModal": {
+          "title": "Project \"{name}\" verwijderen?",
+          "body": "Het project + álle bijhorende uploads, calls, afspraken en feedback worden onomkeerbaar gewist.",
+          "confirmPrompt": "Typ <strong>{name}</strong> om te bevestigen:",
+          "mismatch": "De ingevoerde projectnaam komt niet overeen.",
+          "cancel": "Annuleren",
+          "submit": "Definitief verwijderen",
+          "submitting": "Verwijderen…",
+          "deleteFailed": "Verwijderen mislukt: {error}"
+        },
+        "sheetPicker": {
+          "titleList": "Kies een spreadsheet",
+          "titleTabs": "Kies een tabblad — {sheetName}",
+          "current": "Huidig: <strong>{name}</strong>. Kies een nieuwe om te overschrijven.",
+          "alreadyLinked": "{count, plural, =1 {# sheet is al gekoppeld} other {# sheets zijn al gekoppeld}}. Voeg er nog een toe:",
+          "searchPlaceholder": "Zoek...",
+          "loadingSheets": "Spreadsheets laden...",
+          "noSheets": "Geen spreadsheets gevonden.",
+          "lastModified": "Laatst gewijzigd: {date}",
+          "loadingTabs": "Tabs laden...",
+          "noTabs": "Geen tabs gevonden.",
+          "pickTab": "→ Kies",
+          "backToList": "← Terug naar spreadsheets"
+        },
+        "selfSuffix": " (jij)"
+      },
+      "new": {
+        "loading": "Laden…",
+        "cancel": "Annuleren",
+        "title": "Nieuw project",
+        "subtitle": "Configureer in een paar stappen alle settings van je project.",
+        "blocked": {
+          "back": "Terug naar projecten",
+          "title": "Activeer eerst je bestaande project",
+          "heading": "Je gratis trial-project moet eerst geactiveerd worden",
+          "body": "Een call center krijgt één gratis trial-project. Voor je een tweede project kan aanmaken, moet je eerst een abonnement activeren op je bestaande project.",
+          "pricing": "Tijdens je trial heb je volledige toegang tot alle features. Activeren kost €49/maand per project en is maandelijks opzegbaar.",
+          "cta": "Naar mijn projecten →"
+        },
+        "steps": {
+          "basics": "Basics",
+          "sources": "Bronnen",
+          "members": "Leden",
+          "finalize": "Bevestigen"
+        },
+        "nav": {
+          "previous": "← Vorige",
+          "next": "Volgende →",
+          "submit": "Project aanmaken",
+          "submitting": "Aanmaken…"
+        },
+        "basics": {
+          "heading": "Basisinfo",
+          "nameLabel": "Projectnaam",
+          "namePlaceholder": "bv. Campagne Q1 — Acme NV",
+          "descLabel": "Beschrijving",
+          "descOptional": "(optioneel)",
+          "descPlaceholder": "Wat is het doel van dit project?"
+        },
+        "sources": {
+          "heading": "Hoe komt data binnen?",
+          "subtitle": "Bepaal nu hoe leads en sales-feedback in CallScope terechtkomen. Je kan dit later wijzigen.",
+          "uploadLabel": "Upload-bron",
+          "uploadHint": "Waar komen de calls vandaan? Maak een keuze — dit kan je later in de project-settings nog wijzigen.",
+          "feedbackLabel": "Feedback-bron (dealstage)",
+          "feedbackHint": "Hoe komt de dealstage / afspraak-uitkomst binnen? Maak een keuze.",
+          "required": "*",
+          "comingSoon": "Binnenkort",
+          "upload": {
+            "manual": {
+              "title": "Manuele CSV/Excel-upload",
+              "desc": "Cold callers of cc-manager uploaden CSV/Excel-bestanden via de Upload-pagina."
+            },
+            "google_sheets": {
+              "title": "Google Sheets sync",
+              "desc": "Per cold caller een sheet koppelen. CallScope synchroniseert dagelijks (en op aanvraag)."
+            },
+            "lemlist": {
+              "title": "Lemlist tasks",
+              "desc": "Cold caller verbindt zijn Lemlist API-key. Voltooide call-tasks worden dagelijks gesynced als call_records."
+            },
+            "hubspot": {
+              "title": "HubSpot calls",
+              "desc": "Voor teams die in HubSpot zelf cold-callen. Kies een HubSpot contact-list — calls op die contacts worden dagelijks gesynced."
+            },
+            "future": {
+              "title": "Aircall · Teamleader",
+              "desc": "Binnenkort — call-platform en CRM-integraties."
+            }
+          },
+          "feedback": {
+            "manual": {
+              "title": "Sales rep typt in CallScope",
+              "desc": "Sales reps geven feedback via /dashboard/appointments na elke afspraak — status, outcome, kwaliteit, notities."
+            },
+            "google_sheets": {
+              "title": "Dealstage uit Google Sheet",
+              "desc": "Een 'Dealstage'-kolom in dezelfde sheet wordt door AI geclassificeerd naar outcome (deal / verloren / offerte / no-show). Vereist: upload-bron is óók Google Sheets."
+            },
+            "hubspot": {
+              "title": "Afspraken via HubSpot geüpdatet",
+              "desc": "CallScope zoekt per afspraak het bijhorende contact + deal in HubSpot en synchroniseert dagelijks de dealstage. AI mapt naar outcome."
+            }
+          },
+          "warnings": {
+            "lemlist": "ℹ️ <strong>Belangrijk:</strong> de cold caller (of cc_manager als hij zelf belt) moet eerst zijn Lemlist API-key koppelen via Account → Integraties. Daarna kan je in de project-settings de juiste task-source kiezen.",
+            "hubspotUpload": "ℹ️ <strong>Belangrijk:</strong> koppel eerst je HubSpot-portaal via Account → Integraties. Daarna kies je in de project-settings welke HubSpot contact-list bij dit project hoort. Caller-attributie gebeurt automatisch via de HubSpot owner-email — zorg dat je callers met dezelfde email in CallScope én HubSpot bekend zijn.",
+            "googleFeedbackNeedsGoogleUpload": "ℹ️ Feedback uit Google Sheets vereist dat de upload-bron óók Google Sheets is (dezelfde sheet wordt gebruikt voor zowel calls als dealstage). Pas je upload-bron hierboven aan naar \"Google Sheets sync\", of kies een andere feedback-bron.",
+            "hubspotFeedback": "ℹ️ <strong>Belangrijk:</strong> de sales manager(s) van dit project moeten eerst hun HubSpot-account koppelen via Account → Integraties voor de sync werkt. Zonder gekoppelde HubSpot kunnen we geen dealstages ophalen."
+          }
+        },
+        "members": {
+          "heading": "Wie werkt er aan dit project?",
+          "subtitle": "Voeg cold callers, sales reps en sales managers toe via hun e-mailadres. Bestaande CallScope-gebruikers worden direct toegevoegd; nieuwe e-mailadressen krijgen een uitnodigingsmail met een link om hun account aan te maken.",
+          "tip": "💡 Geen account nodig — alle leden registreren via de invite-link in hun mail. Zo behoud jij controle over wie er toegang heeft. Je kan dit later aanvullen.",
+          "emailPlaceholder": "naam@bedrijf.be",
+          "roles": {
+            "cold_caller": "Cold caller",
+            "sales_rep": "Sales rep",
+            "sales_manager": "Sales manager",
+            "manager": "manager",
+            "rep": "rep"
+          },
+          "removeTip": "Verwijder regel",
+          "addRow": "+ Nog een lid toevoegen"
+        },
+        "finalize": {
+          "heading": "Bevestigen",
+          "subtitle": "Controleer de instellingen en kies optioneel een default sales rep.",
+          "summary": {
+            "name": "Naam",
+            "description": "Beschrijving",
+            "uploadSource": "Upload-bron",
+            "feedbackSource": "Feedback-bron",
+            "membersLabel": "Leden ({count})",
+            "noMembers": "— nog geen leden, je kan ze later toevoegen",
+            "uploadManual": "Manuele upload",
+            "uploadGoogle": "Google Sheets sync",
+            "feedbackManual": "Sales rep typt in CallScope",
+            "feedbackGoogle": "Dealstage uit Google Sheet"
+          },
+          "defaultRepLabel": "Default sales rep",
+          "defaultRepOptional": "(optioneel)",
+          "defaultRepNone": "— geen default —",
+          "defaultRepHint": "Krijgt automatisch alle afspraken toegewezen waarvan de Google Sheet-cel leeg is of de naam niet matcht. Voorkomt dat afspraken zonder eigenaar blijven staan. Heeft de rep nog geen CallScope-account, dan zet je deze instelling later in de project-settings — zodra hij zijn invite heeft geaccepteerd.",
+          "paymentBanner": "💳 Dit is je {ordinal}de project. De gratis trial geldt enkel voor je 1ste project — dit project vereist een betaald abonnement (€49/maand). Na \"Project aanmaken\" word je automatisch doorgestuurd naar Stripe voor de checkout.",
+          "trialBanner": "✓ Je krijgt 14 dagen gratis te proberen. Geen kaart nodig om te starten — pas na 14 dagen kies je of je een abonnement (€49/maand) activeert.",
+          "googleNextBanner": "📊 Na het aanmaken kom je direct op de project-settings pagina waar je (1) een kant-en-klare Excel-template kan downloaden voor je cold callers en (2) per cold caller een Google Sheet kan koppelen."
+        },
+        "errors": {
+          "createFailed": "Project aanmaken mislukt: {error}",
+          "unknownError": "onbekende fout",
+          "networkError": "netwerkfout",
+          "checkoutFailed": "Project aangemaakt maar checkout-redirect faalde: {error}. Je vindt het project op de projecten-pagina; klik 'Activeer abonnement' om te betalen.",
+          "checkoutError": "Project aangemaakt maar checkout-redirect faalde: {error}. Activeer manueel via /dashboard/billing?project={projectId}."
+        }
+      },
+      "confirmHours": {
+        "loading": "Laden…",
+        "noAccess": "Je hebt geen toegang tot deze pagina. Enkel de cc_manager van het project kan uren bevestigen.",
+        "backToProjects": "Terug naar projecten",
+        "backToProjectsArrow": "Terug naar projecten →",
+        "title": "Uren bevestigen — {projectName}",
+        "weekOf": "Week van {label}",
+        "previousWeek": "← Vorige week",
+        "nextWeek": "Volgende week →",
+        "toThisWeek": "naar deze week",
+        "previousWeekTip": "Vorige week",
+        "previousWeekDisabledTip": "Project is pas later aangemaakt — niet eerder bevestigbaar",
+        "nextWeekTip": "Volgende week",
+        "beforeCreationWarning": "⚠️ Deze week ligt vóór de project-aanmaakdatum. Uren bevestigen voor deze week heeft geen effect — de kost-metrics tellen alles vóór project-creation als 0u.",
+        "noCallers": "Geen cold callers met een uurtarief op dit project. Stel eerst tarieven in via",
+        "projectSettingsLink": "project-settings",
+        "intro": "Bevestig per cold caller per dag (Ma-Vr) hoeveel uren hij/zij werkte. Standaard ingevuld met de preset gedeeld door 5 — pas aan per dag indien anders.",
+        "resetPresets": "Reset naar presets",
+        "totalWeek": "Totaal deze week",
+        "submit": "Bevestig uren",
+        "submitting": "Bevestigen…",
+        "cancel": "Annuleren",
+        "emptyError": "Vul minstens voor één caller een aantal uren in.",
+        "submitFailed": "Bevestigen mislukt: {error}",
+        "saveSuccess": "✓ {count, plural, =1 {# bevestiging} other {# bevestigingen}} opgeslagen voor deze week.",
+        "selfSuffix": "(jij)",
+        "selfFallback": "Mijzelf",
+        "unknownName": "Onbekend",
+        "card": {
+          "alreadyConfirmed": "Eerder bevestigd",
+          "preset": "Preset: {value}",
+          "presetUnit": "{hours}u/wk",
+          "presetEmpty": "—",
+          "total": "Totaal: {hours}u"
+        },
+        "days": {
+          "mon": "Ma",
+          "tue": "Di",
+          "wed": "Wo",
+          "thu": "Do",
+          "fri": "Vr"
+        }
+      }
+    },
+    "planner": {
+      "loading": "Laden…",
+      "backToProjects": "Terug naar projecten",
+      "title": "Afspraak-planner",
+      "subtitle": "Upload leads en plan afspraken op basis van de agenda's van je sales reps.",
+      "roleNotAllowed": "Deze pagina is alleen beschikbaar voor cc_managers, sales managers, sales reps en cold callers.",
+      "sectionDivider": "Of plan een afspraak voor jezelf",
+      "hub": {
+        "loading": "Laden…",
+        "title": "Afspraak-planner",
+        "subtitle": "Kies een project om leads te uploaden of een afspraak te plannen.",
+        "empty": "Je hebt nog geen projecten waar je de planner kan gebruiken.",
+        "emptyLink": "Naar projecten →",
+        "openLink": "Open planner →"
+      },
+      "statusBadge": {
+        "booked": "Geboekt",
+        "archived": "Gearchiveerd",
+        "pending": "Bezig",
+        "failed": "Adres niet gevonden",
+        "ready": "Klaar"
+      },
+      "manager": {
+        "uploadTitle": "Leads uploaden",
+        "uploadHint": "Upload een Excel (.xlsx) of CSV met minstens een kolom voor zaaknaam en een kolom voor adres. Daarna kies je welke kolom welke betekenis heeft.",
+        "dropTitle": "Sleep je bestand hierheen of klik om te kiezen",
+        "dropSubtitle": "Ondersteund: .csv, .xlsx, .xls",
+        "fileEmpty": "Het bestand bevat geen rijen met data.",
+        "csvReadFailed": "Kon het CSV bestand niet lezen. Check of de eerste rij headers bevat.",
+        "excelReadFailed": "Kon het Excel bestand niet lezen.",
+        "unsupportedFile": "Alleen CSV of Excel bestanden zijn toegestaan.",
+        "rowsDetected": "{count, plural, =1 {# rij gevonden} other {# rijen gevonden}}",
+        "chooseOtherFile": "Ander bestand kiezen",
+        "mapName": "Welke kolom = zaaknaam?",
+        "mapAddress": "Welke kolom = adres?",
+        "choose": "kies kolom",
+        "previewTitle": "Voorbeeld (eerste 5 rijen)",
+        "colName": "Naam",
+        "colAddress": "Adres",
+        "previewCount": "{count, plural, =0 {Geen geldige leads na mapping (lege namen/adressen overgeslagen)} =1 {# lead klaar om te uploaden} other {# leads klaar om te uploaden}}",
+        "cancel": "Annuleren",
+        "uploadButton": "Upload + geocode",
+        "uploading": "Bezig met uploaden…",
+        "uploadSuccess": "✓ {inserted} leads toegevoegd. {ok} succesvol gegeocodeerd, {failed} gefaald.",
+        "uploadFailed": "Upload mislukt",
+        "leadsTitle": "Leads in deze pool",
+        "leadsEmpty": "Nog geen leads geüpload.",
+        "leadsPreviewHint": "Toont {shown} meest recente van {total}"
+      },
+      "digest": {
+        "title": "Dagrapport naar sales reps",
+        "hint": "Stuur elke sales rep een mail met de afspraken die vandaag voor hem zijn ingepland. Loopt ook automatisch elke werkdag op het einde van de dag.",
+        "sendNow": "Verstuur nu",
+        "sending": "Versturen…",
+        "sentSuccess": "✓ Mails verstuurd naar {reps, plural, =1 {# sales rep} other {# sales reps}} ({appointments} {appointments, plural, =1 {afspraak} other {afspraken}}).",
+        "noAppointmentsToday": "Vandaag zijn er nog geen nieuwe afspraken — geen mails verstuurd.",
+        "errorGeneric": "Kon de mails niet versturen."
+      },
+      "coldCaller": {
+        "searchTitle": "Vind een afspraak voor een lead",
+        "searchPlaceholder": "Typ de naam van de zaak (min. 2 letters)…",
+        "searching": "Zoeken…",
+        "noResults": "Geen leads gevonden met die naam.",
+        "findingSlots": "Beste afspraak-slots worden berekend…",
+        "slotsError": "Slots konden niet opgehaald worden.",
+        "scopeWarning": "{count, plural, =1 {# sales rep heeft Google Calendar nog niet (her)gekoppeld — z'n slots zijn niet meegenomen.} other {# sales reps hebben Google Calendar nog niet (her)gekoppeld — hun slots zijn niet meegenomen.}}",
+        "slotsTitle": "3 beste opties",
+        "slotsSubtitle": "Gerangschikt op eerstvolgende beschikbaarheid. Klik om te boeken.",
+        "noSlots": "Geen passende slots gevonden de komende 3 weken.",
+        "noSlotsHint": "Geen van de sales reps werkt deze periode in {province}. Mogelijk moeten ze hun agenda nog updaten."
+      },
+      "book": {
+        "title": "Afspraak boeken",
+        "notesLabel": "Notitie voor de sales rep",
+        "notesHint": "Optioneel — wat zou hij/zij moeten weten over deze lead? Komt mee in de calendar event.",
+        "notesPlaceholder": "bv. Klant heeft interesse in voorraadbeheer-feature, beheert 2 locaties…",
+        "cancel": "Annuleren",
+        "confirm": "Bevestig + voeg toe aan agenda",
+        "booking": "Aan het boeken…",
+        "failed": "Boeken mislukt"
+      }
+    },
+    "settings": {
+      "integrations": {
+        "loading": "Laden…",
+        "title": "Integraties",
+        "subtitle": "Verbind externe tools om automatisch data te importeren.",
+        "banners": {
+          "googleConnected": "✓ Google account succesvol verbonden!",
+          "hubspotConnected": "✓ HubSpot succesvol verbonden!",
+          "genericError": "Fout: {flag}"
+        },
+        "errors": {
+          "missing_params": "Onvolledige redirect — probeer opnieuw.",
+          "state_mismatch": "Beveiligingscheck mislukt — probeer opnieuw.",
+          "token_exchange_failed": "Verbinden met Google is mislukt. Probeer opnieuw.",
+          "no_refresh_token": "Google gaf geen refresh-token terug. Verbind opnieuw.",
+          "db_save_failed": "Kon de verbinding niet opslaan. Probeer opnieuw.",
+          "access_denied": "Je hebt geweigerd toegang te geven aan CallScope.",
+          "hubspot_missing_params": "Onvolledige redirect van HubSpot — probeer opnieuw.",
+          "hubspot_state_mismatch": "Beveiligingscheck mislukt — probeer opnieuw.",
+          "hubspot_token_exchange_failed": "Verbinden met HubSpot is mislukt. Probeer opnieuw.",
+          "hubspot_no_refresh_token": "HubSpot gaf geen refresh-token terug. Verbind opnieuw.",
+          "hubspot_db_save_failed": "Kon de HubSpot-verbinding niet opslaan.",
+          "hubspot_access_denied": "Je hebt geweigerd toegang te geven aan CallScope in HubSpot."
+        },
+        "common": {
+          "connectedAs": "Verbonden als",
+          "connectedWithPortal": "Verbonden met portal",
+          "as": "als",
+          "unknown": "onbekend",
+          "disconnect": "Ontkoppel",
+          "disconnecting": "Ontkoppelen…",
+          "syncNow": "Sync nu",
+          "syncing": "Syncen…",
+          "syncFailed": "Sync mislukt",
+          "unknownError": "Onbekende fout",
+          "connectFailed": "Verbinden mislukt",
+          "disconnectFailed": "Ontkoppelen mislukt: {error}",
+          "noUpdatesNeeded": "✓ Geen updates nodig.",
+          "next_step": "Volgende stap",
+          "suspenseLoading": "Laden…"
+        },
+        "google": {
+          "title": "Google Sheets",
+          "titleSales": "Google Calendar",
+          "desc": "Verbind je Google-account om spreadsheets te koppelen aan projecten. CallScope kan dan dagelijks de data automatisch binnentrekken — geen CSV-export of upload meer nodig.",
+          "descSales": "Verbind je Google-account zodat CallScope je agenda kan lezen voor de afspraak-planner én geboekte afspraken automatisch in je agenda kan toevoegen. Cold callers zien zo welke slots vrij zijn op de dagen dat jij in de juiste provincie werkt.",
+          "connect": "Verbind Google-account",
+          "connectSales": "Verbind Google Agenda",
+          "reconnect": "Opnieuw verbinden (calendar-scope)",
+          "reauthHint": "Heb je je Google al een tijd geleden gekoppeld? Klik \"Opnieuw verbinden\" zodat CallScope ook je agenda mag lezen en afspraken kan toevoegen. Eénmalige actie.",
+          "nextStep": "Ga naar je projecten — bij elk project waar je al een upload hebt gedaan zie je nu een \"Verbind Google Sheet\"-knop. Je kiest een spreadsheet + tabblad, en CallScope synchroniseert vanaf dan dagelijks.",
+          "nextStepSales": "Zet in je Google Agenda een all-day event zoals \"Antwerpen\" op de dagen dat je daar afspraken doet — CallScope leest die en stelt slots voor in matchende provincies. Voor losse events met klant-naam wordt de locatie automatisch via AI gedetecteerd.",
+          "toProjects": "Naar mijn projecten →",
+          "disconnectConfirm": "Google-account ontkoppelen? Bestaande sheet-koppelingen blijven bestaan maar syncs zullen falen tot je opnieuw verbindt."
+        },
+        "lemlist": {
+          "title": "Lemlist",
+          "desc": "Verbind je Lemlist-account om campaigns te koppelen aan CallScope-projecten. Cold callers loggen hun calls in Lemlist als manual tasks; CallScope haalt elke nacht de leads + call-activities op en bouwt er je conversie-funnel uit.",
+          "apiKeyPlaceholder": "Plak je Lemlist API-key",
+          "connect": "Verbind Lemlist",
+          "connecting": "Verbinden…",
+          "apiKeyHint": "Vind je API-key in Lemlist → Settings → Integrations → API.",
+          "nextStep": "Open een project, ga naar Instellingen, en kies een Lemlist-campaign als bron. CallScope synchroniseert vanaf dan dagelijks.",
+          "disconnectConfirm": "Lemlist ontkoppelen? Lopende campaign-syncs voor je projecten stoppen.",
+          "syncSummary": "✓ {calls, plural, =1 {# call} other {# calls}} gesynced uit Lemlist ({projects, plural, =1 {# project} other {# projecten}}).",
+          "noNewCalls": "✓ Geen nieuwe calls om te syncen."
+        },
+        "hubspot": {
+          "title": "HubSpot CRM",
+          "descCcManager": "Voor dealstage-sync: koppel hier je eigen HubSpot zodat CallScope dagelijks de dealstage van je afspraken kan ophalen.",
+          "descCcManagerCallsHint": "Calls vanuit HubSpot synchroniseren doe je nu per project — in de project-instellingen. Zo kan je voor verschillende klanten verschillende HubSpot-portalen koppelen.",
+          "descSalesManager": "Verbind je HubSpot-portaal zodat CallScope dagelijks de dealstage kan ophalen voor elke afspraak. Per afspraak wordt op basis van emailadres of telefoonnummer de bijhorende deal gezocht en de stage bijgewerkt — dat voedt de AI-classificatie naar outcome (gewonnen / verloren / offerte / no-show). Read-only: CallScope schrijft nooit terug naar HubSpot.",
+          "connect": "Verbind HubSpot",
+          "syncDealstages": "Sync dealstages",
+          "syncDealstagesTip": "Synchroniseer dealstages voor alle afspraken",
+          "cronHint": "De cron loopt elke nacht om 21:30 Brussel-tijd. Wil je tussendoor een update? Klik op \"Sync nu\" — alle afspraken op je projecten worden onmiddellijk gecheckt.",
+          "disconnectConfirm": "HubSpot-account ontkoppelen? Dealstage-syncs voor je projecten zullen stoppen tot je opnieuw verbindt.",
+          "syncSummary": "✓ {synced, plural, =1 {# afspraak} other {# afspraken}} gesynced uit HubSpot{notFoundSuffix}.",
+          "syncSummaryNotFoundSuffix": " ({count} niet gevonden in HubSpot)",
+          "classifyFailed": "⚠ {synced} afgehaald uit HubSpot, maar AI-classifier faalde ({projects, plural, =1 {# project} other {# projecten}}). Eerste error: {error}",
+          "syncCallsSummary": "✓ {calls, plural, =1 {# call} other {# calls}} gesynced uit HubSpot ({projects, plural, =1 {# project} other {# projecten}}).",
+          "noNewCalls": "✓ Geen nieuwe calls."
+        },
+        "future": {
+          "title": "Aircall · Pipedrive · Teamleader",
+          "subtitle": "Binnenkort beschikbaar."
+        }
+      },
+      "account": {
+        "loading": "Laden…",
+        "title": "Account",
+        "subtitle": "Je profielinstellingen, wachtwoord en gekoppelde tools.",
+        "roles": {
+          "cc_manager": "Call center manager",
+          "cold_caller": "Cold caller",
+          "sales_rep": "Sales rep",
+          "sales_manager": "Sales manager"
+        },
+        "profile": {
+          "heading": "Profiel",
+          "name": "Naam",
+          "email": "E-mailadres",
+          "role": "Rol",
+          "freelanceSuffix": "(freelance)",
+          "empty": "—"
+        },
+        "billing": {
+          "heading": "Abonnementen beheren",
+          "subtitle": "Open de Stripe portal om abonnementen te wijzigen, op te zeggen, betaalmethodes te updaten en facturen te downloaden.",
+          "button": "Open portal",
+          "portalFailed": "Portal openen mislukt"
+        },
+        "tutorial": {
+          "heading": "Tutorial opnieuw bekijken",
+          "subtitle": "Toon de welkomst-modal weer — handig als je de stappen opnieuw wilt doorlopen.",
+          "button": "Bekijk opnieuw"
+        },
+        "password": {
+          "heading": "Wachtwoord wijzigen",
+          "newLabel": "Nieuw wachtwoord",
+          "newPlaceholder": "Minimaal 8 tekens",
+          "confirmLabel": "Bevestig nieuw wachtwoord",
+          "confirmPlaceholder": "Hetzelfde nogmaals",
+          "submit": "Wijzig wachtwoord",
+          "submitting": "Opslaan…",
+          "tooShort": "Wachtwoord moet minstens 8 tekens lang zijn.",
+          "mismatch": "De wachtwoorden komen niet overeen.",
+          "success": "✓ Wachtwoord gewijzigd."
+        },
+        "connectedTools": {
+          "heading": "Gekoppelde tools",
+          "manage": "Beheer →",
+          "googleTitle": "Google Sheets",
+          "connectedAs": "✓ Verbonden als",
+          "notConnected": "Niet verbonden",
+          "active": "Actief",
+          "inactive": "Inactief",
+          "comingSoon": "Binnenkort",
+          "future": {
+            "hubspotName": "HubSpot",
+            "hubspotDesc": "Deal stages binnenhalen",
+            "lemlistName": "Lemlist",
+            "lemlistDesc": "Campagnestatus & replies",
+            "aircallName": "Aircall",
+            "aircallDesc": "Calls direct importeren"
+          }
+        }
+      }
+    }
+  },
+  "onboarding": {
+    "preferences": {
+      "title": "Welkom bij CallScope",
+      "subtitle": "Stel even je voorkeuren in zodat datums, getallen en taal correct staan.",
+      "language": "Interface-taal",
+      "country": "Land",
+      "dateFormat": "Datumnotatie",
+      "currency": "Munteenheid voor uurtarieven",
+      "timezone": "Tijdzone",
+      "save": "Voorkeuren opslaan",
+      "saving": "Opslaan..."
+    }
+  },
+  "components": {
+    "tutorial": {
+      "closeAria": "Sluiten",
+      "welcome": "Welkom bij CallScope!",
+      "roleSeparator": " · ",
+      "stepOpen": "→ Open",
+      "skip": "Sla over",
+      "skipping": "Opslaan...",
+      "accountFootnote": "Je kan dit later opnieuw bekijken via je",
+      "accountLink": "accountinstellingen",
+      "roles": {
+        "cc_manager": "Call center manager",
+        "cold_caller": "Cold caller",
+        "sales_rep": "Sales rep",
+        "sales_manager": "Sales manager"
+      },
+      "cc_manager": {
+        "subtitle": "Als call center manager beheer je projecten voor je team. In een paar minuten heb je je eerste setup klaar.",
+        "ctaLabel": "Maak je eerste project",
+        "steps": {
+          "1": {
+            "title": "Maak je eerste project aan",
+            "desc": "Bepaal naam, hoe data binnenkomt (manueel of via Google Sheets), en welke leden eraan werken."
+          },
+          "2": {
+            "title": "Nodig je teamleden uit",
+            "desc": "Tijdens de project-wizard voeg je cold callers, sales reps en sales managers toe via hun e-mailadres. Ze hoeven nog geen account te hebben - bestaande gebruikers worden direct gekoppeld, nieuwe e-mails krijgen een uitnodigingsmail om hun account aan te maken."
+          },
+          "3": {
+            "title": "Koppel je data-bron",
+            "desc": "Bij Google Sheets sync: koppel per cold caller een sheet op de project-settings pagina. Bij manueel: jouw callers uploaden CSV-bestanden via de upload-pagina."
+          },
+          "4": {
+            "title": "Bekijk je team-dashboard",
+            "desc": "Conversie-funnel, deal rates en AI-inzichten - automatisch berekend uit je data."
+          }
+        }
+      },
+      "cold_caller": {
+        "subtitle": "Als cold caller upload je je dagelijkse calls en krijg je AI-inzichten over wat werkt.",
+        "ctaLabel": "Naar upload",
+        "steps": {
+          "1": {
+            "title": "Bekijk je projecten",
+            "desc": "Je manager heeft je toegevoegd aan een of meer campagnes. Hier zie je welke projecten voor jou actief zijn."
+          },
+          "2": {
+            "title": "Upload je eerste call-bestand",
+            "desc": "Sleep je CSV of Excel naar de upload-pagina. CallScope herkent kolommen zoals naam, status en notities automatisch."
+          },
+          "3": {
+            "title": "Bekijk je dashboard",
+            "desc": "AI analyseert je notities en spot top-bezwaren. De conversie-funnel laat zien waar je sterk staat en waar je kan verbeteren."
+          }
+        }
+      },
+      "sales_rep": {
+        "subtitle": "Als sales rep zie je je toegewezen afspraken en geef je feedback om je team te verbeteren.",
+        "ctaLabel": "Naar afspraken",
+        "steps": {
+          "1": {
+            "title": "Bekijk je afspraken",
+            "desc": "Cold callers maken afspraken voor jou. Hier zie je iedereen die op jouw naam staat - niemand anders kan ze claimen."
+          },
+          "2": {
+            "title": "Geef feedback na elke afspraak",
+            "desc": "Status, uitkomst, kwaliteit en notities. Cold callers leren van jouw input wat een goede lead is."
+          },
+          "3": {
+            "title": "Volg je sales overzicht",
+            "desc": "Conversie-funnel, deal rate, forecast voor de komende week - gefilterd op jouw projecten."
+          }
+        }
+      },
+      "sales_manager": {
+        "subtitle": "Als sales manager beheer je je sales team en volg je de prestatie van iedere rep.",
+        "ctaLabel": "Naar sales overzicht",
+        "steps": {
+          "1": {
+            "title": "Bekijk team-afspraken",
+            "desc": "Overzicht van alle afspraken met sales rep, dealstage en uitkomst. Filter per rep om individuele prestaties te zien."
+          },
+          "2": {
+            "title": "Open het sales overzicht",
+            "desc": "Conversie-funnel, deal rate en performance per rep. Filterbaar op project en datumperiode."
+          },
+          "3": {
+            "title": "Configureer dealstage-mapping",
+            "desc": "Als feedback uit Google Sheets komt: AI mapt automatisch dealstage-waardes (\"Closed Won\", \"Voorstel\", ...) naar outcome-categorieen."
+          }
+        }
+      }
+    }
+  }
+}
