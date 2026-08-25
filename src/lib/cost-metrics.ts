@@ -235,15 +235,21 @@ export async function calcProjectCostMetrics(
   const callIds = calls.map(c => c.id)
 
   // Deals = appointment_feedback met outcome='deal' op deze calls.
-  // Skip query helemaal als er geen calls zijn — .in() faalt op lege array.
+  // Skip helemaal als er geen calls zijn — .in() faalt op lege array.
+  // Batchen in chunks van 500: .in() met veel UUIDs bouwt een lange URL
+  // (elk UUID = 36 chars) die Supabase's PostgREST kan afkappen. Bij
+  // >~800 IDs krijg je stille truncation of een 414 URI Too Long. 500
+  // is comfortabel binnen alle limieten.
   let totalDeals = 0
-  if (callIds.length > 0) {
+  const CHUNK = 500
+  for (let i = 0; i < callIds.length; i += CHUNK) {
+    const slice = callIds.slice(i, i + CHUNK)
     const { data: feedbackRows } = await sb
       .from('appointment_feedback')
       .select('call_record_id')
       .eq('outcome', 'deal')
-      .in('call_record_id', callIds)
-    totalDeals = (feedbackRows ?? []).length
+      .in('call_record_id', slice)
+    totalDeals += (feedbackRows ?? []).length
   }
 
   return {
