@@ -123,11 +123,18 @@ export async function calcProjectCostMetrics(
   const fromDate = effectiveFrom
   const toDate   = toIso.slice(0, 10)
 
+  // Fetch-bereik: gebruik de MAANDAG van de periode-start (of eerder) en
+  // de vrijdag van de periode-einde. Anders vallen weken die aan de rand
+  // van de periode liggen eruit — bv. een week 29 juni - 5 juli valt bij
+  // filter juli buiten `.gte(fromDate=2026-07-01)` want week_start_date =
+  // 2026-06-29, terwijl er wel uren op 1-2-3-4-5 juli in die week zitten.
+  // hoursInWindowFromConfirmation clampt dan alsnog op dag-niveau.
+  const fetchFromWeek = mondayOfDateSafe(fromDate)
   const { data: confRows } = await sb
     .from('weekly_hour_confirmations')
     .select('caller_id, week_start_date, hours_actual, hours_mon, hours_tue, hours_wed, hours_thu, hours_fri')
     .eq('project_id', projectId)
-    .gte('week_start_date', fromDate)
+    .gte('week_start_date', fetchFromWeek)
     .lte('week_start_date', toDate)
   const confirmations = (confRows ?? []) as Conf[]
 
@@ -271,6 +278,18 @@ export async function calcProjectCostMetrics(
 function round(n: number, decimals: number): number {
   const f = Math.pow(10, decimals)
   return Math.round(n * f) / f
+}
+
+/** Geef de maandag (YYYY-MM-DD, UTC-safe) van de week waarin de gegeven
+    datum valt. Zondag = maandag daarvoor (ISO week). Gebruikt om de
+    fetch-range voor weekly_hour_confirmations uit te breiden zodat weken
+    aan de rand van de periode niet stilletjes uitvallen. */
+function mondayOfDateSafe(iso: string): string {
+  const d = new Date(iso + 'T00:00:00Z')
+  const day = d.getUTCDay()                        // 0=Sun … 6=Sat
+  const offset = day === 0 ? -6 : 1 - day
+  d.setUTCDate(d.getUTCDate() + offset)
+  return d.toISOString().slice(0, 10)
 }
 
 /**
