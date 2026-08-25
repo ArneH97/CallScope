@@ -123,16 +123,21 @@ export async function calcProjectCostMetrics(
   const fromDate = effectiveFrom
   const toDate   = toIso.slice(0, 10)
 
-  // Fetch enkel weken die STARTEN binnen de periode. Grens-weken (die
-  // in de vorige maand starten en doorlopen) worden bewust NIET meegeteld:
-  // user's mentaal model = "week hoort bij de maand waarin hij start".
-  // Bevestigt met wat hij op de uur-pagina ziet: hij navigeert week per
-  // week, en week 29 juni - 5 juli valt daar onder juni.
+  // Fetch ook grens-weken op (weken die in de vorige maand starten maar
+  // doorlopen tot in de periode). Zo tellen bv. wo/do/vr uren van week
+  // 29 juni - 5 juli mee als je op juli filtert — dat zijn effectief
+  // juli-dagen. Per-dag clamp in hoursInWindowFromConfirmation zorgt
+  // dat ma/di van diezelfde week (in juni) niet meetellen.
+  //
+  // Legacy rijen zonder per-dag splitsing worden voor grens-weken op 0
+  // gezet (zie helper) — anders zou een evenredige verdeling raden welke
+  // dagen effectief in de periode zaten.
+  const fetchFromWeek = mondayOfDateSafe(fromDate)
   const { data: confRows } = await sb
     .from('weekly_hour_confirmations')
     .select('caller_id, week_start_date, hours_actual, hours_mon, hours_tue, hours_wed, hours_thu, hours_fri')
     .eq('project_id', projectId)
-    .gte('week_start_date', fromDate)
+    .gte('week_start_date', fetchFromWeek)
     .lte('week_start_date', toDate)
   const confirmations = (confRows ?? []) as Conf[]
 
@@ -279,6 +284,17 @@ export async function calcProjectCostMetrics(
 function round(n: number, decimals: number): number {
   const f = Math.pow(10, decimals)
   return Math.round(n * f) / f
+}
+
+/** Maandag (YYYY-MM-DD, UTC-safe) van de week waarin de gegeven datum
+    valt. Zondag → maandag daarvoor (ISO week). Gebruikt om de fetch-range
+    voor weekly_hour_confirmations uit te breiden met grens-weken. */
+function mondayOfDateSafe(iso: string): string {
+  const d = new Date(iso + 'T00:00:00Z')
+  const day = d.getUTCDay()                        // 0=Sun … 6=Sat
+  const offset = day === 0 ? -6 : 1 - day
+  d.setUTCDate(d.getUTCDate() + offset)
+  return d.toISOString().slice(0, 10)
 }
 
 
