@@ -161,7 +161,7 @@ export default async function ReportView({
         <div className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-100 text-sm">
           <div>
             <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">
-              {t(period === 'week' ? 'periodWeek' : 'periodMonth')}
+              {t(period === 'week' ? 'periodWeek' : period === 'custom' ? 'periodCustom' : 'periodMonth')}
             </div>
             <div className="text-gray-900 font-medium">
               {periodRangeLabel ?? `${fmtDate(startDate)} — ${fmtDate(endDate)}`}

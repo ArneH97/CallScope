@@ -15,13 +15,21 @@
  * maand" zou denken terwijl het in België al een nieuwe maand is.
  */
 
-export type ReportPeriod = 'week' | 'month'
+export type ReportPeriod = 'week' | 'month' | 'custom'
 
 export const DEFAULT_REPORT_PERIOD: ReportPeriod = 'month'
 
 export function parseReportPeriod(raw: string | undefined | null): ReportPeriod {
-  if (raw === 'week' || raw === 'month') return raw
+  if (raw === 'week' || raw === 'month' || raw === 'custom') return raw
   return DEFAULT_REPORT_PERIOD
+}
+
+/** Simpele YYYY-MM-DD validatie zodat we geen rare input aan queries geven. */
+export function isValidDateString(s: string | undefined | null): boolean {
+  if (!s) return false
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return false
+  const d = new Date(s + 'T00:00:00Z')
+  return !isNaN(d.getTime())
 }
 
 /**
@@ -60,26 +68,35 @@ function fmtDate(year: number, month: number, day: number): string {
  * op DATE-kolommen zoals call_date) als volledige ISO-timestamps met
  * Brusselse offset (voor filters op TIMESTAMP-kolommen zoals uploaded_at).
  */
-export function getReportPeriodWindow(period: ReportPeriod): {
+export function getReportPeriodWindow(
+  period: ReportPeriod,
+  customFrom?: string | null,
+  customTo?:   string | null,
+): {
   fromIso:  string
   toIso:    string
   fromDate: string
   toDate:   string
 } {
+  // Custom: parse from/to strings (al gevalideerd door de caller). Als
+  // ze om welke reden dan ook missen/invalid zijn, valt hij netjes terug
+  // op deze-maand — anders zou een fout ISO een 500 in de dashboard geven.
+  if (period === 'custom' && isValidDateString(customFrom) && isValidDateString(customTo)) {
+    // Swap als user per abuis "from > to" heeft gezet.
+    const [a, b] = (customFrom! <= customTo!) ? [customFrom!, customTo!] : [customTo!, customFrom!]
+    return {
+      fromDate: a, toDate: b,
+      fromIso:  `${a}T00:00:00.000Z`,
+      toIso:    `${b}T23:59:59.999Z`,
+    }
+  }
+
   const { year, month, day, dow } = getBelgianToday()
 
   let fromY: number, fromM: number, fromD: number
   let toY:   number, toM:   number, toD:   number
 
-  if (period === 'month') {
-    // 1ste tot laatste dag van de huidige maand.
-    // new Date(Y, M, 0) → JS month is 0-indexed dus M (= 1..12) wijst naar
-    // "maand erna, dag 0" = laatste dag van de gevraagde maand. Hanteert
-    // schrikkeljaren automatisch.
-    const lastDay = new Date(Date.UTC(year, month, 0)).getUTCDate()
-    fromY = year; fromM = month; fromD = 1
-    toY   = year; toM   = month; toD   = lastDay
-  } else {
+  if (period === 'week') {
     // Maandag → zondag van DEZE week. dow=1 (Ma) → -0 dagen, dow=7 (Zo) → -6.
     const today = new Date(Date.UTC(year, month - 1, day))
     const monday = new Date(today)
@@ -88,6 +105,12 @@ export function getReportPeriodWindow(period: ReportPeriod): {
     sunday.setUTCDate(monday.getUTCDate() + 6)
     fromY = monday.getUTCFullYear(); fromM = monday.getUTCMonth() + 1; fromD = monday.getUTCDate()
     toY   = sunday.getUTCFullYear(); toM   = sunday.getUTCMonth() + 1; toD   = sunday.getUTCDate()
+  } else {
+    // Default = 'month' (incl. fallback voor invalid custom). 1ste tot
+    // laatste dag van de huidige maand.
+    const lastDay = new Date(Date.UTC(year, month, 0)).getUTCDate()
+    fromY = year; fromM = month; fromD = 1
+    toY   = year; toM   = month; toD   = lastDay
   }
 
   const fromDate = fmtDate(fromY, fromM, fromD)
@@ -109,15 +132,21 @@ export function getReportPeriodWindow(period: ReportPeriod): {
  *   - month: "Mei 2026" (NL) / "May 2026" (EN)
  *   - week:  "25 — 31 mei 2026"
  */
-export function formatPeriodRange(period: ReportPeriod, bcp47: string): string {
-  const { fromDate, toDate } = getReportPeriodWindow(period)
+export function formatPeriodRange(
+  period: ReportPeriod,
+  bcp47: string,
+  customFrom?: string | null,
+  customTo?:   string | null,
+): string {
+  const { fromDate, toDate } = getReportPeriodWindow(period, customFrom, customTo)
   const from = new Date(fromDate + 'T12:00:00Z')  // noon = TZ-safe
   const to   = new Date(toDate   + 'T12:00:00Z')
 
   if (period === 'month') {
     return from.toLocaleDateString(bcp47, { month: 'long', year: 'numeric' })
   }
-  // Week-range: als zelfde maand → "25 — 31 mei 2026", anders → "29 mei — 4 jun 2026"
+  // Week + custom gebruiken hetzelfde "van — tot" formaat.
+  // Zelfde maand → "25 — 31 mei 2026", anders → "29 mei — 4 jun 2026"
   const sameMonth = from.getUTCMonth() === to.getUTCMonth() && from.getUTCFullYear() === to.getUTCFullYear()
   if (sameMonth) {
     const fromDay = from.toLocaleDateString(bcp47, { day: 'numeric' })

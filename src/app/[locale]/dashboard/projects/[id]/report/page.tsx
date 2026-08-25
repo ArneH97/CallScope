@@ -22,7 +22,7 @@ export default async function ProjectReportPage({
   searchParams,
 }: {
   params:       { id: string }
-  searchParams: { period?: string }
+  searchParams: { period?: string; from?: string; to?: string }
 }) {
   const supabase = createClient()
   const { data: { user } } = await supabase.auth.getUser()
@@ -30,12 +30,15 @@ export default async function ProjectReportPage({
 
   const projectId = params.id
 
-  // Periode: ?period=week of ?period=month. Default = month.
+  // Periode: ?period=week|month|custom. Voor custom: ook ?from=YYYY-MM-DD
+  // en ?to=YYYY-MM-DD nodig. Default = month.
   const period: ReportPeriod = parseReportPeriod(searchParams.period)
-  const { fromIso, toIso }   = getReportPeriodWindow(period)
+  const customFrom           = searchParams.from ?? null
+  const customTo             = searchParams.to   ?? null
+  const { fromIso, toIso }   = getReportPeriodWindow(period, customFrom, customTo)
   const locale               = await getLocale()
   const bcp47                = locale === 'nl' ? 'nl-BE' : locale
-  const periodRangeLabel     = formatPeriodRange(period, bcp47)
+  const periodRangeLabel     = formatPeriodRange(period, bcp47, customFrom, customTo)
 
   const { data: projectData } = await supabase
     .from('projects')
@@ -128,6 +131,8 @@ export default async function ProjectReportPage({
         projectId={projectId}
         projectName={project.name}
         period={period}
+        customFrom={customFrom}
+        customTo={customTo}
       />
       <ReportView
         project={project}

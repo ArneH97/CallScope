@@ -10,6 +10,9 @@ interface Props {
   projectName: string
   /** Huidige periode-filter; default 'month'. Komt uit ?period= op de page. */
   period:      ReportPeriod
+  /** Bij period='custom': de gekozen from/to (YYYY-MM-DD). */
+  customFrom?: string | null
+  customTo?:   string | null
 }
 
 /**
@@ -19,12 +22,16 @@ interface Props {
  *   - Verzend naar klant (modal — gaat via /api/projects/:id/share)
  * Class 'no-print' zorgt dat deze balk niet in de PDF zelf verschijnt.
  */
-export default function ReportActions({ projectId, projectName, period }: Props) {
+export default function ReportActions({ projectId, projectName, period, customFrom, customTo }: Props) {
   const t = useTranslations('dashboard.projects.report.actions')
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const [showSend, setShowSend] = useState(false)
+  const [showCustom, setShowCustom] = useState(period === 'custom')
+  // Init date-pickers met huidige custom-values óf lege strings.
+  const [fromInput, setFromInput] = useState<string>(customFrom ?? '')
+  const [toInput,   setToInput]   = useState<string>(customTo   ?? '')
 
   function handleDownload() {
     // Browser-PDF: gebruiker krijgt 'Bewaren als PDF' optie
@@ -32,12 +39,33 @@ export default function ReportActions({ projectId, projectName, period }: Props)
   }
 
   function switchPeriod(next: ReportPeriod) {
-    if (next === period) return
+    if (next === period && next !== 'custom') return
     const params = new URLSearchParams(searchParams?.toString() ?? '')
-    if (next === 'month') params.delete('period')   // default kort houden
-    else                  params.set('period', next)
+    if (next === 'month') {
+      params.delete('period')   // default kort houden
+      params.delete('from')
+      params.delete('to')
+    } else if (next === 'week') {
+      params.set('period', 'week')
+      params.delete('from')
+      params.delete('to')
+    } else {
+      // custom → panel uitklappen, URL pas updaten bij "Toepassen"
+      setShowCustom(true)
+      return
+    }
+    setShowCustom(false)
     const qs = params.toString()
     router.push(qs ? `${pathname}?${qs}` : pathname)
+  }
+
+  function applyCustom() {
+    if (!fromInput || !toInput) return
+    const params = new URLSearchParams(searchParams?.toString() ?? '')
+    params.set('period', 'custom')
+    params.set('from', fromInput)
+    params.set('to',   toInput)
+    router.push(`${pathname}?${params.toString()}`)
   }
 
   return (
@@ -47,7 +75,7 @@ export default function ReportActions({ projectId, projectName, period }: Props)
           <a href="/dashboard/projects" className="text-xs text-gray-400 hover:text-gray-600">
             {t('back')}
           </a>
-          {/* Week/Maand-pilltoggle */}
+          {/* Week/Maand/Aangepast-pilltoggle */}
           <div className="inline-flex gap-0.5 bg-gray-100 p-0.5 rounded-md">
             <button
               onClick={() => switchPeriod('month')}
@@ -69,6 +97,16 @@ export default function ReportActions({ projectId, projectName, period }: Props)
             >
               {t('periodWeek')}
             </button>
+            <button
+              onClick={() => switchPeriod('custom')}
+              className={`text-xs px-2.5 py-1 rounded transition-colors ${
+                period === 'custom'
+                  ? 'bg-white text-gray-900 font-medium shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              {t('periodCustom')}
+            </button>
           </div>
         </div>
         <div className="flex gap-2">
@@ -87,6 +125,38 @@ export default function ReportActions({ projectId, projectName, period }: Props)
           </button>
         </div>
       </div>
+
+      {/* Custom-range panel — uitklap wanneer 'Aangepast' actief is. */}
+      {showCustom && (
+        <div className="no-print card p-3 mb-6 flex flex-wrap items-end gap-3">
+          <div>
+            <label className="block text-xs text-gray-500 mb-1">{t('customFromLabel')}</label>
+            <input
+              type="date"
+              value={fromInput}
+              onChange={e => setFromInput(e.target.value)}
+              className="text-sm border border-gray-200 rounded px-2 py-1"
+            />
+          </div>
+          <div>
+            <label className="block text-xs text-gray-500 mb-1">{t('customToLabel')}</label>
+            <input
+              type="date"
+              value={toInput}
+              onChange={e => setToInput(e.target.value)}
+              className="text-sm border border-gray-200 rounded px-2 py-1"
+            />
+          </div>
+          <button
+            onClick={applyCustom}
+            disabled={!fromInput || !toInput}
+            className="btn-primary text-xs disabled:opacity-50"
+          >
+            {t('customApply')}
+          </button>
+          <p className="text-xs text-gray-400 ml-auto">{t('customHint')}</p>
+        </div>
+      )}
 
       {/* Verzend-modal */}
       {showSend && (
