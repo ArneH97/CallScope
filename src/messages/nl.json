@@ -1388,6 +1388,7 @@
           "customApply": "Toepassen",
           "customHint": "Kies de periode die je in het rapport wil zien.",
           "download": "Download PDF",
+          "printTip": "TIP voor een schone PDF:\n\nVink in het print-dialoog de optie \"Kop- en voettekst\" UIT (onder \"Meer instellingen\" in Chrome/Edge, of \"Print Headers and Footers\" in Safari). Anders verschijnen de URL en datum bovenaan elke pagina.\n\nDeze tip verschijnt maar één keer per sessie.",
           "send": "Verzend naar klant",
           "sendModal": {
             "title": "Verzend rapport",

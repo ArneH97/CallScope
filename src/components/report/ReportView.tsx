@@ -198,11 +198,15 @@ export default async function ReportView({
                 <p className="text-sm text-white/80 mt-2 max-w-lg leading-relaxed">{project.description}</p>
               )}
             </div>
-            <div className="text-right text-xs text-white/70 flex-shrink-0">
-              <div className="uppercase tracking-wide mb-1">{t('generatedOn')}</div>
-              <div className="font-semibold text-white text-sm">{fmtDate(new Date())}</div>
-              {generatedNote && <div className="mt-1 italic text-white/60">{generatedNote}</div>}
-            </div>
+            {/* Generatie-datum bewust weggelaten uit de cover — periode-strip
+                eronder toont al waarover het rapport gaat. `generatedNote`
+                (bv. "Gedeeld door X") blijft wel behouden als de share-flow
+                die meestuurt, want dat is contextuele info voor de klant. */}
+            {generatedNote && (
+              <div className="text-right text-xs text-white/70 flex-shrink-0 italic">
+                {generatedNote}
+              </div>
+            )}
           </div>
         </div>
         {/* Meta-strip onder de banner — witte achtergrond met icoontjes */}
@@ -301,16 +305,20 @@ export default async function ReportView({
       {/* Dealstages breakdown = periode-scoped (volgt rapport-periode).
           Deals per maand = volledig kalenderjaar (yearFeedback wanneer
           beschikbaar, fallback op feedback voor backwards-compat). */}
-      <DealsBreakdownCard feedback={feedback} />
-      {periodKey && (
-        <AnnotationField
-          projectId={project.id}
-          periodKey={periodKey}
-          sectionKey="dealstages"
-          initialText={ann('dealstages')}
-          placeholder={t('annotation.dealstagesPlaceholder')}
-        />
-      )}
+      {/* Dealstages + de bijhorende duiding als één blok — verhindert
+          dat de annotatie op een lege volgende pagina belandt. */}
+      <div className="avoid-break">
+        <DealsBreakdownCard feedback={feedback} />
+        {periodKey && (
+          <AnnotationField
+            projectId={project.id}
+            periodKey={periodKey}
+            sectionKey="dealstages"
+            initialText={ann('dealstages')}
+            placeholder={t('annotation.dealstagesPlaceholder')}
+          />
+        )}
+      </div>
       <DealsPerMonthChart feedback={yearFeedback ?? feedback} />
 
       {/* ── Per-caller aparte secties ─────────────────────────────────── */}

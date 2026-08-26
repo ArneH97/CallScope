@@ -199,8 +199,9 @@ export default function DashboardNav({ profile }: Props) {
 
   return (
     <>
-      {/* Mobile-only hamburger top bar (verschijnt enkel onder md breakpoint) */}
-      <div className="md:hidden fixed top-0 left-0 right-0 h-12 bg-white border-b border-gray-100 z-20 flex items-center px-4 gap-3">
+      {/* Mobile-only hamburger top bar (verschijnt enkel onder md breakpoint).
+          no-print zorgt dat hij verdwijnt bij PDF-export van het rapport. */}
+      <div className="md:hidden no-print fixed top-0 left-0 right-0 h-12 bg-white border-b border-gray-100 z-20 flex items-center px-4 gap-3">
         <button
           onClick={() => setMobileOpen(true)}
           className="text-gray-700 hover:text-gray-900 -ml-1 p-2"

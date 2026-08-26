@@ -34,7 +34,17 @@ export default function ReportActions({ projectId, projectName, period, customFr
   const [toInput,   setToInput]   = useState<string>(customTo   ?? '')
 
   function handleDownload() {
-    // Browser-PDF: gebruiker krijgt 'Bewaren als PDF' optie
+    // Browser-PDF: gebruiker krijgt 'Bewaren als PDF' optie.
+    // We tonen eerst een korte tip zodat de URL/datum-header en pagina-
+    // voettekst worden uitgevinkt — die kunnen we NIET via CSS weghalen
+    // (browser-controlled), enkel via de print-dialoog instelling
+    // "Kop- en voettekst" (Chrome/Edge) of "Print Headers and Footers"
+    // (Safari/Firefox).
+    const shown = typeof window !== 'undefined' && window.sessionStorage?.getItem('printTipShown')
+    if (!shown) {
+      alert(t('printTip'))
+      try { window.sessionStorage?.setItem('printTipShown', '1') } catch {}
+    }
     window.print()
   }
 

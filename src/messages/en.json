@@ -1388,6 +1388,7 @@
           "customApply": "Apply",
           "customHint": "Pick the period you want the report to cover.",
           "download": "Download PDF",
+          "printTip": "TIP for a clean PDF:\n\nIn the print dialog, UNCHECK \"Headers and footers\" (under \"More settings\" in Chrome/Edge, or \"Print Headers and Footers\" in Safari). Otherwise the URL and date appear at the top of every page.\n\nThis tip appears once per session.",
           "send": "Send to client",
           "sendModal": {
             "title": "Send report",

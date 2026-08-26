@@ -105,18 +105,21 @@ export default function DealsBreakdownCard({ feedback }: Props) {
           <p className="text-sm text-gray-400 text-center py-6">{t('allAwaiting')}</p>
         ) : null
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-          {/* Donut */}
-          <div className="relative">
-            <ResponsiveContainer width="100%" height={200}>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+          {/* Donut — compacter (h=160 ipv 200) en 2/5 grid-breedte zodat
+              de zij-lijst 3/5 krijgt. Voordien was het 50/50 waardoor er
+              rond de donut veel witte ruimte overbleef, wat de print-
+              layout stukmaakte (annotatie viel op een lege pagina). */}
+          <div className="relative md:col-span-2">
+            <ResponsiveContainer width="100%" height={160}>
               <PieChart>
                 <Pie
                   data={pieData}
                   dataKey="value"
                   cx="50%"
                   cy="50%"
-                  innerRadius={55}
-                  outerRadius={85}
+                  innerRadius={44}
+                  outerRadius={70}
                   paddingAngle={2}
                   stroke="#fff"
                   strokeWidth={2}
@@ -133,13 +136,13 @@ export default function DealsBreakdownCard({ feedback }: Props) {
             </ResponsiveContainer>
             {/* Centraal totaal in het donut-gat */}
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-              <div className="text-2xl font-semibold text-gray-900">{activeTotal}</div>
+              <div className="text-xl font-semibold text-gray-900">{activeTotal}</div>
               <div className="text-[10px] text-gray-400 uppercase tracking-wide">{t('withFeedback')}</div>
             </div>
           </div>
 
           {/* Zij-lijst — alle stages inclusief 0-counts voor volledig beeld */}
-          <div className="space-y-2">
+          <div className="space-y-2 md:col-span-3">
             {activeStages.map(bucket => {
               const count = buckets[bucket]
               const pct   = activeTotal > 0 ? Math.round(count / activeTotal * 100) : 0
