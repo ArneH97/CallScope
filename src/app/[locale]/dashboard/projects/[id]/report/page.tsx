@@ -3,6 +3,7 @@ import { redirect, notFound } from 'next/navigation'
 import ReportActions from '@/components/report/ReportActions'
 import ReportView from '@/components/report/ReportView'
 import CostMetricsCard from '@/components/CostMetricsCard'
+import SimulatorSection from '@/components/report/SimulatorSection'
 import { calcProjectCostMetrics } from '@/lib/cost-metrics'
 import {
   parseReportPeriod, getReportPeriodWindow, formatPeriodRange,
@@ -275,10 +276,28 @@ export default async function ProjectReportPage({
           currency:           costMetrics?.currency ?? 'EUR',
         }}
       />
-      {/* Kost-metrics — alleen als tarieven ingesteld zijn op het project */}
+      {/* Kost-metrics + Simulator staan hier samen onderaan: beide gaan
+          over geld/rendement voor de klant. Wrap in avoid-break zodat de
+          Tijd & kost-card niet meer over 2 pagina's knipt, en de simulator
+          direct erna volgt zodat kost → verwacht rendement leesbaar is. */}
       {costMetrics && (
-        <div className="mt-6">
+        <div className="mt-6 avoid-break">
           <CostMetricsCard metrics={costMetrics} />
+        </div>
+      )}
+      {project.sim_enabled && (
+        <div className="mt-4 avoid-break">
+          <SimulatorSection
+            projectId={project.id}
+            periodKey={periodKey}
+            appointmentsTotal={appointmentsTotal}
+            dealsRealized={dealsRealized}
+            lostOrNoShow={lostOrNoShow}
+            costTotal={costMetrics?.total_cost ?? null}
+            currency={costMetrics?.currency ?? 'EUR'}
+            initialAssumptions={simAssumptions}
+            initialAnnotation={annotations.get('simulator') ?? ''}
+          />
         </div>
       )}
     </div>

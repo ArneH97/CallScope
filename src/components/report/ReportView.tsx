@@ -351,24 +351,9 @@ export default async function ReportView({
         </div>
       )}
 
-      {/* ── Simulator: projectie bij afgesloten pipeline ───────────────── */}
-      {simulator?.enabled && periodKey && (
-        <div className="mt-10 avoid-break">
-          <SectionHeader accent="#34d399">{t('simulatorHeader')}</SectionHeader>
-          <p className="text-xs text-gray-500 -mt-2 mb-3">{t('simulatorSubtitle')}</p>
-          <SimulatorSection
-            projectId={project.id}
-            periodKey={periodKey}
-            appointmentsTotal={simulator.appointmentsTotal}
-            dealsRealized={simulator.dealsRealized}
-            lostOrNoShow={simulator.lostOrNoShow}
-            costTotal={simulator.costTotal}
-            currency={simulator.currency}
-            initialAssumptions={simulator.assumptions}
-            initialAnnotation={ann('simulator')}
-          />
-        </div>
-      )}
+      {/* Simulator wordt bewust NIET meer hier gerenderd — die staat nu
+          direct onder de Tijd & kost-card in de report-page, zodat kost +
+          projectie visueel bij elkaar zitten (zelfde onderwerp: geld). */}
 
       {/* Custom velden — cross-upload aggregatie + AI-inzichten */}
       {customDefs.length > 0 && customRows.length > 0 && (
