@@ -59,19 +59,36 @@
 .print-only { display: none; }
 
 @media print {
+  /* Consistente A4-marges voor de PDF-export. 1.6cm links/rechts + 1.4cm
+     boven/onder geeft ademruimte zonder verspilde ruimte. Browser-chrome
+     (URL, tijd, pagina x/y) blijft standaard aanwezig — dat is een browser-
+     print setting die de eindgebruiker uitzet via "Meer instellingen →
+     Kop- en voettekst" bij Chrome/Edge/Safari. */
+  @page {
+    size: A4;
+    margin: 1.4cm 1.6cm;
+  }
+
   /* Zijbalk + chrome verbergen */
   aside, .no-print { display: none !important; }
   /* Main heeft op scherm een padding/margin links voor de zijbalk — dat moet weg */
   main { margin-left: 0 !important; padding: 0 !important; max-width: 100% !important; }
-  body { background: white !important; }
+  body { background: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .print-only { display: block; }
-  /* Cards minder schaduw, sober */
+  /* Cards houden hun subtiele border, geen schaduw */
   .card { box-shadow: none !important; border-color: #e5e7eb !important; }
   /* Page-break helpers */
-  .page-break  { page-break-after: always; }
-  .avoid-break { page-break-inside: avoid; }
-  /* Typografie iets kleiner zodat 'r meer op een pagina past */
-  body { font-size: 11pt; }
-  h1 { font-size: 18pt !important; }
-  h2 { font-size: 13pt !important; }
+  .page-break        { page-break-after: always; }
+  .avoid-break       { page-break-inside: avoid; break-inside: avoid; }
+  /* Sectie-headers houden altijd hun content bij zich */
+  h1, h2, h3          { page-break-after: avoid; break-after: avoid-page; }
+  /* Charts nooit doorknippen — recharts SVGs breken lelijk over pagina's */
+  .recharts-wrapper   { page-break-inside: avoid; break-inside: avoid; }
+  /* Typografie: iets kleiner voor A4 */
+  body { font-size: 10.5pt; line-height: 1.5; color: #1f2937; }
+  h1 { font-size: 20pt !important; letter-spacing: -0.02em; }
+  h2 { font-size: 13pt !important; letter-spacing: -0.01em; }
+  h3 { font-size: 11pt !important; }
+  /* Weeshalve open ruimte tussen kaarten wat inhouden */
+  .card { margin-bottom: 0.6cm !important; }
 }

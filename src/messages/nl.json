@@ -1462,6 +1462,8 @@
           "perCaller": {
             "title": "Per caller",
             "empty": "Nog geen callers actief op dit project.",
+            "header": "Resultaten per beller",
+            "subtitle": "Elke caller belde op een andere markt of campagne. Hieronder de resultaten en duiding per beller apart.",
             "headers": {
               "caller": "Caller",
               "called": "Gebeld",

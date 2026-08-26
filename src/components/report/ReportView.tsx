@@ -184,40 +184,44 @@ export default async function ReportView({
 
   return (
     <>
-      {/* Cover */}
-      <div className="card p-8 mb-6 avoid-break">
-        <div className="flex items-start justify-between mb-6">
-          <div>
-            <div className="text-xs uppercase tracking-wide text-gray-400 mb-1">{t('label')}</div>
-            <h1 className="text-3xl font-semibold text-gray-900">{project.name}</h1>
-            {project.description && (
-              <p className="text-sm text-gray-500 mt-2">{project.description}</p>
-            )}
-          </div>
-          <div className="text-right text-xs text-gray-400">
-            <div>{t('generatedOn')}</div>
-            <div className="font-medium text-gray-700">{fmtDate(new Date())}</div>
-            {generatedNote && <div className="mt-1 italic">{generatedNote}</div>}
+      {/* Cover — gradient brand-banner met witte typografie + strip met
+          drie meta-items (periode, uploads, callers). Vervangt de vroegere
+          bleke wit-op-wit card zodat de klant meteen een visuele identiteit
+          ziet. Blijft avoid-break zodat het niet halverwege pagina 1 knipt. */}
+      <div className="rounded-2xl overflow-hidden mb-6 avoid-break shadow-lg print:shadow-none">
+        <div className="p-8 bg-gradient-to-br from-brand-600 to-brand-800 text-white">
+          <div className="flex items-start justify-between gap-6 flex-wrap">
+            <div className="min-w-0">
+              <div className="text-xs uppercase tracking-widest text-white/60 mb-2 font-medium">{t('label')}</div>
+              <h1 className="text-3xl sm:text-4xl font-bold leading-tight">{project.name}</h1>
+              {project.description && (
+                <p className="text-sm text-white/80 mt-2 max-w-lg leading-relaxed">{project.description}</p>
+              )}
+            </div>
+            <div className="text-right text-xs text-white/70 flex-shrink-0">
+              <div className="uppercase tracking-wide mb-1">{t('generatedOn')}</div>
+              <div className="font-semibold text-white text-sm">{fmtDate(new Date())}</div>
+              {generatedNote && <div className="mt-1 italic text-white/60">{generatedNote}</div>}
+            </div>
           </div>
         </div>
-
-        <div className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-100 text-sm">
-          <div>
-            <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">
-              {t(period === 'week' ? 'periodWeek' : period === 'custom' ? 'periodCustom' : 'periodMonth')}
-            </div>
-            <div className="text-gray-900 font-medium">
-              {periodRangeLabel ?? `${fmtDate(startDate)} — ${fmtDate(endDate)}`}
-            </div>
-          </div>
-          <div>
-            <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">{t('uploads')}</div>
-            <div className="text-gray-900 font-medium">{uploads.length}</div>
-          </div>
-          <div>
-            <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">{t('callersActive')}</div>
-            <div className="text-gray-900 font-medium">{callers.length}</div>
-          </div>
+        {/* Meta-strip onder de banner — witte achtergrond met icoontjes */}
+        <div className="grid grid-cols-3 divide-x divide-gray-100 bg-white border border-gray-100 border-t-0">
+          <CoverMeta
+            icon={<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="11" rx="1.5" stroke="currentColor" strokeWidth="1.5"/><path d="M5 2V4M11 2V4M2 7H14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>}
+            label={t(period === 'week' ? 'periodWeek' : period === 'custom' ? 'periodCustom' : 'periodMonth')}
+            value={periodRangeLabel ?? `${fmtDate(startDate)} — ${fmtDate(endDate)}`}
+          />
+          <CoverMeta
+            icon={<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M2 13v-1M14 13v-1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+            label={t('uploads')}
+            value={uploads.length}
+          />
+          <CoverMeta
+            icon={<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6" cy="6" r="2.5" stroke="currentColor" strokeWidth="1.5"/><circle cx="11" cy="7" r="2" stroke="currentColor" strokeWidth="1.5"/><path d="M2 13c0-2.2 1.8-4 4-4s4 1.8 4 4M10 13c0-1.7 1.3-3 3-3s3 1.3 3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>}
+            label={t('callersActive')}
+            value={callers.length}
+          />
         </div>
       </div>
 
@@ -232,19 +236,22 @@ export default async function ReportView({
         />
       )}
 
-      {/* Hoofd-KPI's */}
-      <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mt-8 mb-3">{t('results')}</h2>
+      {/* Hoofd-KPI's — cards krijgen elk een linker accent-bar in hun eigen
+          semantische kleur zodat het rapport visueel meer identiteit heeft
+          dan een grijs raster. Kleuren volgen dezelfde conventie als de
+          funnel (blauw → violet → roze → groen). */}
+      <SectionHeader accent="#1a35e6">{t('results')}</SectionHeader>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6 avoid-break">
         {[
-          { label: t('kpi.leads'),        value: totals.calls,        sub: null },
-          { label: t('kpi.reached'),      value: totals.reached,      sub: t('kpi.reachRate', { rate: reachRate }) },
-          { label: t('kpi.appointments'), value: totals.appointments, sub: t('kpi.convRate',  { rate: convRate }) },
-          { label: t('kpi.deals'),        value: outcomes.deals,      sub: dealRate > 0 ? t('kpi.dealRate', { rate: dealRate }) : t('kpi.noFeedback') },
+          { label: t('kpi.leads'),        value: totals.calls,        sub: null,                                                                             accent: '#60a5fa' },
+          { label: t('kpi.reached'),      value: totals.reached,      sub: t('kpi.reachRate', { rate: reachRate }),                                          accent: '#a78bfa' },
+          { label: t('kpi.appointments'), value: totals.appointments, sub: t('kpi.convRate',  { rate: convRate }),                                           accent: '#f472b6' },
+          { label: t('kpi.deals'),        value: outcomes.deals,      sub: dealRate > 0 ? t('kpi.dealRate', { rate: dealRate }) : t('kpi.noFeedback'),       accent: '#34d399' },
         ].map(kpi => (
-          <div key={kpi.label} className="card p-4">
-            <div className="text-xs text-gray-400 mb-1">{kpi.label}</div>
-            <div className="text-2xl font-semibold text-gray-900">{kpi.value}</div>
-            {kpi.sub && <div className="text-xs text-gray-400 mt-0.5">{kpi.sub}</div>}
+          <div key={kpi.label} className="card p-4 pl-5 border-l-4" style={{ borderLeftColor: kpi.accent }}>
+            <div className="text-xs text-gray-500 mb-1 font-medium">{kpi.label}</div>
+            <div className="text-2xl font-bold text-gray-900 leading-tight">{kpi.value}</div>
+            {kpi.sub && <div className="text-xs text-gray-400 mt-1">{kpi.sub}</div>}
           </div>
         ))}
       </div>
@@ -308,11 +315,9 @@ export default async function ReportView({
 
       {/* ── Per-caller aparte secties ─────────────────────────────────── */}
       {perCaller.length > 1 && periodKey && (
-        <div className="mt-10 pt-6 border-t-2 border-gray-200 avoid-break">
-          <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-1">
-            {t('perCaller.header')}
-          </h2>
-          <p className="text-xs text-gray-500 mb-3">{t('perCaller.subtitle')}</p>
+        <div className="mt-10 avoid-break">
+          <SectionHeader accent="#f472b6">{t('perCaller.header')}</SectionHeader>
+          <p className="text-xs text-gray-500 -mt-2 mb-3">{t('perCaller.subtitle')}</p>
           <AnnotationField
             projectId={project.id}
             periodKey={periodKey}
@@ -340,11 +345,9 @@ export default async function ReportView({
 
       {/* ── Simulator: projectie bij afgesloten pipeline ───────────────── */}
       {simulator?.enabled && periodKey && (
-        <div className="mt-10 pt-6 border-t-2 border-gray-200 avoid-break">
-          <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-1">
-            {t('simulatorHeader')}
-          </h2>
-          <p className="text-xs text-gray-500 mb-3">{t('simulatorSubtitle')}</p>
+        <div className="mt-10 avoid-break">
+          <SectionHeader accent="#34d399">{t('simulatorHeader')}</SectionHeader>
+          <p className="text-xs text-gray-500 -mt-2 mb-3">{t('simulatorSubtitle')}</p>
           <SimulatorSection
             projectId={project.id}
             periodKey={periodKey}
@@ -362,7 +365,7 @@ export default async function ReportView({
       {/* Custom velden — cross-upload aggregatie + AI-inzichten */}
       {customDefs.length > 0 && customRows.length > 0 && (
         <>
-          <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mt-8 mb-3">{t('custom.title')}</h2>
+          <SectionHeader accent="#a78bfa">{t('custom.title')}</SectionHeader>
           <div className="card p-6 mb-6 avoid-break">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {customDefs.map(def => {
@@ -479,9 +482,9 @@ export default async function ReportView({
         const labelsByKey = new Map(customDefs.map(d => [d.key, d.label]))
         return (
           <>
-            <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mt-8 mb-3">
-              {t('insights.title')} <span className="text-gray-400 font-normal">{t('insights.subtitle')}</span>
-            </h2>
+            <SectionHeader accent="#a78bfa">
+              {t('insights.title')} <span className="text-gray-400 font-normal ml-1 normal-case tracking-normal text-xs">{t('insights.subtitle')}</span>
+            </SectionHeader>
             <div className="card p-6 mb-6 avoid-break">
               <div className="space-y-3">
                 {unique.map((insight, i) => {
@@ -507,7 +510,7 @@ export default async function ReportView({
       })()}
 
       {/* Caller performantie */}
-      <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mt-8 mb-3">{t('perCaller.title')}</h2>
+      <SectionHeader accent="#f472b6">{t('perCaller.title')}</SectionHeader>
       <div className="card p-6 mb-6 avoid-break">
         {callers.length === 0 ? (
           <p className="text-sm text-gray-400 py-4 text-center">{t('perCaller.empty')}</p>
@@ -551,10 +554,8 @@ export default async function ReportView({
           zijn. Als geen van beide data heeft, verschijnt de sectie niet. */}
       {(topObjections.length > 0 || allStatuses.length > 0) && (
         <>
-          <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mt-8 mb-1">
-            {t('objectionsSection.header')}
-          </h2>
-          <p className="text-xs text-gray-500 mb-3">{t('objectionsSection.subtitle')}</p>
+          <SectionHeader accent="#f59e0b">{t('objectionsSection.header')}</SectionHeader>
+          <p className="text-xs text-gray-500 -mt-2 mb-3">{t('objectionsSection.subtitle')}</p>
 
           {topObjections.length > 0 && (
             <div className="card p-6 mb-4 avoid-break">
@@ -599,7 +600,7 @@ export default async function ReportView({
       {/* Sales feedback */}
       {feedback.filter(f => f.outcome && f.outcome !== 'geen').length > 0 && (
         <>
-          <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mt-8 mb-3">{t('feedback.title')}</h2>
+          <SectionHeader accent="#60a5fa">{t('feedback.title')}</SectionHeader>
           <div className="card p-6 mb-6">
             <div className="space-y-3">
               {feedback
@@ -634,3 +635,48 @@ export default async function ReportView({
     </>
   )
 }
+
+/**
+ * Klein meta-item onder de cover-banner. Icoon links, label + waarde rechts.
+ * Bewust compact ontworpen zodat 3 items comfortabel naast elkaar passen op
+ * A4-portret zonder text-wrap issues.
+ */
+/**
+ * Sectie-header met linker accent-bar in project-kleur. Vervangt de
+ * generieke uppercase-headers zodat elke sectie een visuele "landmark"
+ * krijgt in het rapport. Werkt zowel op scherm als in print (bar wordt
+ * geforceerd geprint via -webkit-print-color-adjust op body).
+ */
+function SectionHeader({ children, accent = '#1a35e6' }: {
+  children: React.ReactNode
+  accent?:  string
+}) {
+  return (
+    <h2 className="flex items-center gap-3 text-base font-semibold text-gray-900 mt-10 mb-4 avoid-break">
+      <span
+        className="w-1 h-6 rounded-full flex-shrink-0"
+        style={{ backgroundColor: accent }}
+      />
+      <span className="uppercase tracking-wide text-sm">{children}</span>
+    </h2>
+  )
+}
+
+function CoverMeta({ icon, label, value }: {
+  icon:  React.ReactNode
+  label: string
+  value: string | number
+}) {
+  return (
+    <div className="px-5 py-4 flex items-center gap-3">
+      <div className="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center flex-shrink-0">
+        {icon}
+      </div>
+      <div className="min-w-0">
+        <div className="text-[10px] uppercase tracking-wide text-gray-400 mb-0.5 font-medium">{label}</div>
+        <div className="text-sm font-semibold text-gray-900 truncate">{value}</div>
+      </div>
+    </div>
+  )
+}
+

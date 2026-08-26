@@ -1461,6 +1461,8 @@
           },
           "perCaller": {
             "title": "Per caller",
+            "header": "Results per caller",
+            "subtitle": "Each caller worked a different market or campaign. Below are the results and interpretation per caller.",
             "empty": "No callers active on this project yet.",
             "headers": {
               "caller": "Caller",
